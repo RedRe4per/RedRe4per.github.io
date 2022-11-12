@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>CSS skills 1 | Full-stack Learning</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="CSS" />
+    
+    <meta name="description" content="Web site folder directory design  index.html  src &gt; style.css  src &gt; script.js  src &gt; assets &gt; video &gt;videos &amp;&amp; src &gt; assets &gt; images &gt; svgs    Resource Site Videos a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS skills 1">
+<meta property="og:url" content="https://redre4per.github.io/2022/02/18/CSS/01%20CSS%20skills%201/index.html">
+<meta property="og:site_name" content="Full-stack Learning">
+<meta property="og:description" content="Web site folder directory design  index.html  src &gt; style.css  src &gt; script.js  src &gt; assets &gt; video &gt;videos &amp;&amp; src &gt; assets &gt; images &gt; svgs    Resource Site Videos a">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/sta-je-css.png">
+<meta property="article:published_time" content="2022-02-17T16:06:13.000Z">
+<meta property="article:modified_time" content="2022-11-12T04:55:06.671Z">
+<meta property="article:author" content="Derek Zhu">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/sta-je-css.png">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Derek Zhu</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/Express-js/">Express.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/Nest-js/">Nest.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/Node-js/">Node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Database/MongoDB/">MongoDB</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Front-end/Axios/">Axios</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Front-end/React/">React</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/HTML-CSS/">HTML&CSS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/HTML-CSS/CSS/">CSS</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/">JavaScript</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/ES6/">ES6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/Native-JavaScript/">Native JavaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Others/">Others</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Others/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Others/Stripe-payment/">Stripe payment</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Test/">Test</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Test/React-testing-library/">React-testing-library</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/HTML-CSS/">HTML&CSS</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/HTML-CSS/CSS/">CSS</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-CSS/01 CSS skills 1" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        CSS skills 1
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2022/02/18/CSS/01%20CSS%20skills%201/" class="article-date">
+       <time datetime="2022-02-17T16:06:13.000Z" itemprop="datePublished">2022-02-18</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2022/02/18/CSS/01%20CSS%20skills%201/" class="article-date">
+     <time datetime="2022-11-12T04:55:06.671Z" itemprop="dateModified">2022-11-12</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/CSS/" rel="tag">CSS</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/sta-je-css.png"></p>
+<ol>
+<li><p><strong>Web site folder directory design</strong></p>
+<ul>
+<li><p>index.html</p>
+</li>
+<li><p>src &gt; style.css</p>
+</li>
+<li><p>src &gt; script.js</p>
+</li>
+<li><p>src &gt; assets &gt; video &gt;videos &amp;&amp; src &gt; assets &gt; images &gt; svgs</p>
+<br/></li>
+</ul>
+</li>
+<li><p><strong>Resource Site</strong></p>
+<p>Videos and pictures: <a target="_blank" rel="noopener" href="https://www.pexels.com/">https://www.pexels.com/</a></p>
+<p>svg icon: <a target="_blank" rel="noopener" href="https://remixicon.com/">https://remixicon.com/</a> <a target="_blank" rel="noopener" href="https://fontawesome.com/">https://fontawesome.com/</a> <a target="_blank" rel="noopener" href="https://svgsilh.com/">https://svgsilh.com/</a> icon download and use</p>
+<br/>
+</li>
+<li><p><strong>Web Design Ideas</strong></p>
+<p>A layered approach can be adopted: the hidden menu is placed on the bottom layer, the background image&#x2F;video is placed on the upper layer, the filter is placed on the upper layer, and finally the real HTML body is placed on the top layer. Note here that layering only needs to be implemented with z-index, there is no need to have html layers, and there is no need to put pictures&#x2F;videos in css and use bg to do it.</p>
+<p>Uncover the hidden layer: The upper element of z-index (the entire upper page) can be positioned absolutely, and the edge to be opened after setting, such as <code>right:0;</code>. In this way, you can set <code>right:Npx</code> when you want to open it later.</p>
+<p>Fixed-height web pages: For single-page web pages that do not scroll, the height should be set to <code>min-height: 100vh</code>. vh is the viewing height.</p>
+<br/>
+
+</li>
+<li><p><strong>Code abbreviation and naming</strong></p>
+<p>Create a label with a class name: <code>section.showcase</code> will create <code>&lt;section class=&#39;showcase&#39;&gt;&lt;/section&gt;</code>.</p>
+<p>The first line at the top of the website can be called header or nav. Each slightly larger element inside can be given a class name.</p>
+<p>Multi-line label generation: <code>(li&gt;a&gt;img)*3</code>. This abbreviated structure can be used to jump to the input of the structure with the tab key.</p>
+<p>Random paragraphs: <code>Lorem * n</code> Multiply as many paragraphs as you want.</p>
+<br/>
+</li>
+<li><p><strong>video</strong></p>
+<p>Video settings: mute <code>mute</code>; autoplay <code>autoplay</code>; loop playback <code>loop</code>.</p>
+<p>Video as background:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">position</span>: absolute; //It must be absolute, because the <span class="attribute">background</span> occupies the entire webpage.</span><br><span class="line"><span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line"><span class="attribute">left</span>:<span class="number">0</span>; //fix absolute <span class="attribute">position</span></span><br><span class="line"><span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line"><span class="attribute">height</span>:<span class="number">100%</span>; //<span class="selector-tag">Video</span> resolution may be different <span class="selector-tag">from</span> web page, that is, there are upper and lower black borders</span><br><span class="line"><span class="attribute">object-fit</span>:cover; //Solutions with different resolutions. You can remove black borders and change the <span class="attribute">background</span> <span class="selector-tag">video</span> according <span class="selector-tag">to</span> the <span class="attribute">width</span> and <span class="attribute">height</span> of the webpage.</span><br><span class="line"><span class="attribute">opacity</span>:<span class="number">0.8</span>; //Make the <span class="selector-tag">video</span> transparent, and the upper text can be displayed.</span><br><span class="line"><span class="attribute">z-index</span>:<span class="number">0</span>; //The <span class="selector-tag">video</span> is at the <span class="attribute">bottom</span>. It is not necessary <span class="selector-tag">to</span> write this setting.</span><br></pre></td></tr></table></figure>
+
+<br/>
+
+<p>Filter: You can directly give the video a div of the same level as html, class&#x3D;’overlay’. Then overlay on top of the video.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">position</span>: absolute;</span><br><span class="line"><span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line"><span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line"><span class="attribute">height</span>:<span class="number">100%</span>; //The previous setting is consistent with the <span class="selector-tag">video</span></span><br><span class="line"><span class="attribute">background-color</span>:<span class="built_in">var</span>(--overlay-color) //Theme color, it is best to set it in a variable form. But the default is opaque.</span><br><span class="line">mix-blend-mode:overlay; //The theme <span class="attribute">color</span>, <span class="selector-tag">video</span>, and <span class="attribute">background</span> <span class="attribute">color</span> of the text layer will be superimposed.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.5</span>) //Another way of processing filter color. It is not suitable for dealing with the theme color, and the color will be blurred.</span><br></pre></td></tr></table></figure></li>
+</ol>
+<br/>
+
+<ol start="6">
+<li><p><strong>button</strong></p>
+<p>Generally, buttons are not made with button, but with a tag. The a tag is also transparent (that is, blocks can be placed in the inline), so you can set a div inside the a tag. <font color='lightgrey'> If there is no specific link button, href&#x3D;’#’, click to refresh the current page. </font></p>
+<br/>
+
+<p><font color='red'>Using the a tag as a button needs to ensure that the text cannot be reduced too small, nor can it wrap. So set it to <code>display:inline-block;</code>. </font> The characteristic of the inline part here is that multiple a will flow to the next line when the window is reduced; and the characteristic of the block part is that the text inside a will not become smaller or wrap due to extrusion. That is, it looks like inline on the outside, but it is a block inside. Note that if the img icon is set inside the a tag, it also needs to be set as an inline-block element.</p>
+<br/>
+
+<p>The underline also needs to be removed when the a tag is used as a button: <code>text-decoration: none;</code>.</p>
+<p>Space between each letter in the text: <code>letter-spacing: 2px;</code>.</p>
+<p>The button should appear larger: <code>padding: 10px 30px;</code>.</p>
+<p>Changes on mouseover: <code>cursor: pointer</code>.</p>
+<br/>
+</li>
+<li><p><strong>text group</strong></p>
+<p>Generally, a website will have text groups with different font styles stacked together. In practice, you can use a div.text to wrap these text groups, and then subdivide them with tags such as h2, h3, and p. The advantage of this is that div.text can be used as a whole element and laid out together with the header&#x2F;nav and footer of the website.</p>
+<br/>
+
+<p>Case problem: It should be changed in css with <code>text-transform: uppercase;</code> instead of uppercase directly in html, because it may be fixed in the future.</p>
+<p>The text in the p paragraph may need to be limited, that is, it can be reduced but not too long. <code>max-width:Npx;</code></p>
+<br/>
+</li>
+<li><p><strong>svg with switchable icons</strong></p>
+<p><font color='green'>svg image</font> When using it, download it first, and then use the img tag directly in html.</p>
+<p><font color='green'>Switchable icons</font> such as menu and close are usually not added in html. That is, the fixed icon is written into html, and the variable icon is written into css. When writing, use <code>background: url()</code>. The switching function can use <code>.active</code>, just write the link and configuration item of another icon.</p>
+<br/>
+
+<p>At this time, because the icon becomes the background, it will repeat and not be centered. So use:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-repeat</span>: no-repeat; //no repeat</span><br><span class="line"><span class="attribute">background-size</span>: <span class="number">30px</span>; //svg The size of the vector image can be changed at will, and the size of the downloaded vector image varies greatly.</span><br><span class="line"><span class="attribute">background-position</span>: center; //center</span><br></pre></td></tr></table></figure>
+
+<p><font color='red'>The svg icon has a special black and white discoloration</font>, use <code>filter:invert(1);</code> to invert the color of black and white.</p>
+<br/>
+</li>
+<li><p><strong>Temporarily hide an element</strong></p>
+<p><code>display: none</code> in css. Or comment out the html code directly.</p>
+<br/>
+
+</li>
+<li><p><strong>Change css font</strong></p>
+<p>In the google fonts site, search for Poppins in the upper right corner. You can select all fonts and load them all in Poppins. After that, directly import Poppins’ link: <code>@import ...</code>. This just imports css, but it doesn’t work yet.</p>
+<br/>
+
+<p>You should <code>* &#123;box-sizing: border-box;&#125;</code> before changing the font. This is because if width:100px, border:3px, the overall length is 106px. After setting box-sizing, the overall length is still 100px, that is, the border will not exceed the width.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* &#123;<span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-family</span>:<span class="string">&#x27;Poppins&#x27;</span>, sans-serif; //Find fonts <span class="selector-tag">from</span> <span class="attribute">left</span> <span class="selector-tag">to</span> <span class="attribute">right</span>. There may be no network in front of it, so it can&#x27;t be used.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The reason why it is not written in the body here is that the elements in the body are inherited, while * directly selects all elements. If the margin of a certain layer under the body is changed, then its lower layer will inherit the new margin, resulting in uncertainty.</p>
+<br/>
+
+<p>Change the font in a sub-element: <code>font-size</code> attributes generally use rem units, such as 5rem; but <code>line-height</code> should not use rem, but em, such as 1em. Because rem runs according to the default font size of the browser, and after changing <code>font-size</code> in a sub-element (such as responsive), the em below it will go according to the size of <code>font-size</code>. If it is set to rem, it will cause a height limit error.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">font-size</span>: <span class="number">5rem</span>;</span><br><span class="line"><span class="attribute">font-weight</span>: <span class="number">800</span>;</span><br><span class="line"><span class="attribute">line-height</span>: <span class="number">1em</span>;</span><br></pre></td></tr></table></figure>
+
+<br/>
+
+<p>One way to do this is to set <code>:root&#123;font-size:62.5%;&#125;</code>. In this way, the default 16px is changed to 10px, 1rem&#x3D;10px, which is convenient for calculation. For example, the width of 80px can be directly written as 8rem. At the same time, you can directly change the font-size when you need to change the size. This approach is standard in large projects.</p>
+<br/></li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://redre4per.github.io/2022/02/18/CSS/01%20CSS%20skills%201/" data-id="cladloqdi0006gcb3d9t2bykh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Derek Zhu"
+        },
+        "headline": "CSS skills 1",
+        "image": "https://RedRe4per.github.iohttps://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/sta-je-css.png",
+        "keywords": "CSS",
+        "genre": "HTML&CSS CSS",
+        "datePublished": "2022-02-18",
+        "dateCreated": "2022-02-18",
+        "dateModified": "2022-11-12",
+        "url": "https://RedRe4per.github.io/2022/02/18/CSS/01 CSS skills 1/",
+        "description": "
+
+Web site folder directory design
+
+index.html
+
+src &gt; style.css
+
+src &gt; script.js
+
+src &gt; assets &gt; video &gt;videos &amp;&amp; src &gt; assets &gt; images &gt; svgs
+
+
+
+Resource Site
+Videos a",
+        "wordCount": 1334
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/zhu-derek" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/RedRe4per" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2022/02/20/CSS/02%20CSS%20skills%202/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            CSS skills 2
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2022/01/28/Axios/5%20Axios%20instance,%20interceptor,%20cancel/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Axios instance, Interceptor, Cancel request</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/micro_macro.gif)" alt="Promise basic" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/JavaScript/ES6/">ES6</a></p>
+                            <p class="item-title"><a href="/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="title">Promise basic</a></p>
+                            <p class="item-date"><time datetime="2022-11-06T07:07:12.000Z" itemprop="datePublished">2022-11-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_rV3yZwoPFHb3y5gKQLBdCw.png)" alt="Rerender jest-axe" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="title">Rerender jest-axe</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T06:16:12.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_RQwRLQ0yyCvYmRn_Nst5yg.png)" alt="Jest test methods" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="title">Jest test methods</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T01:26:45.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/maxresdefault.jpg)" alt="FireEvent to simulate user operation" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="title">FireEvent to simulate user operation</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T12:36:19.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_Bg_nX5M7EWctOBUJFT1BqQ.jpeg)" alt="Methods to get DOM" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="title">Methods to get DOM</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T05:12:27.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/">Back-end</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Express-js/">Express.js</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Nest-js/">Nest.js</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Node-js/">Node.js</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database/MongoDB/">MongoDB</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/">Front-end</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/Axios/">Axios</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/React/">React</a><span class="category-list-count">18</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/">HTML&CSS</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/CSS/">CSS</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/ES6/">ES6</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Native-JavaScript/">Native JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/">Others</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Others/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/Stripe-payment/">Stripe payment</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Test/">Test</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Test/React-testing-library/">React-testing-library</a><span class="category-list-count">7</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Axios/" rel="tag">Axios</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-js/" rel="tag">Express.js</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hooks/" rel="tag">Hooks</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongoose/" rel="tag">Mongoose</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Native-JavaScript/" rel="tag">Native JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nest-js/" rel="tag">Nest.js</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Payment/" rel="tag">Payment</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-testing-library/" rel="tag">React-testing-library</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stripe/" rel="tag">Stripe</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Test/" rel="tag">Test</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/tags/ES6/" style="font-size: 13.33px;">ES6</a> <a href="/tags/Express-js/" style="font-size: 16.67px;">Express.js</a> <a href="/tags/Hooks/" style="font-size: 12.22px;">Hooks</a> <a href="/tags/MongoDB/" style="font-size: 14.44px;">MongoDB</a> <a href="/tags/Mongoose/" style="font-size: 12.22px;">Mongoose</a> <a href="/tags/Native-JavaScript/" style="font-size: 11.11px;">Native JavaScript</a> <a href="/tags/Nest-js/" style="font-size: 17.78px;">Nest.js</a> <a href="/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/tags/Payment/" style="font-size: 13.33px;">Payment</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 18.89px;">React</a> <a href="/tags/React-testing-library/" style="font-size: 15.56px;">React-testing-library</a> <a href="/tags/Stripe/" style="font-size: 13.33px;">Stripe</a> <a href="/tags/Test/" style="font-size: 15.56px;">Test</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/npm/" style="font-size: 12.22px;">npm</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Derek Zhu</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://redre4per.github.io/2022/02/18/CSS/01%20CSS%20skills%201/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

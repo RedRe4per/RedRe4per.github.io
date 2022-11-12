@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Flex | Full-stack Learning</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="CSS" />
+    
+    <meta name="description" content="flex layout features Traditional layout: good compatibility, cumbersome layout, limited, cannot be well laid out on the mobile side. flex is a one-dimensional layout. Flex flexible layout: easy to o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flex">
+<meta property="og:url" content="https://redre4per.github.io/2022/02/27/CSS/A01%20Flex/index.html">
+<meta property="og:site_name" content="Full-stack Learning">
+<meta property="og:description" content="flex layout features Traditional layout: good compatibility, cumbersome layout, limited, cannot be well laid out on the mobile side. flex is a one-dimensional layout. Flex flexible layout: easy to o">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_HGXoBi1rjUFrv7LBtynokQ.jpeg">
+<meta property="article:published_time" content="2022-02-27T03:19:01.000Z">
+<meta property="article:modified_time" content="2022-11-12T05:28:42.875Z">
+<meta property="article:author" content="Derek Zhu">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_HGXoBi1rjUFrv7LBtynokQ.jpeg">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Derek Zhu</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/Express-js/">Express.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/Nest-js/">Nest.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/Node-js/">Node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Database/MongoDB/">MongoDB</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Front-end/Axios/">Axios</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Front-end/React/">React</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/HTML-CSS/">HTML&CSS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/HTML-CSS/CSS/">CSS</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/">JavaScript</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/ES6/">ES6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/Native-JavaScript/">Native JavaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Others/">Others</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Others/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Others/Stripe-payment/">Stripe payment</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Test/">Test</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Test/React-testing-library/">React-testing-library</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/HTML-CSS/">HTML&CSS</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/HTML-CSS/CSS/">CSS</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-CSS/A01 Flex" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Flex
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2022/02/27/CSS/A01%20Flex/" class="article-date">
+       <time datetime="2022-02-27T03:19:01.000Z" itemprop="datePublished">2022-02-27</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2022/02/27/CSS/A01%20Flex/" class="article-date">
+     <time datetime="2022-11-12T05:28:42.875Z" itemprop="dateModified">2022-11-12</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/CSS/" rel="tag">CSS</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_HGXoBi1rjUFrv7LBtynokQ.jpeg"></p>
+<ol>
+<li><p><strong>flex layout features</strong></p>
+<p>Traditional layout: good compatibility, cumbersome layout, limited, cannot be well laid out on the mobile side. flex is a one-dimensional layout.</p>
+<p>Flex flexible layout: easy to operate, simple layout, easy to use on mobile, poor browser support on PC, not supported&#x2F;partially supported below IE11.</p>
+<p>Recommendation: Use traditional layout for PC side page layout, and flex layout for mobile terminal&#x2F;PC side without considering compatibility issues.</p>
+<br/>
+</li>
+<li><p><strong>Flex layout principle</strong></p>
+<p>flex is the abbreviation of flexible box, flexible layout, used to provide maximum flexibility for the box model, any container can specify flex layout. An element that uses flex layout is called flex container; all its child elements automatically become container members, called flex item.</p>
+<br/>
+
+<p>After the parent element sets the flex layout, the float, clear and vertical-align properties of the child element will be invalid. (floats are out. And flex can center elements vertically, so vertical-align doesn’t work).</p>
+<br/>
+
+<p>Summary: It is to control the position and arrangement of the child boxes by adding the flex property <code>display:flex;</code> to the parent box. Note the difference with <code>display:block</code>.</p>
+<ul>
+<li><p><font color='blue'>display</font> :</p>
+<table>
+<thead>
+<tr>
+<th align="center">Property Value</th>
+<th align="center">Description</th>
+<th align="center">Tailwind</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">flex</td>
+<td align="center">flex layout</td>
+<td align="center">flex</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ol>
+<br/>
+
+<ol start="3">
+<li><p><strong>Common attributes of flex layout parents</strong></p>
+<ul>
+<li><p><font color='blue'>flex-direction</font>: Set the direction of the main axis <font color='lightgrey'> (not important)</font></p>
+<p><font color='green'>Main and Cross axes</font>: rows and columns, x-axis and y-axis. The default main axis is horizontal to the right and the cross axis is vertical downward. The main axis and the side axis will change, depending on who is set as the main axis in flex-direction, and the rest is the side axis. <font color='red'>And our child elements are arranged according to the main axis</font>. For example: <code>display:flex; flex-direction: row;</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">Property Value</th>
+<th align="center">Description</th>
+<th align="center">Tailwind</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">row</td>
+<td align="center">default, left to right</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">row-reverse</td>
+<td align="center">right to left</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">column</td>
+<td align="center">top to bottom</td>
+<td align="center">flex-col</td>
+</tr>
+<tr>
+<td align="center">column-reverse</td>
+<td align="center">bottom to top</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<br/>
+</li>
+<li><p><font color='blue'>justify-content</font>: Set the arrangement of sub-elements on the main axis</p>
+<p>The justify-content attribute defines the alignment of the flex item on the <font color='red'>main axis</font>, and the main axis must be determined before use.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Property Value</th>
+<th>Description</th>
+<th align="center">Tailwind</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">flex-start</td>
+<td>default, start at head, left to right if main axis is x-axis</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">flex-end</td>
+<td>align from the end</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">center</td>
+<td>align at the center of the main axis (horizontally if the main axis is the x-axis)</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">space-around</td>
+<td>Divide the remaining space equally (without borders)</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">space-between</td>
+<td>First paste the two sides, and then divide the remaining space equally (<font color='red'>important</font>)</td>
+<td align="center">justify-between</td>
+</tr>
+</tbody></table>
+<br/>
+</li>
+<li><p><font color='blue'>flex-wrap</font>: Set whether the child element wraps</p>
+<p>By default, items are arranged on a single line (axis). The flex-wrap attribute defines that the default is not to wrap in the flex layout. If the cumulative width of the child elements exceeds the container, the width of the child elements will be automatically reduced and placed in the parent element.</p>
+<p>If you don’t want to shrink the child elements automatically, but want the extra child elements to wrap automatically, you can use <code>flex-wrap: wrap</code> property.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Property Value</th>
+<th align="center">Description</th>
+<th>Tailwind</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">nowrap</td>
+<td align="center">default, no newline</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">wrap</td>
+<td align="center">line break</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">wrap-reverse</td>
+<td align="center">Lines are wrapped and children are reversed diagonally.</td>
+<td></td>
+</tr>
+</tbody></table>
+<br/>
+</li>
+<li><p><font color='blue'>align-items</font>: Set the arrangement of sub-elements on the <font color='red'>side axis</font> (single line)</p>
+<p>If you just want to lay out elements on a single axis, the previous flex-direction is enough. But if you want elements to be laid out on the main axis + side axis at the same time (such as centering the main axis + centering the side axis), you need align-items.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Property Value</th>
+<th>Description</th>
+<th align="center">Tailwind</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">flex-start</td>
+<td>top to bottom</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">flex-end</td>
+<td>bottom to top</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">center</td>
+<td>squeeze together and center (vertically center)</td>
+<td align="center">items-center</td>
+</tr>
+<tr>
+<td align="center">stretch</td>
+<td>default? Stretch to the height of the parent element (<font color='red'>When using it, do not give height to the child element</font>)</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">baseline</td>
+<td>the baseline to align the content with</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<br/>
+</li>
+<li><p><font color='blue'>align-content</font>: Set the arrangement of sub-elements on the <font color='red'>side axis</font> (multiple lines)</p>
+<p>Used for requirements that cannot be implemented in the layout align-items. align-items can only be aligned on the top&#x2F;bottom&#x2F;center, without space-around in justify-content, etc.</p>
+<p>align-content sets the arrangement of sub-items on the side axis, and <font color='red'> can only be used when the sub-item appears in a new line (multiple lines)</font>, and it has no effect under a single line.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Property Value</th>
+<th>Description</th>
+<th align="center">Tailwind</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">flex-start</td>
+<td>start alignment at the head of the cross axis</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">flex-end</td>
+<td>start alignment at the end of the cross axis</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">center</td>
+<td>display in the middle of the side axis</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">space-around</td>
+<td>Children divide the remaining space equally on the cross axis</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">space-between</td>
+<td>The child items are distributed at both ends on the side axis, and then divide the remaining space equally</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">stretch</td>
+<td>Default value, set the height of the child element to equal the height of the parent element</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<br/>
+
+<p><strong>The difference between align-content and align-items</strong></p>
+<ol>
+<li><p>align-items is suitable for single-line cases, only top alignment, bottom alignment, centering and stretching.</p>
+</li>
+<li><p>align-content is suitable for newlines (multiple lines), and a single line is invalid. You can set attribute values such as top alignment, bottom alignment, centering, stretching, and evenly distributing the remaining space.</p>
+<br/></li>
+</ol>
+</li>
+<li><p><font color='blue'>flex-flow</font>: Composite attribute, equivalent to setting flex-direction and flex-wrap at the same time</p>
+<p>Shorthand for setting the main axis direction flex-direction and whether to wrap flex-wrap.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">flex-flow</span>: row wrap;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<br/>
+
+
+<ul>
+<li><p><font color='blue'><strong>gap</strong></font>: margin between child elements.</p>
+<p>The difference with margin is that all items can inherit gap directly, instead of writing margin for each item.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Property Value</th>
+<th align="center">Description</th>
+<th align="center">Tailwind</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">gap</td>
+<td align="center">spacing between child elements</td>
+<td align="center">gap-[]&#x2F;-8</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ol>
+<br/>
+
+<ol start="4">
+<li><p><strong>Common properties of flex layout children</strong></p>
+<ol>
+<li><p><font color='blue'>Number of flex sub-items</font></p>
+<p>The flex attribute defines the allocation of <font color='red'>remaining space</font> to sub-items, and uses flex to indicate how many <font color='red'>number of copies</font>. For example, to make a navigation bar with search, the left and right small buttons are fixed, and the middle search bar is adaptive. E.g:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">section</span> &#123; <span class="comment">/*parent element*/</span></span><br><span class="line">    <span class="attribute">display</span>:flex</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>) &#123; <span class="comment">/*fixed size, no need to write flex*/</span></span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>) &#123; <span class="comment">/*fixed size, no need to write flex*/</span></span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123; <span class="comment">/*1 point is all free space, adaptive*/</span></span><br><span class="line">    <span class="attribute">flex</span>:<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br/>
+
+<p>The three child elements in the parent element bisect the width, such as</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>:flex;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">60%</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">150px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span> <span class="selector-tag">span</span> &#123;<span class="attribute">flex</span>:<span class="number">1</span>&#125; <span class="comment">/* Don&#x27;t give the width and height, directly divide it into 3 equal parts, one for each. No width is given, the sum of their widths is the width of the parent element */</span></span><br></pre></td></tr></table></figure>
+
+<p>do not evenly distribute element widths, such as</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>:flex;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">60%</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">150px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span> <span class="selector-tag">span</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123;<span class="attribute">flex</span>:<span class="number">2</span>&#125; <span class="comment">/*The child element number 2 occupies two shares, here is 50%, and the other two boxes take one share, each 25%*/</span></span><br></pre></td></tr></table></figure>
+
+<br/>
+</li>
+<li><p><font color='blue'>align-self controls the arrangement of sub-items on the side axis</font></p>
+<p>The align-self property allows a single item to have a different alignment than other items, overriding the align-items property.</p>
+<p>The default value is auto, which indicates that the align-items property of the parent element is inherited. If there is no parent element, it is equivalent to stretch.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="attribute">align-self</span>:flex-end; <span class="comment">/*A single child element has a different layout from other child elements*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br/>
+</li>
+<li><p>The <font color='blue'>order attribute defines the order of the child items (before and after)</font></p>
+<p>The smaller the value, the higher the ranking, the default is 0. Note, not the same as z-index.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">section</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="attribute">order</span>:-<span class="number">1</span>; <span class="comment">/*sort by number size*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br/>
+</li>
+<li><p><font color='blue'>flex-basis, flex-grow, flex-shrink</font></p>
+<p>It means that the child element stretches proportionally when the width of the parent element is <font color='red'>sufficient</font>; or when the width of the parent element is <font color='red'>insufficient</font>, Compression ratio.</p>
+<br/>
+
+<p>flex-grow: sub-element stretching ratio allocation, the default value is 0, and cannot be negative. If the value is 1, it is fixed and cannot be enlarged.</p>
+<p>flex-shrink: Sub-element compression ratio allocation, the default value is 1, which cannot be negative. If the value is 0, it is fixed and cannot be reduced any more.</p>
+<p>flex-basis: The basic size of the child element, the default value is auto. It is not a fixed execution value, but a recommended value, the benchmark value; the real value is determined by grow and shrink. If <code>flex-basis: 0px</code> , the fixed size cannot be scaled.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.red</span>&#123;</span><br><span class="line">  <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">flex-shrink</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">flex-basis</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.blue</span>&#123;</span><br><span class="line">  <span class="attribute">flex-grow</span>: <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">flex-shrink</span>: <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">flex-basis</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<br/>
+
+<ol start="5">
+<li><p><strong>Detailed Tutorials and Exercises</strong></p>
+<p>Detailed tutorial: <a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a></p>
+<p>Exercise 1: <a target="_blank" rel="noopener" href="https://flexboxfroggy.com/#zh-cn">https://flexboxfroggy.com/#zh-cn</a></p>
+<p>Exercise 2: <a target="_blank" rel="noopener" href="http://www.flexboxdefense.com/">http://www.flexboxdefense.com/</a></p>
+<p>Exercise 3: <a target="_blank" rel="noopener" href="http://tom.infinityfreeapp.com/html/shapes.html">http://tom.infinityfreeapp.com/html/shapes.html</a></p>
+</li>
+</ol>
+<br/>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://redre4per.github.io/2022/02/27/CSS/A01%20Flex/" data-id="cladloqdl000cgcb359nmf8rt" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Derek Zhu"
+        },
+        "headline": "Flex",
+        "image": "https://RedRe4per.github.iohttps://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_HGXoBi1rjUFrv7LBtynokQ.jpeg",
+        "keywords": "CSS",
+        "genre": "HTML&CSS CSS",
+        "datePublished": "2022-02-27",
+        "dateCreated": "2022-02-27",
+        "dateModified": "2022-11-12",
+        "url": "https://RedRe4per.github.io/2022/02/27/CSS/A01 Flex/",
+        "description": "
+
+flex layout features
+Traditional layout: good compatibility, cumbersome layout, limited, cannot be well laid out on the mobile side. flex is a one-dimensional layout.
+Flex flexible layout: easy to o",
+        "wordCount": 1549
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/zhu-derek" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/RedRe4per" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2022/03/26/NodeJS/01%20Basic/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Introduction
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2022/02/20/CSS/02%20CSS%20skills%202/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">CSS skills 2</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/micro_macro.gif)" alt="Promise basic" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/JavaScript/ES6/">ES6</a></p>
+                            <p class="item-title"><a href="/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="title">Promise basic</a></p>
+                            <p class="item-date"><time datetime="2022-11-06T07:07:12.000Z" itemprop="datePublished">2022-11-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_rV3yZwoPFHb3y5gKQLBdCw.png)" alt="Rerender jest-axe" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="title">Rerender jest-axe</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T06:16:12.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_RQwRLQ0yyCvYmRn_Nst5yg.png)" alt="Jest test methods" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="title">Jest test methods</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T01:26:45.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/maxresdefault.jpg)" alt="FireEvent to simulate user operation" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="title">FireEvent to simulate user operation</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T12:36:19.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_Bg_nX5M7EWctOBUJFT1BqQ.jpeg)" alt="Methods to get DOM" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="title">Methods to get DOM</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T05:12:27.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/">Back-end</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Express-js/">Express.js</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Nest-js/">Nest.js</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Node-js/">Node.js</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database/MongoDB/">MongoDB</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/">Front-end</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/Axios/">Axios</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/React/">React</a><span class="category-list-count">18</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/">HTML&CSS</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/CSS/">CSS</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/ES6/">ES6</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Native-JavaScript/">Native JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/">Others</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Others/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/Stripe-payment/">Stripe payment</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Test/">Test</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Test/React-testing-library/">React-testing-library</a><span class="category-list-count">7</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Axios/" rel="tag">Axios</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-js/" rel="tag">Express.js</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hooks/" rel="tag">Hooks</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongoose/" rel="tag">Mongoose</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Native-JavaScript/" rel="tag">Native JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nest-js/" rel="tag">Nest.js</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Payment/" rel="tag">Payment</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-testing-library/" rel="tag">React-testing-library</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stripe/" rel="tag">Stripe</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Test/" rel="tag">Test</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/tags/ES6/" style="font-size: 13.33px;">ES6</a> <a href="/tags/Express-js/" style="font-size: 16.67px;">Express.js</a> <a href="/tags/Hooks/" style="font-size: 12.22px;">Hooks</a> <a href="/tags/MongoDB/" style="font-size: 14.44px;">MongoDB</a> <a href="/tags/Mongoose/" style="font-size: 12.22px;">Mongoose</a> <a href="/tags/Native-JavaScript/" style="font-size: 11.11px;">Native JavaScript</a> <a href="/tags/Nest-js/" style="font-size: 17.78px;">Nest.js</a> <a href="/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/tags/Payment/" style="font-size: 13.33px;">Payment</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 18.89px;">React</a> <a href="/tags/React-testing-library/" style="font-size: 15.56px;">React-testing-library</a> <a href="/tags/Stripe/" style="font-size: 13.33px;">Stripe</a> <a href="/tags/Test/" style="font-size: 15.56px;">Test</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/npm/" style="font-size: 12.22px;">npm</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Derek Zhu</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://redre4per.github.io/2022/02/27/CSS/A01%20Flex/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
