@@ -274,12 +274,12 @@ code {
 .logo {
   display: block;
   padding: 10px 0;
-  width: 165px;
-  height: 60px;
+  width: 99px;
+  height: 36px;
   background-image: url("images/logo-header.png");
   background-position: 0px 10px;
   background-repeat: no-repeat;
-  background-size: 165px 60px;
+  background-size: 99px 36px;
 }
 .main-body {
   margin-top: -60px;
@@ -354,6 +354,23 @@ code {
   position: relative;
 }
 #header-title {
+  height: 130px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
   text-align: center;
   padding: 30px 30px;
 }
@@ -368,15 +385,28 @@ code {
 #header-title .logo-wrap,
 #header-title .subtitle-wrap {
   float: left;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 #header-title .subtitle-wrap {
   padding: 10px 0px 0px;
   margin-left: 20px;
+  -webkit-box-flex: 10;
+  -moz-box-flex: 10;
+  box-flex: 10;
+  -webkit-flex: 10;
+  -ms-flex: 10;
+  flex: 10;
 }
 #header-title .subtitle {
-  font-size: 16px;
-  font-style: italic;
-  line-height: 70px;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 46px;
+  letter-spacing: 2px;
   color: rgba(255,255,255,0.7);
   text-shadow: 0 1px rgba(0,0,0,0.2);
 }
@@ -1646,9 +1676,9 @@ a.article-title:hover {
   line-height: 22px;
 }
 #footer .logo {
-  width: 132px;
-  height: 48px;
-  background-size: 132px 48px;
+  width: 79.2px;
+  height: 28.8px;
+  background-size: 79.2px 28.8px;
 }
 i.icon {
   display: inline-block;
