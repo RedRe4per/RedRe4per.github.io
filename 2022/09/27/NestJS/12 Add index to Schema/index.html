@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Add index to Schema | Full-stack Learning</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Nest.js" />
+    
+    <meta name="description" content="index Indexes are special lookup tables that database search engines can use to speed up data retrieval. Without an index, Mongo must perform a collection scan, which means it must scan every docume">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Add index to Schema">
+<meta property="og:url" content="https://redre4per.github.io/repository/2022/09/27/NestJS/12%20Add%20index%20to%20Schema/index.html">
+<meta property="og:site_name" content="Full-stack Learning">
+<meta property="og:description" content="index Indexes are special lookup tables that database search engines can use to speed up data retrieval. Without an index, Mongo must perform a collection scan, which means it must scan every docume">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/databaseIndex.webp">
+<meta property="article:published_time" content="2022-09-27T12:52:07.000Z">
+<meta property="article:modified_time" content="2022-11-10T03:47:28.365Z">
+<meta property="article:author" content="Derek Zhu">
+<meta property="article:tag" content="Nest.js">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/databaseIndex.webp">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/repository/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/repository/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/repository/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/repository/css/style.css">
+
+
+    
+<script src="/repository/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/repository/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/repository/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/repository/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Derek Zhu&#39;s Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/repository/home">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/repository/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/Express-js/">Express.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/Nest-js/">Nest.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/Node-js/">Node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Database/MongoDB/">MongoDB</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Front-end/Axios/">Axios</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Front-end/React/">React</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/HTML-CSS/">HTML&CSS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/HTML-CSS/CSS/">CSS</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/JavaScript/">JavaScript</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/JavaScript/ES6/">ES6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/JavaScript/Native-JavaScript/">Native JavaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Others/">Others</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Others/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Others/Stripe-payment/">Stripe payment</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Test/">Test</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/repository/',
+        CONTENT_URL: '/repository/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/repository/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/repository/categories/Back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/repository/categories/Back-end/Nest-js/">Nest.js</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-NestJS/12 Add index to Schema" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Add index to Schema
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/repository/2022/09/27/NestJS/12%20Add%20index%20to%20Schema/" class="article-date">
+       <time datetime="2022-09-27T12:52:07.000Z" itemprop="datePublished">2022-09-27</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/repository/2022/09/27/NestJS/12%20Add%20index%20to%20Schema/" class="article-date">
+     <time datetime="2022-11-10T03:47:28.365Z" itemprop="dateModified">2022-11-10</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/repository/tags/Nest-js/" rel="tag">Nest.js</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/databaseIndex.webp"></p>
+<ol>
+<li><p><strong>index</strong></p>
+<p>Indexes are special lookup tables that database search engines can use to speed up data retrieval. Without an index, Mongo must perform a collection scan, which means it must scan <strong>every</strong> document in the collection to select those that match the query.</p>
+<p>In Mongoose, indexes can be defined at the field level or at the schema level.</p>
+</li>
+</ol>
+<br/>
+
+<ol start="2">
+<li><p><strong>Using a single index</strong></p>
+<p>A common search request is to retrieve events by event name. In the schema file:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Schema</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/mongoose&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Schema</span>()</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">Event</span> <span class="keyword">extends</span> <span class="title class_ inherited__">mongoose.Document</span> &#123;</span><br><span class="line"><span class="meta">@Props</span>()</span><br><span class="line"><span class="attr">type</span>: <span class="built_in">string</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Props</span>(&#123; <span class="attr">index</span>: <span class="literal">true</span> &#125;) <span class="comment">//Add normal index</span></span><br><span class="line"><span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Props</span>(mongoose.<span class="property">SchemaTypes</span>.<span class="property">Mixed</span>)</span><br><span class="line"><span class="attr">payload</span>: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title class_">EventSchema</span> = <span class="title class_">SchemaFactory</span>.<span class="title function_">createForClass</span>(<span class="title class_">Event</span>);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<br/>
+
+<ol start="3">
+<li><p><strong>Compound Index</strong></p>
+<p>A single index references multiple properties. Multiple properties need to be added to <code>EventSchema.index(&#123;&#125;)</code>.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Schema</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/mongoose&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Schema</span>()</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">Event</span> <span class="keyword">extends</span> <span class="title class_ inherited__">mongoose.Document</span> &#123;</span><br><span class="line"><span class="meta">@Props</span>()</span><br><span class="line"><span class="attr">type</span>: <span class="built_in">string</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Props</span>(&#123; <span class="attr">index</span>: <span class="literal">true</span> &#125;) <span class="comment">//Add normal index</span></span><br><span class="line"><span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Props</span>(mongoose.<span class="property">SchemaTypes</span>.<span class="property">Mixed</span>)</span><br><span class="line"><span class="attr">payload</span>: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title class_">EventSchema</span> = <span class="title class_">SchemaFactory</span>.<span class="title function_">createForClass</span>(<span class="title class_">Event</span>);</span><br><span class="line"><span class="title class_">EventSchema</span>.<span class="title function_">index</span>(&#123; <span class="attr">name</span>: <span class="number">1</span>, <span class="attr">type</span>: -<span class="number">1</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Where <code>1</code> represents ascending order, <code>-1</code> represents descending order, the same as <code>sort()</code> in mongoose.</p>
+</li>
+</ol>
+<br/>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://redre4per.github.io/repository/2022/09/27/NestJS/12%20Add%20index%20to%20Schema/" data-id="cladj2wo70054ssb3buele0nn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Derek Zhu"
+        },
+        "headline": "Add index to Schema",
+        "image": "https://RedRe4per.github.io/repositoryhttps://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/databaseIndex.webp",
+        "keywords": "Nest.js",
+        "genre": "Back-end Nest.js",
+        "datePublished": "2022-09-27",
+        "dateCreated": "2022-09-27",
+        "dateModified": "2022-11-10",
+        "url": "https://RedRe4per.github.io/repository/2022/09/27/NestJS/12 Add index to Schema/",
+        "description": "
+
+index
+Indexes are special lookup tables that database search engines can use to speed up data retrieval. Without an index, Mongo must perform a collection scan, which means it must scan every docume",
+        "wordCount": 316
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/zhu-derek" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/RedRe4per" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/repository/2022/09/28/NestJS/13%20Database%20migration/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Database migration
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/repository/2022/09/25/NestJS/11%20Transactions/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Transactions</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/micro_macro.gif)" alt="Promise basic" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/JavaScript/">JavaScript</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/JavaScript/ES6/">ES6</a></p>
+                            <p class="item-title"><a href="/repository/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="title">Promise basic</a></p>
+                            <p class="item-date"><time datetime="2022-11-06T07:07:12.000Z" itemprop="datePublished">2022-11-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_rV3yZwoPFHb3y5gKQLBdCw.png)" alt="Rerender jest-axe" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="title">Rerender jest-axe</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T06:16:12.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_RQwRLQ0yyCvYmRn_Nst5yg.png)" alt="Jest test methods" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="title">Jest test methods</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T01:26:45.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/maxresdefault.jpg)" alt="FireEvent to simulate user operation" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="title">FireEvent to simulate user operation</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T12:36:19.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_Bg_nX5M7EWctOBUJFT1BqQ.jpeg)" alt="Methods to get DOM" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="title">Methods to get DOM</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T05:12:27.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/">Back-end</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/Express-js/">Express.js</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/Nest-js/">Nest.js</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/Node-js/">Node.js</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Database/">Database</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Database/MongoDB/">MongoDB</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Front-end/">Front-end</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Front-end/Axios/">Axios</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Front-end/React/">React</a><span class="category-list-count">18</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/HTML-CSS/">HTML&CSS</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/HTML-CSS/CSS/">CSS</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/JavaScript/">JavaScript</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/JavaScript/ES6/">ES6</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/JavaScript/Native-JavaScript/">Native JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Others/">Others</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Others/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Others/Stripe-payment/">Stripe payment</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Test/">Test</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a><span class="category-list-count">7</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/10/">October 2022</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/09/">September 2022</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/04/">April 2022</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/03/">March 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/02/">February 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/01/">January 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2021/12/">December 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2021/11/">November 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Axios/" rel="tag">Axios</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Express-js/" rel="tag">Express.js</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Hooks/" rel="tag">Hooks</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Mongoose/" rel="tag">Mongoose</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Native-JavaScript/" rel="tag">Native JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Nest-js/" rel="tag">Nest.js</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Payment/" rel="tag">Payment</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/React/" rel="tag">React</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/React-testing-library/" rel="tag">React-testing-library</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Stripe/" rel="tag">Stripe</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Test/" rel="tag">Test</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/repository/tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="/repository/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/repository/tags/ES6/" style="font-size: 13.33px;">ES6</a> <a href="/repository/tags/Express-js/" style="font-size: 16.67px;">Express.js</a> <a href="/repository/tags/Hooks/" style="font-size: 12.22px;">Hooks</a> <a href="/repository/tags/MongoDB/" style="font-size: 14.44px;">MongoDB</a> <a href="/repository/tags/Mongoose/" style="font-size: 12.22px;">Mongoose</a> <a href="/repository/tags/Native-JavaScript/" style="font-size: 11.11px;">Native JavaScript</a> <a href="/repository/tags/Nest-js/" style="font-size: 17.78px;">Nest.js</a> <a href="/repository/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/repository/tags/Payment/" style="font-size: 13.33px;">Payment</a> <a href="/repository/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/repository/tags/React/" style="font-size: 18.89px;">React</a> <a href="/repository/tags/React-testing-library/" style="font-size: 15.56px;">React-testing-library</a> <a href="/repository/tags/Stripe/" style="font-size: 13.33px;">Stripe</a> <a href="/repository/tags/Test/" style="font-size: 15.56px;">Test</a> <a href="/repository/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/repository/tags/npm/" style="font-size: 12.22px;">npm</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/repository/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Derek Zhu</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://redre4per.github.io/repository/2022/09/27/NestJS/12%20Add%20index%20to%20Schema/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/repository/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/repository/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/repository/js/main.js"></script>
+
+
+</body>
+</html>

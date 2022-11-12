@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Axios parameters | Full-stack Learning</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Axios" />
+    
+    <meta name="description" content="Request Configuration These configuration objects can be used not only in axios( ), but also in .request( ), .post( ) and other request methods. 12345678910111213141516171819202122232425262728293031">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Axios parameters">
+<meta property="og:url" content="https://redre4per.github.io/repository/2022/01/27/Axios/3%20Axios%20parameters/index.html">
+<meta property="og:site_name" content="Full-stack Learning">
+<meta property="og:description" content="Request Configuration These configuration objects can be used not only in axios( ), but also in .request( ), .post( ) and other request methods. 12345678910111213141516171819202122232425262728293031">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/axios-logo2.jpg">
+<meta property="article:published_time" content="2022-01-27T02:29:06.000Z">
+<meta property="article:modified_time" content="2022-11-12T00:22:31.547Z">
+<meta property="article:author" content="Derek Zhu">
+<meta property="article:tag" content="Axios">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/axios-logo2.jpg">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/repository/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/repository/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/repository/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/repository/css/style.css">
+
+
+    
+<script src="/repository/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/repository/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/repository/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/repository/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Derek Zhu&#39;s Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/repository/home">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/repository/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/Express-js/">Express.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/Nest-js/">Nest.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/Node-js/">Node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Database/MongoDB/">MongoDB</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Front-end/Axios/">Axios</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Front-end/React/">React</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/HTML-CSS/">HTML&CSS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/HTML-CSS/CSS/">CSS</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/JavaScript/">JavaScript</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/JavaScript/ES6/">ES6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/JavaScript/Native-JavaScript/">Native JavaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Others/">Others</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Others/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Others/Stripe-payment/">Stripe payment</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Test/">Test</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/repository/',
+        CONTENT_URL: '/repository/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/repository/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/repository/categories/Front-end/">Front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/repository/categories/Front-end/Axios/">Axios</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Axios/3 Axios parameters" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Axios parameters
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/repository/2022/01/27/Axios/3%20Axios%20parameters/" class="article-date">
+       <time datetime="2022-01-27T02:29:06.000Z" itemprop="datePublished">2022-01-27</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/repository/2022/01/27/Axios/3%20Axios%20parameters/" class="article-date">
+     <time datetime="2022-11-12T00:22:31.547Z" itemprop="dateModified">2022-11-12</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/repository/tags/Axios/" rel="tag">Axios</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/axios-logo2.jpg"></p>
+<ol>
+<li><p><strong>Request Configuration</strong></p>
+<p>These configuration objects can be used not only in axios( ), but also in .request( ), .post( ) and other request methods.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// server url address</span></span><br><span class="line">  <span class="attr">url</span>: <span class="string">&#x27;/user&#x27;</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// request method</span></span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;get&#x27;</span>, <span class="comment">// default is get</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Set the basic structure of url, such as http, localhost, 3000, etc. After setting the baseURL, you only need to write the follow-up path.</span></span><br><span class="line">  <span class="attr">baseURL</span>: <span class="string">&#x27;https://some-domain.com/api/&#x27;</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Process the request data and send it to the server after processing. That is, preprocessing request parameters.</span></span><br><span class="line">  <span class="attr">transformRequest</span>: [<span class="keyword">function</span> (<span class="params">data, headers</span>) &#123;</span><br><span class="line">    <span class="comment">// Do whatever you want to transform the data</span></span><br><span class="line">    <span class="keyword">return</span> data;</span><br><span class="line">  &#125;],</span><br><span class="line"></span><br><span class="line">  <span class="comment">// That is to preprocess the response result.</span></span><br><span class="line">  <span class="attr">transformResponse</span>: [<span class="keyword">function</span> (<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="comment">// Do whatever you want to transform the data</span></span><br><span class="line">    <span class="keyword">return</span> data;</span><br><span class="line">  &#125;],</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Configure request header information. When performing identity verification on some projects, a special identifier is required to be added to the request header information to determine whether the request meets the conditions.</span></span><br><span class="line">  <span class="attr">headers</span>: &#123;<span class="string">&#x27;X-Requested-With&#x27;</span>: <span class="string">&#x27;XMLHttpRequest&#x27;</span>&#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Set the url parameter. What is configured is an object, and various parameters are written. More readable than writing in url.</span></span><br><span class="line">  <span class="attr">params</span>: &#123;</span><br><span class="line">    <span class="attr">ID</span>: <span class="number">12345</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Parameter serialization configuration item, not commonly used. Serialize request parameters and convert them to strings. (The server side requires this configuration when the data format is different)</span></span><br><span class="line">  <span class="attr">paramsSerializer</span>: <span class="keyword">function</span> (<span class="params">params</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Qs</span>. <span class="title function_">stringify</span>(params, &#123;<span class="attr">arrayFormat</span>: <span class="string">&#x27;brackets&#x27;</span>&#125;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Request body settings (object form). Axios will convert it into a json format string and pass it on. Select the format according to the project requirements.</span></span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">firstName</span>: <span class="string">&#x27;Fred&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// Request body settings (string format). axios will pass it straight through. Select the format according to the project requirements.</span></span><br><span class="line">  <span class="attr">data</span>: <span class="string">&#x27;Country=Brasil&amp;City=Belo Horizonte&#x27;</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// overtime time. If this time elapses after sending the request, the request will be cancelled.</span></span><br><span class="line">  <span class="attr">timeout</span>: <span class="number">1000</span>, <span class="comment">// default is `0` (no timeout)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Settings for carrying cookies when cross-domain requests are made.</span></span><br><span class="line">  <span class="attr">withCredentials</span>: <span class="literal">false</span>, <span class="comment">// default</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Request adapter settings. One is Ajax in the browser, and the other is sending http in Node.js.</span></span><br><span class="line">  <span class="attr">adapter</span>: <span class="keyword">function</span> (<span class="params">config</span>) &#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Basic validation of the request, not commonly used</span></span><br><span class="line">  <span class="attr">auth</span>: &#123;</span><br><span class="line">    <span class="attr">username</span>: <span class="string">&#x27;janedoe&#x27;</span>,</span><br><span class="line">    <span class="attr">password</span>: <span class="string">&#x27;s00pers3cret&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Response result format setting</span></span><br><span class="line">  <span class="attr">responseType</span>: <span class="string">&#x27;json&#x27;</span>, <span class="comment">// default</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Response result encoding, charset setting.</span></span><br><span class="line">  <span class="attr">responseEncoding</span>: <span class="string">&#x27;utf8&#x27;</span>, <span class="comment">// default</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Cross-origin request identifier. Set the name of the cookie.</span></span><br><span class="line">  <span class="attr">xsrfCookieName</span>: <span class="string">&#x27;XSRF-TOKEN&#x27;</span>, <span class="comment">// default</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Cross-origin request identifier. Set the request header information.</span></span><br><span class="line">  <span class="attr">xsrfHeaderName</span>: <span class="string">&#x27;X-XSRF-TOKEN&#x27;</span>, <span class="comment">// default</span></span><br><span class="line">  <span class="comment">/* The above two are a security setting. It is a protective effect to ensure that the request comes from your own client instead of an unknown page. because the server is returning the result</span></span><br><span class="line"><span class="comment">  A unique identifier will be returned, and the identifier must be sent the next time the request is sent, and the server will respond after verification. But some web pages will add some links</span></span><br><span class="line"><span class="comment">  Then, send a request to the server. If these two unique identifiers are not added, the request for the web page link may affect the results returned by the server. joined these two</span></span><br><span class="line"><span class="comment">  After the logo, only the client sends the logo, and other web pages have no logo, so cross-site attacks can be avoided. */</span></span><br><span class="line"></span><br><span class="line">      </span><br><span class="line">  <span class="comment">// callback when uploading</span></span><br><span class="line">  <span class="attr">onUploadProgress</span>: <span class="keyword">function</span> (<span class="params">progressEvent</span>) &#123;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Callback when downloading</span></span><br><span class="line">  <span class="attr">onDownloadProgress</span>: <span class="keyword">function</span> (<span class="params">progressEvent</span>) &#123;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// http response body maximum size</span></span><br><span class="line">  <span class="attr">maxContentLength</span>: <span class="number">2000</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// The maximum content of the request body</span></span><br><span class="line">  <span class="attr">maxBodyLength</span>: <span class="number">2000</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Set the success condition of the response result. No need to change, unless you set the success/failure rules yourself.</span></span><br><span class="line">  <span class="attr">validateStatus</span>: <span class="keyword">function</span> (<span class="params">status</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> status &gt;= <span class="number">200</span> &amp;&amp; status &lt; <span class="number">300</span>; <span class="comment">// default</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Maximum number of jumps. The server request sent may have a jump. Generally, it is only used in Node.js, and Ajax is not used.</span></span><br><span class="line">  <span class="attr">maxRedirects</span>: <span class="number">5</span>, <span class="comment">// default</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Set the socket file location, the function is to send a request to the docker.sock process, that is, data forwarding. There is a priority relationship with the proxy. if set</span></span><br><span class="line">  <span class="comment">// socket, proxy is also set, socket is used first.</span></span><br><span class="line">  <span class="attr">socketPath</span>: <span class="literal">null</span>, <span class="comment">// default</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Client information setting, setting whether to keep the connection, not commonly used.</span></span><br><span class="line">  <span class="attr">httpAgent</span>: <span class="keyword">new</span> http.<span class="title class_">Agent</span>(&#123; <span class="attr">keepAlive</span>: <span class="literal">true</span> &#125;),</span><br><span class="line">  <span class="attr">httpsAgent</span>: <span class="keyword">new</span> https.<span class="title class_">Agent</span>(&#123; <span class="attr">keepAlive</span>: <span class="literal">true</span> &#125;),</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Set the proxy. It is often used in node.js, such as switching the client address in a crawler request.</span></span><br><span class="line">  <span class="attr">proxy</span>: &#123;</span><br><span class="line">    <span class="attr">protocol</span>: <span class="string">&#x27;https&#x27;</span>,</span><br><span class="line">    <span class="attr">host</span>: <span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line">    <span class="attr">port</span>: <span class="number">9000</span>,</span><br><span class="line">    <span class="attr">auth</span>: &#123;</span><br><span class="line">      <span class="attr">username</span>: <span class="string">&#x27;mikeymike&#x27;</span>,</span><br><span class="line">      <span class="attr">password</span>: <span class="string">&#x27;rapunz3l&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ajax request unset</span></span><br><span class="line">  <span class="attr">cancelToken</span>: <span class="keyword">new</span> <span class="title class_">CancelToken</span>(<span class="keyword">function</span> (<span class="params">cancel</span>) &#123;</span><br><span class="line">  &#125;),</span><br><span class="line"></span><br><span class="line">  <span class="comment">// an alternative way to cancel Axios requests using AbortController</span></span><br><span class="line">  <span class="attr">signal</span>: <span class="keyword">new</span> <span class="title class_">AbortController</span>(). signal,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Decompress the response result, only for node.js.</span></span><br><span class="line">  <span class="attr">decompress</span>: <span class="literal">true</span> <span class="comment">// default</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// `insecureHTTPParser` boolean.</span></span><br><span class="line">  <span class="comment">// Indicates where to use an insecure HTTP parser that accepts invalid HTTP headers.</span></span><br><span class="line">  <span class="comment">// This may allow interoperability with non-conformant HTTP implementations.</span></span><br><span class="line">  <span class="comment">// Using the insecure parser should be avoided.</span></span><br><span class="line">  <span class="comment">// see options https://nodejs.org/dist/latest-v12.x/docs/api/http.html#http_http_request_url_options_callback</span></span><br><span class="line">  <span class="comment">// see also https://nodejs.org/en/blog/vulnerability/february-2020-security-releases/#strict-http-header-parsing-none</span></span><br><span class="line">  <span class="attr">insecureHTTPParser</span>: <span class="literal">undefined</span> <span class="comment">// default</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// transitional options for backward compatibility that may be removed in the newer versions</span></span><br><span class="line">  <span class="attr">transitional</span>: &#123;</span><br><span class="line">    <span class="comment">// silent JSON parsing mode</span></span><br><span class="line">    <span class="comment">// `true` - ignore JSON parsing errors and set response.data to null if parsing failed (old behavior)</span></span><br><span class="line">    <span class="comment">// `false` - throw SyntaxError if JSON parsing failed (Note: responseType must be set to &#x27;json&#x27;)</span></span><br><span class="line">    <span class="attr">silentJSONParsing</span>: <span class="literal">true</span>, <span class="comment">// default value for the current Axios version</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// try to parse the response string as JSON even if `responseType` is not &#x27;json&#x27;</span></span><br><span class="line">    <span class="attr">forcedJSONParsing</span>: <span class="literal">true</span>,</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// throw ETIMEDOUT error instead of generic ECONNABORTED on request timeouts</span></span><br><span class="line">    <span class="attr">clarifyTimeoutError</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<br/>
+
+<ol start="2">
+<li><p><strong>Axios default configuration</strong></p>
+<p>Practical trick, you can set the repeated configuration in the default configuration to simplify the code. <code>axios.default.[config]</code></p>
+<p>Axios parameters (that is, configuration objects) can be configured by default.</p>
+<p>When the default configuration is not done, the code is as follows, and the method and url must be set every time an axios request is sent.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">btns[<span class="number">0</span>].<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">     <span class="title function_">axios</span>(&#123;</span><br><span class="line">         <span class="attr">method</span>: <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">         <span class="attr">url</span>: <span class="string">&#x27;http://localhost:3000/posts&#x27;</span></span><br><span class="line">     &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">         <span class="variable language_">console</span>. <span class="title function_">log</span>(response);</span><br><span class="line">     &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>After doing the default configuration,</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">axios.<span class="property">default</span>.<span class="property">method</span> = <span class="string">&#x27;GET&#x27;</span>;</span><br><span class="line">axios.<span class="property">default</span>.<span class="property">baseURL</span> = <span class="string">&#x27;http://localhost:3000&#x27;</span>;</span><br><span class="line"></span><br><span class="line">btns[<span class="number">0</span>].<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">     <span class="title function_">axios</span>(&#123;</span><br><span class="line">         <span class="attr">url</span>: <span class="string">&#x27;posts&#x27;</span></span><br><span class="line">     &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">         <span class="variable language_">console</span>. <span class="title function_">log</span>(response);</span><br><span class="line">     &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<br/>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://redre4per.github.io/repository/2022/01/27/Axios/3%20Axios%20parameters/" data-id="cladj2wn0000assb3g38jholr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Derek Zhu"
+        },
+        "headline": "Axios parameters",
+        "image": "https://RedRe4per.github.io/repositoryhttps://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/axios-logo2.jpg",
+        "keywords": "Axios",
+        "genre": "Front-end Axios",
+        "datePublished": "2022-01-27",
+        "dateCreated": "2022-01-27",
+        "dateModified": "2022-11-12",
+        "url": "https://RedRe4per.github.io/repository/2022/01/27/Axios/3 Axios parameters/",
+        "description": "
+
+Request Configuration
+These configuration objects can be used not only in axios( ), but also in .request( ), .post( ) and other request methods.
+12345678910111213141516171819202122232425262728293031",
+        "wordCount": 1819
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/zhu-derek" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/RedRe4per" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/repository/2022/01/28/Axios/5%20Axios%20instance,%20interceptor,%20cancel/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Axios instance, Interceptor, Cancel request
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/repository/2022/01/26/Axios/2%20Axios%20basics/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Axios basics</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/micro_macro.gif)" alt="Promise basic" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/JavaScript/">JavaScript</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/JavaScript/ES6/">ES6</a></p>
+                            <p class="item-title"><a href="/repository/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="title">Promise basic</a></p>
+                            <p class="item-date"><time datetime="2022-11-06T07:07:12.000Z" itemprop="datePublished">2022-11-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_rV3yZwoPFHb3y5gKQLBdCw.png)" alt="Rerender jest-axe" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="title">Rerender jest-axe</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T06:16:12.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_RQwRLQ0yyCvYmRn_Nst5yg.png)" alt="Jest test methods" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="title">Jest test methods</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T01:26:45.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/maxresdefault.jpg)" alt="FireEvent to simulate user operation" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="title">FireEvent to simulate user operation</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T12:36:19.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_Bg_nX5M7EWctOBUJFT1BqQ.jpeg)" alt="Methods to get DOM" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="title">Methods to get DOM</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T05:12:27.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/">Back-end</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/Express-js/">Express.js</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/Nest-js/">Nest.js</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/Node-js/">Node.js</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Database/">Database</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Database/MongoDB/">MongoDB</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Front-end/">Front-end</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Front-end/Axios/">Axios</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Front-end/React/">React</a><span class="category-list-count">18</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/HTML-CSS/">HTML&CSS</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/HTML-CSS/CSS/">CSS</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/JavaScript/">JavaScript</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/JavaScript/ES6/">ES6</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/JavaScript/Native-JavaScript/">Native JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Others/">Others</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Others/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Others/Stripe-payment/">Stripe payment</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Test/">Test</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a><span class="category-list-count">7</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/10/">October 2022</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/09/">September 2022</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/04/">April 2022</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/03/">March 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/02/">February 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/01/">January 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2021/12/">December 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2021/11/">November 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Axios/" rel="tag">Axios</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Express-js/" rel="tag">Express.js</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Hooks/" rel="tag">Hooks</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Mongoose/" rel="tag">Mongoose</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Native-JavaScript/" rel="tag">Native JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Nest-js/" rel="tag">Nest.js</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Payment/" rel="tag">Payment</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/React/" rel="tag">React</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/React-testing-library/" rel="tag">React-testing-library</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Stripe/" rel="tag">Stripe</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Test/" rel="tag">Test</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/repository/tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="/repository/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/repository/tags/ES6/" style="font-size: 13.33px;">ES6</a> <a href="/repository/tags/Express-js/" style="font-size: 16.67px;">Express.js</a> <a href="/repository/tags/Hooks/" style="font-size: 12.22px;">Hooks</a> <a href="/repository/tags/MongoDB/" style="font-size: 14.44px;">MongoDB</a> <a href="/repository/tags/Mongoose/" style="font-size: 12.22px;">Mongoose</a> <a href="/repository/tags/Native-JavaScript/" style="font-size: 11.11px;">Native JavaScript</a> <a href="/repository/tags/Nest-js/" style="font-size: 17.78px;">Nest.js</a> <a href="/repository/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/repository/tags/Payment/" style="font-size: 13.33px;">Payment</a> <a href="/repository/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/repository/tags/React/" style="font-size: 18.89px;">React</a> <a href="/repository/tags/React-testing-library/" style="font-size: 15.56px;">React-testing-library</a> <a href="/repository/tags/Stripe/" style="font-size: 13.33px;">Stripe</a> <a href="/repository/tags/Test/" style="font-size: 15.56px;">Test</a> <a href="/repository/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/repository/tags/npm/" style="font-size: 12.22px;">npm</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/repository/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Derek Zhu</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://redre4per.github.io/repository/2022/01/27/Axios/3%20Axios%20parameters/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/repository/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/repository/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/repository/js/main.js"></script>
+
+
+</body>
+</html>

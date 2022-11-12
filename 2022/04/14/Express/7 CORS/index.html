@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>CORS | Full-stack Learning</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Node.js,Express.js" />
+    
+    <meta name="description" content="Interface cross domain problem There are two main solutions to solve the interface cross-domain problem:  CORS (mainstream solution, recommended)  JSONP (flawed solution, only supports GET requests)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CORS">
+<meta property="og:url" content="https://redre4per.github.io/repository/2022/04/14/Express/7%20CORS/index.html">
+<meta property="og:site_name" content="Full-stack Learning">
+<meta property="og:description" content="Interface cross domain problem There are two main solutions to solve the interface cross-domain problem:  CORS (mainstream solution, recommended)  JSONP (flawed solution, only supports GET requests)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/services.webp">
+<meta property="article:published_time" content="2022-04-14T13:39:21.000Z">
+<meta property="article:modified_time" content="2022-11-10T13:47:11.721Z">
+<meta property="article:author" content="Derek Zhu">
+<meta property="article:tag" content="Node.js">
+<meta property="article:tag" content="Express.js">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/services.webp">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/repository/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/repository/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/repository/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/repository/css/style.css">
+
+
+    
+<script src="/repository/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/repository/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/repository/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/repository/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Derek Zhu&#39;s Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/repository/home">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/repository/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/Express-js/">Express.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/Nest-js/">Nest.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/Node-js/">Node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Database/MongoDB/">MongoDB</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Front-end/Axios/">Axios</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Front-end/React/">React</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/HTML-CSS/">HTML&CSS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/HTML-CSS/CSS/">CSS</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/JavaScript/">JavaScript</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/JavaScript/ES6/">ES6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/JavaScript/Native-JavaScript/">Native JavaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Others/">Others</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Others/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Others/Stripe-payment/">Stripe payment</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Test/">Test</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/repository/',
+        CONTENT_URL: '/repository/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/repository/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/repository/categories/Back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/repository/categories/Back-end/Express-js/">Express.js</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Express/7 CORS" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        CORS
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/repository/2022/04/14/Express/7%20CORS/" class="article-date">
+       <time datetime="2022-04-14T13:39:21.000Z" itemprop="datePublished">2022-04-14</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/repository/2022/04/14/Express/7%20CORS/" class="article-date">
+     <time datetime="2022-11-10T13:47:11.721Z" itemprop="dateModified">2022-11-11</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/repository/tags/Express-js/" rel="tag">Express.js</a>, <a class="tag-link-link" href="/repository/tags/Node-js/" rel="tag">Node.js</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/services.webp"></p>
+<ol>
+<li><p><strong>Interface cross domain problem</strong></p>
+<p>There are two main solutions to solve the interface cross-domain problem:</p>
+<ol>
+<li><p>CORS (mainstream solution, <font color='blue'>recommended</font>)</p>
+</li>
+<li><p>JSONP (flawed solution, only supports GET requests)</p>
+<br/></li>
+</ol>
+</li>
+<li><p><strong>Use cors middleware to solve cross-domain problems</strong></p>
+<p>cors is a third-party middleware for Express. Cross-domain problems can be easily solved by installing and configuring cors middleware.</p>
+<p>Steps for usage:</p>
+<ol>
+<li><p>Run <code>npm install cors</code> <font color='green'>install middleware</font></p>
+</li>
+<li><p>Use <code>const cors = require(&#39;cors&#39;)</code> <font color='green'>import middleware</font></p>
+</li>
+<li><p>Call <code>app.use(cors())</code> before routing <font color='green'>Configure middleware</font></p>
+<br/></li>
+</ol>
+</li>
+<li><p><strong>What is CORS</strong></p>
+<p>CORS (Cross-Origin Resource Sharing) consists of a series of HTTP response headers that determine whether the browser prevents front-end JS code from obtaining resources across domains.</p>
+<p>By default, the browser’s same-origin security policy prevents web pages from obtaining resources across domains. However, if the interface server is configured with CORS-related HTTP response headers, the cross-domain access restriction on the browser side can be lifted.</p>
+<br/>
+
+<p>Precautions:</p>
+<ol>
+<li><p>CORS is mainly configured on the server side. The client browser can request the CORS-enabled interface without any additional configuration.</p>
+</li>
+<li><p>CORS is compatible with browsers. Only browsers that support XMLHttpRequest Level2 can normally access the server-side interface with CORS enabled, such as IE10+, Chrome4+, FireFox3.5+.</p>
+<br/></li>
+</ol>
+</li>
+<li><p><strong>CORS related response headers</strong></p>
+<ol>
+<li><p><font color='blue'>Access-Control-Allow-Orign</font></p>
+<p><code>Access-Control-Allow-Orign: &lt;origin&gt;|*</code> : where the origin parameter value specifies the out-of-domain URL that is allowed to access the resource. For example the following field value will <font color='red'>allow only</font> requests from <a target="_blank" rel="noopener" href="http://itcast.cn/">http://itcast.cn</a>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;http://itcast.cn&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>If the specified value is the wildcard <code>*</code>, it means that requests from any domain are allowed:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;*&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<br/>
+</li>
+<li><p><font color='blue'>Access-Control-Allow-Headers</font></p>
+<p>By default, CORS <font color='red'>only supports</font> the client to send 9 request headers to the server (the client request header is not within these 9, the request fails): <font color='lightgray '>Accept, Accept-Language, Content-Language, DPR, Downlink, Save-Data, Viewport-Width, Width, Content-Type (values are limited to text&#x2F;plain, multipart&#x2F;form-data, application&#x2F;x-www-form -urlencoded one of the three)</font></p>
+<p>If the client sends additional request header information to the server, it needs to declare the additional request header on the server side through Access-Control-Allow-Headers, otherwise the request will fail.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Access-Control-Allow-Headers&#x27;</span>, <span class="string">&#x27;Content-Type, X-Custom-Header&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<br/>
+</li>
+<li><p><font color='blue'>Access-Control-Allow-Methods</font></p>
+<p>By default, CORS only supports client-side GET, POST, and HEAD requests.</p>
+<p>If the client wants to request the server’s resources through <font color='red'>PUT, DELETE</font>, etc., it needs to specify the HTTP methods allowed by the request through Access-Control-Allow-Methods on the server side. .</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Access-Control-Allow-Methods&#x27;</span>, <span class="string">&#x27;POST, GET, DELETE, HEAD&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Access-Control-Allow-Methods&#x27;</span>, <span class="string">&#x27;*&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<p>​			<br/></p>
+<ol start="5">
+<li><p><strong>Classification of CORS Requests</strong></p>
+<p>When the client requests the CORS interface, according to the difference of <font color='red'>request method</font> and <font color='red'>request header</font>, the CORS request can be divided into two categories classes, which are:</p>
+<br/>
+
+<ol>
+<li><p><font color='blue'>Simple request</font>: Both conditions are met:</p>
+<ol>
+<li><p>The request method must be one of GET, POST, HEAD</p>
+</li>
+<li><p>The HTTP header information must not contain custom headers, which need to be within the nine request headers in Section 4.7.4.2</p>
+<br/></li>
+</ol>
+</li>
+<li><p><font color='blue'>Preflight request</font>: As long as the request meets any of the following conditions, a preflight request must be made</p>
+<ol>
+<li>The request method is a request method other than GET, POST and HEAD</li>
+<li>The request header contains custom header fields</li>
+<li>The data in application&#x2F;json format is sent to the server</li>
+</ol>
+<p>Before the browser and the server formally communicate, the browser will send an OPTION request for preflight to know whether the server allows the actual request, so this OPTION request is called a preflight request. After the server successfully responds to the preflight request, it will send the real request with real data.</p>
+<br/></li>
+</ol>
+<p>The difference between a simple request and a preflight request: In a simple request, the client and the server only make one request, while the preflight request is twice (OPTION preflight request and real request).</p>
+<br/></li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://redre4per.github.io/repository/2022/04/14/Express/7%20CORS/" data-id="cladj2wn7000yssb3aj7x9cyl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Derek Zhu"
+        },
+        "headline": "CORS",
+        "image": "https://RedRe4per.github.io/repositoryhttps://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/services.webp",
+        "keywords": "Node.js Express.js",
+        "genre": "Back-end Express.js",
+        "datePublished": "2022-04-14",
+        "dateCreated": "2022-04-14",
+        "dateModified": "2022-11-11",
+        "url": "https://RedRe4per.github.io/repository/2022/04/14/Express/7 CORS/",
+        "description": "
+
+Interface cross domain problem
+There are two main solutions to solve the interface cross-domain problem:
+
+CORS (mainstream solution, recommended)
+
+JSONP (flawed solution, only supports GET requests)",
+        "wordCount": 611
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/zhu-derek" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/RedRe4per" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/repository/2022/04/15/DataBase/MongoDB/3%20Relationships/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Relationships
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/repository/2022/04/14/Express/6%20Interface/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Interface (Summary)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/micro_macro.gif)" alt="Promise basic" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/JavaScript/">JavaScript</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/JavaScript/ES6/">ES6</a></p>
+                            <p class="item-title"><a href="/repository/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="title">Promise basic</a></p>
+                            <p class="item-date"><time datetime="2022-11-06T07:07:12.000Z" itemprop="datePublished">2022-11-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_rV3yZwoPFHb3y5gKQLBdCw.png)" alt="Rerender jest-axe" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="title">Rerender jest-axe</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T06:16:12.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_RQwRLQ0yyCvYmRn_Nst5yg.png)" alt="Jest test methods" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="title">Jest test methods</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T01:26:45.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/maxresdefault.jpg)" alt="FireEvent to simulate user operation" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="title">FireEvent to simulate user operation</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T12:36:19.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_Bg_nX5M7EWctOBUJFT1BqQ.jpeg)" alt="Methods to get DOM" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="title">Methods to get DOM</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T05:12:27.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/">Back-end</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/Express-js/">Express.js</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/Nest-js/">Nest.js</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/Node-js/">Node.js</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Database/">Database</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Database/MongoDB/">MongoDB</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Front-end/">Front-end</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Front-end/Axios/">Axios</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Front-end/React/">React</a><span class="category-list-count">18</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/HTML-CSS/">HTML&CSS</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/HTML-CSS/CSS/">CSS</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/JavaScript/">JavaScript</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/JavaScript/ES6/">ES6</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/JavaScript/Native-JavaScript/">Native JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Others/">Others</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Others/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Others/Stripe-payment/">Stripe payment</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Test/">Test</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a><span class="category-list-count">7</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/10/">October 2022</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/09/">September 2022</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/04/">April 2022</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/03/">March 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/02/">February 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/01/">January 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2021/12/">December 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2021/11/">November 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Axios/" rel="tag">Axios</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Express-js/" rel="tag">Express.js</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Hooks/" rel="tag">Hooks</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Mongoose/" rel="tag">Mongoose</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Native-JavaScript/" rel="tag">Native JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Nest-js/" rel="tag">Nest.js</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Payment/" rel="tag">Payment</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/React/" rel="tag">React</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/React-testing-library/" rel="tag">React-testing-library</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Stripe/" rel="tag">Stripe</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Test/" rel="tag">Test</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/repository/tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="/repository/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/repository/tags/ES6/" style="font-size: 13.33px;">ES6</a> <a href="/repository/tags/Express-js/" style="font-size: 16.67px;">Express.js</a> <a href="/repository/tags/Hooks/" style="font-size: 12.22px;">Hooks</a> <a href="/repository/tags/MongoDB/" style="font-size: 14.44px;">MongoDB</a> <a href="/repository/tags/Mongoose/" style="font-size: 12.22px;">Mongoose</a> <a href="/repository/tags/Native-JavaScript/" style="font-size: 11.11px;">Native JavaScript</a> <a href="/repository/tags/Nest-js/" style="font-size: 17.78px;">Nest.js</a> <a href="/repository/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/repository/tags/Payment/" style="font-size: 13.33px;">Payment</a> <a href="/repository/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/repository/tags/React/" style="font-size: 18.89px;">React</a> <a href="/repository/tags/React-testing-library/" style="font-size: 15.56px;">React-testing-library</a> <a href="/repository/tags/Stripe/" style="font-size: 13.33px;">Stripe</a> <a href="/repository/tags/Test/" style="font-size: 15.56px;">Test</a> <a href="/repository/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/repository/tags/npm/" style="font-size: 12.22px;">npm</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/repository/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Derek Zhu</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://redre4per.github.io/repository/2022/04/14/Express/7%20CORS/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/repository/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/repository/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/repository/js/main.js"></script>
+
+
+</body>
+</html>

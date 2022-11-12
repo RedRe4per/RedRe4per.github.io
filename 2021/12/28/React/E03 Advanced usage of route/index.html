@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Advanced usage of route@5 | Full-stack Learning</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="React" />
+    
+    <meta name="description" content="Routing components and general components  General components are placed in the src-components tag, but routing components are not in compliance with the specification. When standardizing developmen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Advanced usage of route@5">
+<meta property="og:url" content="https://redre4per.github.io/repository/2021/12/28/React/E03%20Advanced%20usage%20of%20route/index.html">
+<meta property="og:site_name" content="Full-stack Learning">
+<meta property="og:description" content="Routing components and general components  General components are placed in the src-components tag, but routing components are not in compliance with the specification. When standardizing developmen">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/5379198832082944.png">
+<meta property="article:published_time" content="2021-12-28T05:22:30.000Z">
+<meta property="article:modified_time" content="2022-11-12T04:30:30.483Z">
+<meta property="article:author" content="Derek Zhu">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/5379198832082944.png">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/repository/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/repository/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/repository/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/repository/css/style.css">
+
+
+    
+<script src="/repository/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/repository/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/repository/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/repository/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Derek Zhu&#39;s Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/repository/home">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/repository/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/Express-js/">Express.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/Nest-js/">Nest.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/Node-js/">Node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Database/MongoDB/">MongoDB</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Front-end/Axios/">Axios</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Front-end/React/">React</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/HTML-CSS/">HTML&CSS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/HTML-CSS/CSS/">CSS</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/JavaScript/">JavaScript</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/JavaScript/ES6/">ES6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/JavaScript/Native-JavaScript/">Native JavaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Others/">Others</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Others/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Others/Stripe-payment/">Stripe payment</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Test/">Test</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/repository/',
+        CONTENT_URL: '/repository/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/repository/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/repository/categories/Front-end/">Front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/repository/categories/Front-end/React/">React</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-React/E03 Advanced usage of route" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Advanced usage of route@5
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/repository/2021/12/28/React/E03%20Advanced%20usage%20of%20route/" class="article-date">
+       <time datetime="2021-12-28T05:22:30.000Z" itemprop="datePublished">2021-12-28</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/repository/2021/12/28/React/E03%20Advanced%20usage%20of%20route/" class="article-date">
+     <time datetime="2022-11-12T04:30:30.483Z" itemprop="dateModified">2022-11-12</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/repository/tags/React/" rel="tag">React</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/5379198832082944.png"></p>
+<ol>
+<li><p><strong>Routing components and general components</strong></p>
+<ol>
+<li><p>General components are placed in the src-components tag, but routing components are not in compliance with the specification. When standardizing development, routing components should be placed in src-pages.</p>
+ <br/>
+</li>
+<li><p>The general component writing method is <code>&lt;Header/&gt;</code>, and the routing component writing method is <code>&lt;Route path=&#39;/demo&#39; component=&#123;Demo&#125;/&gt;</code>.</p>
+ <br/>
+</li>
+<li><p>The general component props is <code>&#123;&#125;</code> if it is not passed; the routing component also has props <code>&#123;history:&#123;&#125;, location:&#123;&#125;, match:&#123;&#125;&#125;</code> fixed three properties.</p>
+<p> The encoding needs to be used in the three attributes are:</p>
+<p> <strong>history:</strong></p>
+<ul>
+<li>go: f <code>go(n)</code></li>
+<li>goBack: f <code>goBack()</code></li>
+<li>goForward: f <code>goForward()</code></li>
+<li>push: f <code>push(path, state)</code></li>
+<li>replace: f <code>replace(path, state)</code></li>
+</ul>
+<p> <strong>location:</strong></p>
+<ul>
+<li>pathname: “&#x2F;about”</li>
+<li>search: “ “</li>
+<li>state: undefined</li>
+</ul>
+<p> <strong>match:</strong></p>
+<ul>
+<li><p>params: <code>&#123;&#125;</code></p>
+</li>
+<li><p>path: “&#x2F;about”</p>
+</li>
+<li><p>url: “&#x2F;about”</p>
+<br/></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><strong>NavLink</strong></p>
+<p>If the route link is highlighted, or a dynamic class name needs to be appended when clicking, you cannot use <code>&lt;Link&gt;</code> , use <code>&lt;NavLink&gt;</code> . The mechanism of NavLink is to append a class name to the element currently being clicked, and the class name is active. (The mechanism of Bootstrap is that whoever is active will be highlighted. This matches NavLink exactly.)</p>
+<br/>
+
+<p>But sometimes you don’t use Bootstrap, or you don’t want to use the active category. This requires the use of an attribute of NavLink: activeClassName&#x3D;” “, which can specify the highlighted class name. When using this property, add <code>!important</code> to the style to increase the weight (to exceed the Bootstrap default weight) (there is a bug here).</p>
+<br/>
+</li>
+<li><p><strong>wrapped NavLink component</strong></p>
+<p>If it is not encapsulated, the code repetition is too high (the repeated content is activeClassName and className). Encapsulated as <code>&lt;MyNavLink&gt;</code> (generic component).</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NavLink</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="title class_">MyNavLink</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Component</span> &#123;</span><br><span class="line">   <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="keyword">return</span> (</span><br><span class="line">       <span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">activeClassName</span>=<span class="string">&quot;test&quot;</span> <span class="attr">className</span>=<span class="string">&quot;item&quot;</span> &#123;<span class="attr">...this.props</span>&#125;/&gt;</span></span></span><br><span class="line">)&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">MyNavLink</span> to=<span class="string">&quot;/home&quot;</span>&gt;<span class="title class_">Home</span>&lt;<span class="regexp">/MyNavLink&gt;&lt;br/</span>&gt; <span class="comment">//Use the same as NavLink, repeat the code to write to MyNavLink</span></span><br></pre></td></tr></table></figure>
+
+<br/>
+
+<p>Note here the delivery method of <font color='red'>tag body content</font> (Home in the example). The content of the component tag body is a special tag property: props.children. In a tag, instead of writing the content in the content of the tag body, write the content directly with children&#x3D;” “ in the tag, and the content can also be displayed.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p children=<span class="string">&quot;label body content&quot;</span>/&gt; <span class="comment">//This will display the label content normally.</span></span><br></pre></td></tr></table></figure>
+
+<p>In the example code block, use <code>&#123;...this.props&#125;</code> to write props.children into the tag together, that is, to display the content normally.</p>
+</li>
+<li><p><strong>Use of Switch</strong></p>
+<p>If a path corresponds to two components, both components will be rendered, but this is not normal code. The routing mechanism is that after the path matches the component, it will continue to match, which leads to low efficiency. The @5 version uses <code>&lt;Switch&gt;&lt;/Switch&gt;</code> to wrap the routing component to solve this problem. Once the path is matched to the component, it will not continue to match. (Use Switch when more than one route is registered)</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Switch</span>&gt;</span><br><span class="line">     <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/about&quot;</span> <span class="attr">component</span>=<span class="string">&#123;About&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/home&quot;</span> <span class="attr">component</span>=<span class="string">&#123;Home&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">Switch</span>&gt;</span></span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<br/>
+
+<ol start="5">
+<li><p><strong>Solve the problem of missing styles</strong></p>
+<p>Trigger condition for style loss: The navigation link uses multiple &#x2F; (non-nested routes) such as &#x2F;a&#x2F;b and uses bootstrap. After the page is rendered, the style may be lost. (The new version should have been fixed) You can hold down SHIFT and refresh every time you refresh, and force the refresh without leaving the cache.</p>
+<br/>
+
+<p>Reason analysis: In the network, look for the bootstrap.css file, the status is 200 (success), and the style is not lost here. Click here to find the bootstrap.css address <a target="_blank" rel="noopener" href="http://localhost:3000/css/bootstrap.css">http://localhost:3000/css/bootstrap.css</a> . This is the address of bootstrap.css in the scaffolding. (where <a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000</a> is the scaffolding built-in server (created by devServer in webpack), and public is the root path of <a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000</a>.) The validity of the bootstrap.css address can be verified directly in the browser Look at this address, or the response next to the header in the network.</p>
+<br/>
+
+<p>But when the &#x2F;a&#x2F;b structure is used, the bootstrap.css file, the status is 304. After clicking it, I found that the address is <a target="_blank" rel="noopener" href="http://localhost:3000/a/css/bootstrap.css">http://localhost:3000/a/css/bootstrap.css</a> , that is, &#x2F;a in the &#x2F;a&#x2F;b structure is considered to be part of the root path, so the address of the css file is wrong. At this time, the response returned is index.html. This is because there is a mechanism in the <font color='red'> scaffolding, that is, if a non-existing resource is requested with an address, the scaffolding will render the index.html in public. </font>The error reported here is <font style="background-color:yellow;">Resource interpreted as Stylesheet but transferred with MIME type text&#x2F;html: “<a href="http://localhost:3000...&quot;">http://localhost:3000...&quot;</a> </font></p>
+<br/>
+
+<p>There are three solutions:</p>
+<ol>
+<li><p>In the public index.html, change the css import path from <code>href=&#39;./css/bootstrap.css&#39;</code> to <code>href=&#39;/css/bootstrap.css&#39;</code> (remove <code>.</code>). The principle here is to change the relative path of <code>./</code> to the absolute path of <code>/</code>. <code>/</code> means to go directly to <a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000</a> to request content. This is generally used.</p>
+</li>
+<li><p>In index.html, the css import path is changed to <code>href=&#39;%PUBLIC_URL%/css/bootstrap.css&#39;</code> . %PUBLIC_URL% represents the absolute path to the public file. This scenario is limited to React scaffolding.</p>
+</li>
+<li><p>In index.js under src, BrowerRouter is changed to HashRouter. After the change, the root path becomes <a target="_blank" rel="noopener" href="http://localhost:3000/#/">http://localhost:3000/#/</a> . # are considered front-end resources and are not brought to the server, such as <a target="_blank" rel="noopener" href="http://localhost:3000/#/a/b">http://localhost:3000/#/a/b</a> .</p>
+<br/></li>
+</ol>
+</li>
+<li><p><strong>routing fuzzy matching and strict matching</strong></p>
+<p>Fuzzy matching: <code>to=&quot;/home/a/b&quot;</code> in the <code>&lt;Link&gt;</code> class tag provides many paths, but <code>&lt;Route&gt;</code> requires fewer paths for <code>path=&quot;/home&quot;</code>, you can match to. When matching, it matches in the order of <code>/home</code> <code>/a</code> <code>/b</code>, and <code>/home</code> matches <code>path=&quot;/home&quot;</code> in the <code>&lt;Route&gt;</code> tag, and the match is successful. However, if the order is wrong, such as <code>/a</code> <code>/home</code> <code>/b</code>, the match cannot be successful, because if <code>/a</code> does not match, it will be considered a match failure.</p>
+<br/>
+
+<p>Exact match: The paths must match exactly. <code>&lt;Route exact=&#123;true&#125; path=&quot;/about&quot; component=&#123;about&#125;/&gt;</code>. That is, <code>exact=&#123;true&#125;</code> is added to the <code>&lt;Route&gt;</code> tag. Shorthand can directly write <code>exact</code>, omitting <code>=&#123;true&#125;</code>.</p>
+<br/>
+
+<p>In actual work, try not to use strict matching, which will cause serious problems. The principle of use is that if you can not enable strict matching, you will not enable it. If there is a problem with fuzzy matching, then enable strict matching.</p>
+<br/>
+</li>
+<li><p><strong>Redirect implements preselection</strong></p>
+<p>In the previous way of writing, no routing components are displayed after opening the page, and the page needs to be clicked on the navigation link. But we want to have a default routing component. Implementing default routing requires Redirect redirection. (Deprecated in @6, changed to Navigate)</p>
+<br/>
+
+<p>Note that <a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000</a> (same as <a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000/</a> ) is for route matching. <code>/</code> is an empty string, matching no components. <code>&lt;Redirect to=&quot;/about&quot;/&gt;</code> should be placed at the bottom of the routing component, as a catch-all item (similar to the else in if) to redirect addresses that do not match the routing component to a routing component.</p>
+<br/>
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;<span class="title class_">Redirect</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Switch</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/about&quot;</span> <span class="attr">component</span>=<span class="string">&#123;about&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/about&quot;</span> <span class="attr">component</span>=<span class="string">&#123;about&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;<span class="name">Redirect</span> <span class="attr">to</span>=<span class="string">&quot;/about&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">Switch</span>&gt;</span></span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<br/>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://redre4per.github.io/repository/2021/12/28/React/E03%20Advanced%20usage%20of%20route/" data-id="cladj2woq007lssb34cqlhrga" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Derek Zhu"
+        },
+        "headline": "Advanced usage of route@5",
+        "image": "https://RedRe4per.github.io/repositoryhttps://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/5379198832082944.png",
+        "keywords": "React",
+        "genre": "Front-end React",
+        "datePublished": "2021-12-28",
+        "dateCreated": "2021-12-28",
+        "dateModified": "2022-11-12",
+        "url": "https://RedRe4per.github.io/repository/2021/12/28/React/E03 Advanced usage of route/",
+        "description": "
+
+Routing components and general components
+
+General components are placed in the src-components tag, but routing components are not in compliance with the specification. When standardizing developmen",
+        "wordCount": 1255
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/zhu-derek" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/RedRe4per" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/repository/2021/12/29/React/E04%20Nested%20route/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Nested route@5
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/repository/2021/12/26/React/E02%20Basic%20usage%20of%20route/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Basic usage of route@5</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/micro_macro.gif)" alt="Promise basic" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/JavaScript/">JavaScript</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/JavaScript/ES6/">ES6</a></p>
+                            <p class="item-title"><a href="/repository/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="title">Promise basic</a></p>
+                            <p class="item-date"><time datetime="2022-11-06T07:07:12.000Z" itemprop="datePublished">2022-11-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_rV3yZwoPFHb3y5gKQLBdCw.png)" alt="Rerender jest-axe" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="title">Rerender jest-axe</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T06:16:12.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_RQwRLQ0yyCvYmRn_Nst5yg.png)" alt="Jest test methods" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="title">Jest test methods</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T01:26:45.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/maxresdefault.jpg)" alt="FireEvent to simulate user operation" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="title">FireEvent to simulate user operation</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T12:36:19.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_Bg_nX5M7EWctOBUJFT1BqQ.jpeg)" alt="Methods to get DOM" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="title">Methods to get DOM</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T05:12:27.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/">Back-end</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/Express-js/">Express.js</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/Nest-js/">Nest.js</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/Node-js/">Node.js</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Database/">Database</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Database/MongoDB/">MongoDB</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Front-end/">Front-end</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Front-end/Axios/">Axios</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Front-end/React/">React</a><span class="category-list-count">18</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/HTML-CSS/">HTML&CSS</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/HTML-CSS/CSS/">CSS</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/JavaScript/">JavaScript</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/JavaScript/ES6/">ES6</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/JavaScript/Native-JavaScript/">Native JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Others/">Others</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Others/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Others/Stripe-payment/">Stripe payment</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Test/">Test</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a><span class="category-list-count">7</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/10/">October 2022</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/09/">September 2022</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/04/">April 2022</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/03/">March 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/02/">February 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/01/">January 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2021/12/">December 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2021/11/">November 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Axios/" rel="tag">Axios</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Express-js/" rel="tag">Express.js</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Hooks/" rel="tag">Hooks</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Mongoose/" rel="tag">Mongoose</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Native-JavaScript/" rel="tag">Native JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Nest-js/" rel="tag">Nest.js</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Payment/" rel="tag">Payment</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/React/" rel="tag">React</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/React-testing-library/" rel="tag">React-testing-library</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Stripe/" rel="tag">Stripe</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Test/" rel="tag">Test</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/repository/tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="/repository/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/repository/tags/ES6/" style="font-size: 13.33px;">ES6</a> <a href="/repository/tags/Express-js/" style="font-size: 16.67px;">Express.js</a> <a href="/repository/tags/Hooks/" style="font-size: 12.22px;">Hooks</a> <a href="/repository/tags/MongoDB/" style="font-size: 14.44px;">MongoDB</a> <a href="/repository/tags/Mongoose/" style="font-size: 12.22px;">Mongoose</a> <a href="/repository/tags/Native-JavaScript/" style="font-size: 11.11px;">Native JavaScript</a> <a href="/repository/tags/Nest-js/" style="font-size: 17.78px;">Nest.js</a> <a href="/repository/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/repository/tags/Payment/" style="font-size: 13.33px;">Payment</a> <a href="/repository/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/repository/tags/React/" style="font-size: 18.89px;">React</a> <a href="/repository/tags/React-testing-library/" style="font-size: 15.56px;">React-testing-library</a> <a href="/repository/tags/Stripe/" style="font-size: 13.33px;">Stripe</a> <a href="/repository/tags/Test/" style="font-size: 15.56px;">Test</a> <a href="/repository/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/repository/tags/npm/" style="font-size: 12.22px;">npm</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/repository/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Derek Zhu</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://redre4per.github.io/repository/2021/12/28/React/E03%20Advanced%20usage%20of%20route/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/repository/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/repository/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/repository/js/main.js"></script>
+
+
+</body>
+</html>

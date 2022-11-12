@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Virtual DOM, JSX | Full-stack Learning</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="React" />
+    
+    <meta name="description" content="**Why React uses JSX instead of native JS? ** Case 1: Create the following example with JS and JSX 123&lt;div id&#x3D;&quot;test&quot;&gt;    &lt;h1 id&#x3D;&quot;title&quot;&gt;Hello,React&lt;&#x2F;h1&gt;&lt;&#x2F;div">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Virtual DOM, JSX">
+<meta property="og:url" content="https://redre4per.github.io/repository/2021/11/25/React/A02%20Virtual%20DOM,%20JSX/index.html">
+<meta property="og:site_name" content="Full-stack Learning">
+<meta property="og:description" content="**Why React uses JSX instead of native JS? ** Case 1: Create the following example with JS and JSX 123&lt;div id&#x3D;&quot;test&quot;&gt;    &lt;h1 id&#x3D;&quot;title&quot;&gt;Hello,React&lt;&#x2F;h1&gt;&lt;&#x2F;div">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/Dom-1.png">
+<meta property="article:published_time" content="2021-11-25T03:06:26.000Z">
+<meta property="article:modified_time" content="2022-11-12T02:11:25.659Z">
+<meta property="article:author" content="Derek Zhu">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/Dom-1.png">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/repository/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/repository/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/repository/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/repository/css/style.css">
+
+
+    
+<script src="/repository/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/repository/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/repository/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/repository/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Derek Zhu&#39;s Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/repository/home">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/repository/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/Express-js/">Express.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/Nest-js/">Nest.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Back-end/Node-js/">Node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Database/MongoDB/">MongoDB</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Front-end/Axios/">Axios</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Front-end/React/">React</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/HTML-CSS/">HTML&CSS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/HTML-CSS/CSS/">CSS</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/JavaScript/">JavaScript</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/JavaScript/ES6/">ES6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/JavaScript/Native-JavaScript/">Native JavaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Others/">Others</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Others/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Others/Stripe-payment/">Stripe payment</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Test/">Test</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/repository/',
+        CONTENT_URL: '/repository/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/repository/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/repository/categories/Front-end/">Front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/repository/categories/Front-end/React/">React</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-React/A02 Virtual DOM, JSX" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Virtual DOM, JSX
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/repository/2021/11/25/React/A02%20Virtual%20DOM,%20JSX/" class="article-date">
+       <time datetime="2021-11-25T03:06:26.000Z" itemprop="datePublished">2021-11-25</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/repository/2021/11/25/React/A02%20Virtual%20DOM,%20JSX/" class="article-date">
+     <time datetime="2022-11-12T02:11:25.659Z" itemprop="dateModified">2022-11-12</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/repository/tags/React/" rel="tag">React</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/Dom-1.png"></p>
+<ol>
+<li><p>**Why React uses JSX instead of native JS? **</p>
+<p>Case 1: Create the following example with JS and JSX</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;test&quot;</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;title&quot;</span>&gt;</span>Hello,React<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">&lt;/divdiv&gt;</span><br></pre></td></tr></table></figure>
+
+<br/>
+
+<ol>
+<li><p>JSX</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">VDOM</span> = <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;title&quot;</span>&gt;</span> Hello, React <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JS: Syntax <code>const VDOM = React.createElement(tag name, tag attribute-object writing, tag content)</code></p>
+<p>That is, without introducing babel, create a virtual DOM directly with React. Note here that document.createElement() creates a real DOM, while React.createElement() creates a virtual DOM.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">VDOM</span> = <span class="title class_">React</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;h1&#x27;</span>, &#123;<span class="attr">id</span>: <span class="string">&#x27;title&#x27;</span>&#125;,<span class="string">&#x27;Hello, React&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<br/></li>
+</ol>
+<p>Case 2: One more level of nesting in case 1</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;test&quot;</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;title&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>Hello,React<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">&lt;/divdiv&gt;</span><br></pre></td></tr></table></figure>
+
+<br/>
+
+<ol>
+<li><p>JSX</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">VDOM</span> = <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;title&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>Hello, React<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JS: <font color='red'>Wrong writing</font> (The span tag in this writing method does not take effect.)</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">VDOM</span> = <span class="title class_">React</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;h1&#x27;</span>, &#123;<span class="attr">id</span>: <span class="string">&#x27;title&#x27;</span>&#125;,<span class="string">&#x27;&lt;span&gt;Hello, React&lt;/span&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Correct spelling</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">VDOM</span> = <span class="title class_">React</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;h1&#x27;</span>, &#123;<span class="attr">id</span>: <span class="string">&#x27;title&#x27;</span>&#125;,<span class="title class_">React</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;span&#x27;</span>, &#123;&#125;, <span class="string">&#x27;Hello, React&#x27;</span>)) <span class="comment">//Write an empty object without a tag attribute.</span></span><br></pre></td></tr></table></figure>
+
+<br/></li>
+</ol>
+<p>When multiple layers of tags need to be nested, it is very difficult to write native JS, and JSX only needs to be written in normal HTML mode.</p>
+<p>The creation of JSX is only to solve: to solve the problem that virtual DOM creation is too cumbersome. JSX also supports newline writing. Use parentheses ( ) to wrap the code in JSX. Note here that the JSX code in the example, after being translated by babel, is the JS code in the example.</p>
+<p>Therefore, the way of creating virtual DOM in JSX is the syntactic sugar for creating virtual DOM in native JS.</p>
+<br/>
+</li>
+<li><p><strong>Virtual DOM</strong></p>
+<p>Methods of outputting the DOM</p>
+<p>Use Console.log to output the VDOM. The result is a generic Object, whose data type is object, and which is also an instance of Object. (left)</p>
+<br/>
+
+<p>Use Console.log to output the real DOM. The real DOM is written HTML, like <code>&lt;div id=&quot;demo&quot;&gt;&lt;/div&gt;</code> . If I use the code <code>Console.log(document.getElementById(&quot;demo&quot;))</code>, the output can only get <code>&lt;div id=&quot;test&quot;&gt;&lt;/div&gt;</code> without seeing the attributes. So you need to use breakpoints, <code>debugger;</code> (right)</p>
+<br/>
+
+<p><img src="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/image-20220301173549866.png" alt="Real DOM and Virtual DOM"></p>
+<br/>
+
+<p>In conclusion</p>
+<ol>
+<li><p>Virtual DOM is essentially an object of type Object (general object)</p>
+</li>
+<li><p>The virtual DOM is relatively “light” and has fewer attributes; the real DOM is relatively “heavy”. Because the virtual DOM is used internally by React, there is no need for so many properties on the real DOM.</p>
+</li>
+<li><p>The virtual DOM will eventually be converted into a real DOM by React and presented on the page.</p>
+<br/></li>
+</ol>
+</li>
+<li><p><strong>JSX syntax</strong></p>
+<p>The full name is JavaScript XML. It is a JS extension syntax similar to XML defined by React. XML is an early data storage and transmission mode. Later, JSON is used to store data in the form of <code>&#123;&#125;</code> object strings. The parse method converts the string to JSON, and the stringily method converts the object string.</p>
+<br/>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">student</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Tom<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">age</span>&gt;</span>19<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">student</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<br/>
+
+<p>Grammar rules:</p>
+<ol>
+<li><p>When defining a virtual DOM, do not write quotes.</p>
+</li>
+<li><p>If you want to mix JS expressions in the tag, use the <code>&#123;&#125;</code> form. And because JS requires lowercase, it can be converted with <code>&#123;myId&#125;.toLowerCase( )</code>.</p>
+</li>
+<li><p>The style class name designation applies <code>className</code>, because class is already occupied by the keyword. For example <code>className=&quot;title&quot;</code>.</p>
+<br/>
+</li>
+<li><p>The inline style cannot be written with <code>style=&quot;color: white&quot;</code>, it will report an error that style cannot be written as a string. Because multiple sets of key-value pairs can be written in style, inline styles are written in object form in JSX. style needs to be written as a double {} pattern, ie: <code>style=&#123;&#123;&#125;&#125; </code></p>
+<p>The outer {} represents the JS environment, and the inner {} represents the object in the JS. Such as <code>style=&#123;&#123;color: 'white'&#125;&#125; </code>. <font color='red'>Be careful to add <code>&#39;&#39;</code> here, otherwise it will become a variable. </font></p>
+<p>In addition, some inline styles are composed of multiple words, namely <code>font-size</code>. It should be written as a small hump, that is, <code>style=&#123;&#123;color: 'white', fontSize: '20px'&#125;&#125;</code></p>
+<p><font color='red'>Summary</font>: Inline styles should be written in the form of <code>style=&#123;&#123;key: value&#125;&#125; </code>.</p>
+<br/>
+</li>
+<li><p>JSX requires only one root tag. That is, the outermost layer needs a <code>&lt;div&gt;</code> container.</p>
+</li>
+<li><p>The label must be closed.</p>
+<p>The first: <code>&lt;input type=&quot;text&quot;&gt;&lt;/input&gt;</code></p>
+<p>The second: <code>&lt;input type=&quot;text&quot;/&gt;</code></p>
+<br/>
+</li>
+<li><p>Lowercase tags in JSX tags will be automatically converted to HTML tags with the same name when babel is compiled, and uppercase tags are component tags. But if you write a tag that is not in HTML and it is still a lowercase tag, it will be ignored by babel when compiling, which is equivalent to writing no tag outside.</p>
+<p>The first letter of the label: <font color='green'>If it starts with a lowercase letter</font>, the label will be converted to an element with the same name in HTML. If there is no element with the same name in HTML, an error will be reported. <font color='green'>If the uppercase letter starts with </font>, react will render the corresponding component. If the component is not defined, an error will be reported.</p>
+<br/></li>
+</ol>
+</li>
+<li><p><strong>JSX error-prone point</strong></p>
+<ol>
+<li><p>React can automatically traverse the data in the array. The backend returns pure data, which is modified with <code>map()</code>.</p>
+</li>
+<li><p><font color='red'>React cannot directly write the object as a node in the JSX tag. </font> The corresponding error is:</p>
+<p><font style="background-color:pink;"> Uncaught Invariant Violation: Objects are not valid as a React child. If you meant to render a collection of children, use an array instead. </font></p>
+</li>
+<li><p>In JSX, the for loop cannot be written in the tag. Because JS expressions inside JSX tags are written in <code>&#123;&#125;</code>, <code>&#123;&#125;</code> can only be written as expressions, not statements.</p>
+<br/>
+</li>
+<li><p>JS expressions</p>
+<p>Expression: An expression yields a value and can be placed anywhere a value is required.</p>
+<p><font color='lightgrey'>Example: a variable name, a+b, demo(1) function call expression, arr.map() processing array, function <code>test()&#123;&#125;</code> defining function. </font></p>
+<p><font color='lightgrey'>Simple distinction method: connect a const x&#x3D; to the left of the expression, if it can receive a value, it is an expression, and if it cannot be received, it is not. </font></p>
+<p>Statement: <code>if()&#123;&#125;</code>, <code>for()&#123;&#125;</code>, <code>switch()&#123;case:xxx&#125;</code></p>
+<p>The <font color='lightgrey'> statement controls the direction of the code. No value, not part of an expression, no value. </font></p>
+<br/>
+</li>
+<li><p>The map needs a key after modifying the array, because the diff algorithm needs it. The key is written in the loop <font color='red'>tag</font> as an attribute.</p>
+<p><font color='lightgrey'>If you don’t add data in reverse order, delete in order, etc. to destroy the order, only the list is rendered for display, and index can be used as the key. </font></p>
+<br/></li>
+</ol>
+</li>
+<li><p><strong>The way of comments in JSX</strong></p>
+<p>Using <code>/* */ </code> directly will not work. Use <code>&#123;/* */&#125;</code> because <code>&#123;&#125;</code> provides the JS execution environment.</p>
+<br/>
+</li>
+<li><p><strong>Folding code in JSX</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//#region</span></span><br><span class="line">code block</span><br><span class="line"><span class="comment">//#endregion</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<br/>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://redre4per.github.io/repository/2021/11/25/React/A02%20Virtual%20DOM,%20JSX/" data-id="cladj2woj006issb3awuu69i0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Derek Zhu"
+        },
+        "headline": "Virtual DOM, JSX",
+        "image": "https://RedRe4per.github.io/repositoryhttps://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/Dom-1.png",
+        "keywords": "React",
+        "genre": "Front-end React",
+        "datePublished": "2021-11-25",
+        "dateCreated": "2021-11-25",
+        "dateModified": "2022-11-12",
+        "url": "https://RedRe4per.github.io/repository/2021/11/25/React/A02 Virtual DOM, JSX/",
+        "description": "
+
+**Why React uses JSX instead of native JS? **
+Case 1: Create the following example with JS and JSX
+123&lt;div id=&quot;test&quot;&gt;    &lt;h1 id=&quot;title&quot;&gt;Hello,React&lt;/h1&gt;&lt;/div",
+        "wordCount": 1217
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/zhu-derek" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/RedRe4per" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/repository/2021/11/26/React/B01%20Component/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Component
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/repository/2021/11/24/React/A01%20Introduction/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Introduction</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/micro_macro.gif)" alt="Promise basic" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/JavaScript/">JavaScript</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/JavaScript/ES6/">ES6</a></p>
+                            <p class="item-title"><a href="/repository/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="title">Promise basic</a></p>
+                            <p class="item-date"><time datetime="2022-11-06T07:07:12.000Z" itemprop="datePublished">2022-11-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_rV3yZwoPFHb3y5gKQLBdCw.png)" alt="Rerender jest-axe" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="title">Rerender jest-axe</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T06:16:12.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_RQwRLQ0yyCvYmRn_Nst5yg.png)" alt="Jest test methods" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="title">Jest test methods</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T01:26:45.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/maxresdefault.jpg)" alt="FireEvent to simulate user operation" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="title">FireEvent to simulate user operation</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T12:36:19.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/repository/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_Bg_nX5M7EWctOBUJFT1BqQ.jpeg)" alt="Methods to get DOM" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/repository/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/repository/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="title">Methods to get DOM</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T05:12:27.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/">Back-end</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/Express-js/">Express.js</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/Nest-js/">Nest.js</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Back-end/Node-js/">Node.js</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Database/">Database</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Database/MongoDB/">MongoDB</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Front-end/">Front-end</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Front-end/Axios/">Axios</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Front-end/React/">React</a><span class="category-list-count">18</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/HTML-CSS/">HTML&CSS</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/HTML-CSS/CSS/">CSS</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/JavaScript/">JavaScript</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/JavaScript/ES6/">ES6</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/JavaScript/Native-JavaScript/">Native JavaScript</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Others/">Others</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Others/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Others/Stripe-payment/">Stripe payment</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Test/">Test</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/repository/categories/Test/React-testing-library/">React-testing-library</a><span class="category-list-count">7</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/10/">October 2022</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/09/">September 2022</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/04/">April 2022</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/03/">March 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/02/">February 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2022/01/">January 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2021/12/">December 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2021/11/">November 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/repository/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Axios/" rel="tag">Axios</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Express-js/" rel="tag">Express.js</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Hooks/" rel="tag">Hooks</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Mongoose/" rel="tag">Mongoose</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Native-JavaScript/" rel="tag">Native JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Nest-js/" rel="tag">Nest.js</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Payment/" rel="tag">Payment</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/React/" rel="tag">React</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/React-testing-library/" rel="tag">React-testing-library</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Stripe/" rel="tag">Stripe</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/Test/" rel="tag">Test</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/repository/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/repository/tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="/repository/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/repository/tags/ES6/" style="font-size: 13.33px;">ES6</a> <a href="/repository/tags/Express-js/" style="font-size: 16.67px;">Express.js</a> <a href="/repository/tags/Hooks/" style="font-size: 12.22px;">Hooks</a> <a href="/repository/tags/MongoDB/" style="font-size: 14.44px;">MongoDB</a> <a href="/repository/tags/Mongoose/" style="font-size: 12.22px;">Mongoose</a> <a href="/repository/tags/Native-JavaScript/" style="font-size: 11.11px;">Native JavaScript</a> <a href="/repository/tags/Nest-js/" style="font-size: 17.78px;">Nest.js</a> <a href="/repository/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/repository/tags/Payment/" style="font-size: 13.33px;">Payment</a> <a href="/repository/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/repository/tags/React/" style="font-size: 18.89px;">React</a> <a href="/repository/tags/React-testing-library/" style="font-size: 15.56px;">React-testing-library</a> <a href="/repository/tags/Stripe/" style="font-size: 13.33px;">Stripe</a> <a href="/repository/tags/Test/" style="font-size: 15.56px;">Test</a> <a href="/repository/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/repository/tags/npm/" style="font-size: 12.22px;">npm</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/repository/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Derek Zhu</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://redre4per.github.io/repository/2021/11/25/React/A02%20Virtual%20DOM,%20JSX/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/repository/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/repository/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/repository/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/repository/js/main.js"></script>
+
+
+</body>
+</html>
