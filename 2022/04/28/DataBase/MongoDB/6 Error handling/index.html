@@ -260,7 +260,7 @@
 <p><font color='red'>The error returned at this time is an error interpretation of express, which is difficult to read and needs further processing. </font></p>
 <br/>
 
-<p>For handling captured errors, you can create an errorHandler.js file in the middleware folder (<a href="mailto:&#x4e;&#x6f;&#x64;&#101;&#x2e;&#106;&#x73;&#64;&#52;&#46;&#53;">&#x4e;&#x6f;&#x64;&#101;&#x2e;&#106;&#x73;&#64;&#52;&#46;&#53;</a>):</p>
+<p>For handling captured errors, you can create an errorHandler.js file in the middleware folder (<a href="mailto:&#x4e;&#x6f;&#100;&#101;&#x2e;&#106;&#115;&#x40;&#x34;&#46;&#x35;">&#x4e;&#x6f;&#100;&#101;&#x2e;&#106;&#115;&#x40;&#x34;&#46;&#x35;</a>):</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="function">(<span class="params">error, req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(error);</span><br><span class="line">    <span class="keyword">return</span> res.<span class="title function_">status</span>(<span class="number">500</span>).<span class="title function_">json</span>(&#123;</span><br><span class="line">        <span class="attr">error</span>:<span class="string">&#x27;Error! Please try later&#x27;</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>ErrorHandler.js is referenced in index.js and registered on the app. (Written before connectToDB)</p>
@@ -297,7 +297,7 @@
 
 
 
-    <a data-url="https://redre4per.github.io/2022/04/28/DataBase/MongoDB/6%20Error%20handling/" data-id="cladpwhq6005xtgb363vt9k5b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://redre4per.github.io/2022/04/28/DataBase/MongoDB/6%20Error%20handling/" data-id="cladq0bii0057a8b37hgwh5r0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
