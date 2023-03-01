@@ -159,6 +159,353 @@
         
         <section class="archives-wrap">
             <div class="archive-year-wrap">
+                <a href="/archives/2023" class="archive-year"><i class="icon fa fa-calendar-o"></i>2023</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2023/01/06/Others/Chinese%20notes/05%20Types%20-%20any,%20unknown,%20never/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2023/01/06/Others/Chinese%20notes/05%20Types%20-%20any,%20unknown,%20never/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2023-01-06T00:29:31.000Z" itemprop="datePublished">2023-01-06</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2023/01/06/Others/Chinese%20notes/05%20Types%20-%20any,%20unknown,%20never/">Types - any, unknown, never</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+any
+any 类型是 TS 中指定的最灵活的类型，any 基本上确保 TS 编译器不能检查任何东西。但 any 也剥夺了 TS 带来的所有好处，应该尽量避免。
+
+unknown
+unknown 比 any 严格一些。把一个未知类型的值赋给一个固定类型的值时，unknown 比 any 更好。它们的区别是：
+
+可赋值性
+any 类型的值可以被赋值给任何类型的变量，也可以将任何类型的值赋给 any
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2023/01/05/Others/Chinese%20notes/04%20Types%20-%20union,%20literal,%20aliases/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2023/01/05/Others/Chinese%20notes/04%20Types%20-%20union,%20literal,%20aliases/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2023-01-05T00:29:31.000Z" itemprop="datePublished">2023-01-05</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2023/01/05/Others/Chinese%20notes/04%20Types%20-%20union,%20literal,%20aliases/">Types - union, literal, custom/aliases</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+union 联合类型
+写法为 参数: 类型1|类型2|类型3...。表示参数可以赋这些类型的值。如：
+123function combine(input1: string | number, input2: string | number)&#123;    const result = input1 + input2; //报错&#125;
+
+例子中，无法在函数内直接写 const resul
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2023/01/04/Others/Chinese%20notes/03%20Types%20-%20array,%20tuple,%20enum/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2023/01/04/Others/Chinese%20notes/03%20Types%20-%20array,%20tuple,%20enum/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2023-01-04T00:29:31.000Z" itemprop="datePublished">2023-01-04</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2023/01/04/Others/Chinese%20notes/03%20Types%20-%20array,%20tuple,%20enum/">Types - Array, Tuple, Enum</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+TS 对数组的支持
+数组类型写法为 数组名: 数组中数据类型[]，如 hobbies: string[]。在对象内外使用数组是完全一样的。
+另一种写法是 Array&lt;类型&gt;，例如 hobbies: Array&lt;string&gt;。这两种写法是等价的。
+如果给数组赋了初始值（而不是空数组），TS 也会自动推断数组类型。如：
+1234const person = &#123;  
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2023/01/03/Others/Chinese%20notes/02%20Types%20-%20primitive,%20object/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2023/01/03/Others/Chinese%20notes/02%20Types%20-%20primitive,%20object/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2023-01-03T00:29:31.000Z" itemprop="datePublished">2023-01-03</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2023/01/03/Others/Chinese%20notes/02%20Types%20-%20primitive,%20object/">Types - primitive, object</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+Core Types
+primitive types：number, string, boolean
+reference types：object, Array
+TS 专属 typs：Tuple, Enum, any
+primitive types 在 TS 中写法就是，参数: 类型，如 n1: number。
+
+Type Casting 大小写问题
+在 TS 中，core primitive 
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2023/01/02/Others/Chinese%20notes/01%20TS%E4%BB%8B%E7%BB%8D/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2023/01/02/Others/Chinese%20notes/01%20TS%E4%BB%8B%E7%BB%8D/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2023-01-02T00:29:31.000Z" itemprop="datePublished">2023-01-02</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2023/01/02/Others/Chinese%20notes/01%20TS%E4%BB%8B%E7%BB%8D/">Typescript Introduction</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+什么是 TypeScript
+TS 是 JavaScript 的超集（superset）。TS 采用 JS 并为其添加了新的特性和语法。TS 不能在 JS 环境（如浏览器，node.js）直接执行。
+TS 是一种编程语言，也是一种工具。它是一个强大的编译器，它会把 TS 代码编译成 JS 代码。也就是说，程序员编写了具有所有新特性和所有优点的 TS 代码，结果得到的是正常的 JS 代码。
+TS 
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2023/01/01/Others/Chinese%20notes/00%20Create%20new%20project/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2023/01/01/Others/Chinese%20notes/00%20Create%20new%20project/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2023-01-01T00:29:31.000Z" itemprop="datePublished">2023-01-01</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2023/01/01/Others/Chinese%20notes/00%20Create%20new%20project/">Create new project with Next.js</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+项目要装的包和插件
+
+next.js
+engine locking
+eslint
+prettier
+lint-staged
+vs config
+testing (jest, cypress)
+git hooks (husky)
+conventional commit
+UI (chakra ui)
+tailwind
+daisyUI
+redux tool kit
+storybook
+
+
+Next.j
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+        
+            </div></section>
+        
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
                 <a href="/archives/2022" class="archive-year"><i class="icon fa fa-calendar-o"></i>2022</a>
             </div>
             <div class="archives">
@@ -170,17 +517,17 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2022/10/05/Others/Stripe/2%20Stripe%20hosted%20page%20back-end/" class="thumbnail">
+        <a href="/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="thumbnail">
     
     
-        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/stripe-specialist-sydney-melbourne-3.png)" alt="Stripe hosted page back-end" class="thumbnail-image"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/micro_macro.gif)" alt="Promise basic" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2022/10/05/Others/Stripe/2%20Stripe%20hosted%20page%20back-end/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2022/11/06/JavaScript/ES6/4%20Promise%20basic/">0</span>
     
 </span>
 
@@ -191,22 +538,22 @@
         
         <div class="article-meta">
             <div class="category">
-            <a class="article-category-link" href="/categories/Others/">Others</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Others/Stripe-payment/">Stripe payment</a>
+            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/JavaScript/ES6/">ES6</a>
             </div>
-            <div class="date"><time datetime="2022-10-04T21:04:29.000Z" itemprop="datePublished">2022-10-05</time></div>
+            <div class="date"><time datetime="2022-11-06T07:07:12.000Z" itemprop="datePublished">2022-11-06</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2022/10/05/Others/Stripe/2%20Stripe%20hosted%20page%20back-end/">Stripe hosted page back-end</a>
+        <a href="/2022/11/06/JavaScript/ES6/4%20Promise%20basic/">Promise basic</a>
         </h1>
     
 
         <p class="article-excerpt">
             
 
-Stripe hosted checkout: Back-end
-Provides a pre-build hosted payment page that can be used for a one-time payment or subscription. The advantage is that there is no need to create a custom integrati
+Promise: A new solution for asynchronous programming introduced in ES6.
+Promises are mainly to solve the previous problem of callback hell. Promise is a constructor that encapsulates an asynchronous
         </p>
     </div>
 </article>
@@ -219,17 +566,17 @@ Provides a pre-build hosted payment page that can be used for a one-time payment
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2022/10/04/Others/Stripe/1%20Introduction/" class="thumbnail">
+        <a href="/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="thumbnail">
     
     
-        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/social-9755e0835b1ab1538bddad515c24744b.png)" alt="Introduction to Stripe" class="thumbnail-image"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_rV3yZwoPFHb3y5gKQLBdCw.png)" alt="Rerender jest-axe" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2022/10/04/Others/Stripe/1%20Introduction/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/">0</span>
     
 </span>
 
@@ -240,132 +587,29 @@ Provides a pre-build hosted payment page that can be used for a one-time payment
         
         <div class="article-meta">
             <div class="category">
-            <a class="article-category-link" href="/categories/Others/">Others</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Others/Stripe-payment/">Stripe payment</a>
+            <a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a>
             </div>
-            <div class="date"><time datetime="2022-10-04T00:29:31.000Z" itemprop="datePublished">2022-10-04</time></div>
+            <div class="date"><time datetime="2022-10-18T06:16:12.000Z" itemprop="datePublished">2022-10-18</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2022/10/04/Others/Stripe/1%20Introduction/">Introduction to Stripe</a>
+        <a href="/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/">Rerender jest-axe</a>
         </h1>
     
 
         <p class="article-excerpt">
             
 
-Introduce
-Stripe code consists of two parts: front-end and back-end. The front end tokenizes customer information and uses stripe elements to collect sensitive information.
+render()
+rerender is used to simulate props changing. How to get rerender():
+1const &#123;rerender&#125; = render(&lt;FavoriteNumber /&gt;);
 
 
 
 
-
-General flow
-
-All pa
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2022/09/28/NestJS/13%20Database%20migration/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/databaseMigration.png)" alt="Database migration" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2022/09/28/NestJS/13%20Database%20migration/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Back-end/Nest-js/">Nest.js</a>
-            </div>
-            <div class="date"><time datetime="2022-09-28T04:11:26.000Z" itemprop="datePublished">2022-09-28</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2022/09/28/NestJS/13%20Database%20migration/">Database migration</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-
-Database Migration
-Database migrations provide a way to incrementally update the database schema and keep it in sync with the application data model, while preserving the existing data in our databa
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2022/09/27/NestJS/12%20Add%20index%20to%20Schema/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/databaseIndex.webp)" alt="Add index to Schema" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2022/09/27/NestJS/12%20Add%20index%20to%20Schema/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Back-end/Nest-js/">Nest.js</a>
-            </div>
-            <div class="date"><time datetime="2022-09-27T12:52:07.000Z" itemprop="datePublished">2022-09-27</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2022/09/27/NestJS/12%20Add%20index%20to%20Schema/">Add index to Schema</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-
-index
-Indexes are special lookup tables that database search engines can use to speed up data retrieval. Without an index, Mongo must perform a collection scan, which means it must scan every docume
+rerender() uses and passes parameters
+rerender() is u
         </p>
     </div>
 </article>
@@ -382,17 +626,17 @@ Indexes are special lookup tables that database search engines can use to speed 
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2022/09/25/NestJS/11%20Transactions/" class="thumbnail">
+        <a href="/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="thumbnail">
     
     
-        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/db-transactions.webp)" alt="Transactions" class="thumbnail-image"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_RQwRLQ0yyCvYmRn_Nst5yg.png)" alt="Jest test methods" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2022/09/25/NestJS/11%20Transactions/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/">0</span>
     
 </span>
 
@@ -403,23 +647,24 @@ Indexes are special lookup tables that database search engines can use to speed 
         
         <div class="article-meta">
             <div class="category">
-            <a class="article-category-link" href="/categories/Back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Back-end/Nest-js/">Nest.js</a>
+            <a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a>
             </div>
-            <div class="date"><time datetime="2022-09-25T03:07:52.000Z" itemprop="datePublished">2022-09-25</time></div>
+            <div class="date"><time datetime="2022-10-18T01:26:45.000Z" itemprop="datePublished">2022-10-18</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2022/09/25/NestJS/11%20Transactions/">Transactions</a>
+        <a href="/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/">Jest test methods</a>
         </h1>
     
 
         <p class="article-excerpt">
             
 
-Transaction
-We perform multiple operations on the database, making sure they only happen if everything is successful.
-A database transaction represents a unit of work performed in a database managem
+Format
+expect(A).ValidateItem() is used in React testing library and Jest to verify functionality.
+Expect() Assertion Summary 1 
+[Expect() Assertion Summary 2](https://www.w3cschool.cn/jest_cn/ jest
         </p>
     </div>
 </article>
@@ -432,17 +677,17 @@ A database transaction represents a unit of work performed in a database managem
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2022/09/24/NestJS/10%20Interact%20with%20mongoDB/" class="thumbnail">
+        <a href="/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="thumbnail">
     
     
-        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/image-blog-openlogic-what-is-mongodb.png)" alt="Interact with MongoDB, pagination" class="thumbnail-image"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/myhc_89683.jpg)" alt="FireEvent to simulate user operation" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2022/09/24/NestJS/10%20Interact%20with%20mongoDB/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/">0</span>
     
 </span>
 
@@ -453,227 +698,22 @@ A database transaction represents a unit of work performed in a database managem
         
         <div class="article-meta">
             <div class="category">
-            <a class="article-category-link" href="/categories/Back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Back-end/Nest-js/">Nest.js</a>
+            <a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a>
             </div>
-            <div class="date"><time datetime="2022-09-24T09:47:37.000Z" itemprop="datePublished">2022-09-24</time></div>
+            <div class="date"><time datetime="2022-10-17T12:36:19.000Z" itemprop="datePublished">2022-10-17</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2022/09/24/NestJS/10%20Interact%20with%20mongoDB/">Interact with MongoDB, pagination</a>
+        <a href="/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/">FireEvent to simulate user operation</a>
         </h1>
     
 
         <p class="article-excerpt">
             
 
-Inject model into service
-Use the @injectModel() decorator and pass in the schema name. Model&lt;schema class name&gt; is a fixed notation. Same here as express, but also write async&#x2F;await to m
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2022/09/23/NestJS/09%20Mongoose%20model/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/mongodb.png)" alt="Mongoose model" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2022/09/23/NestJS/09%20Mongoose%20model/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Back-end/Nest-js/">Nest.js</a>
-            </div>
-            <div class="date"><time datetime="2022-09-23T02:07:48.000Z" itemprop="datePublished">2022-09-23</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2022/09/23/NestJS/09%20Mongoose%20model/">Mongoose model</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-
-Data model schema
-These models are responsible for creating, reading and deleting documents from the Mongo database. We need to create a schema first. The schema can be created manually using NestJS
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2022/09/21/NestJS/08%20Docker%20Mongoose/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/nest%26mongo.jpg)" alt="Docker Mongoose" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2022/09/21/NestJS/08%20Docker%20Mongoose/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Back-end/Nest-js/">Nest.js</a>
-            </div>
-            <div class="date"><time datetime="2022-09-21T10:54:02.000Z" itemprop="datePublished">2022-09-21</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2022/09/21/NestJS/08%20Docker%20Mongoose/">Docker Mongoose</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-
-Docker containerization
-The benefits of using Docker: flexible, lightweight, portable, loosely coupled.
-They can be built locally to the cloud and run anywhere, and finally containers are loosely co
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2022/09/20/NestJS/07%20DTO/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/layers-4.svg)" alt="DTO data verification" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2022/09/20/NestJS/07%20DTO/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Back-end/Nest-js/">Nest.js</a>
-            </div>
-            <div class="date"><time datetime="2022-09-20T13:04:18.000Z" itemprop="datePublished">2022-09-20</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2022/09/20/NestJS/07%20DTO/">DTO data verification</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-
-DTO
-DTO is short for data transfer object. A DTO is an object that encapsulates data and sends it from one application to another. DTOs help us define interfaces or inputs and outputs within the sys
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2022/09/17/NestJS/06%20Modularization/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/nestImage.jpg)" alt="Modularization" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://redre4per.github.io/2022/09/17/NestJS/06%20Modularization/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/Back-end/">Back-end</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Back-end/Nest-js/">Nest.js</a>
-            </div>
-            <div class="date"><time datetime="2022-09-17T02:41:17.000Z" itemprop="datePublished">2022-09-17</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2022/09/17/NestJS/06%20Modularization/">Modularization</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-
-Reasonable nest architecture, create modules
-A well-structured architecture should employ multiple modules, each encapsulating a set of closely related functions. The function should contain control
+fireEvent
+fireEvent was originally in the @testing-library&#x2F;dom package, but @testing-library&#x2F;react rewrote it and gave it additional React-specific functionality. It can simulate user acti
         </p>
     </div>
 </article>
@@ -686,8 +726,8 @@ A well-structured architecture should employ multiple modules, each encapsulatin
 
 
     <nav id="page-nav">
-        <span class="pages">Page 2 of 9</span>
-        <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
+        <span class="pages">Page 2 of 11</span>
+        <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
     </nav>
 
 
@@ -733,10 +773,10 @@ A well-structured architecture should employ multiple modules, each encapsulatin
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="thumbnail">
+                            <a href="/2023/02/03/Others/Chinese%20notes/Appendix%20TS%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7/" class="thumbnail">
     
     
-        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/micro_macro.gif)" alt="Promise basic" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
     
 </a>
@@ -744,19 +784,19 @@ A well-structured architecture should employ multiple modules, each encapsulatin
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/JavaScript/ES6/">ES6</a></p>
-                            <p class="item-title"><a href="/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="title">Promise basic</a></p>
-                            <p class="item-date"><time datetime="2022-11-06T07:07:12.000Z" itemprop="datePublished">2022-11-06</time></p>
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2023/02/03/Others/Chinese%20notes/Appendix%20TS%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7/" class="title">Appendix - Special characters in TS</a></p>
+                            <p class="item-date"><time datetime="2023-02-03T00:29:31.000Z" itemprop="datePublished">2023-02-03</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="thumbnail">
+                            <a href="/2023/02/02/Others/Chinese%20notes/14%20React%E4%B8%AD%E7%9A%84TS/" class="thumbnail">
     
     
-        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_rV3yZwoPFHb3y5gKQLBdCw.png)" alt="Rerender jest-axe" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
     
 </a>
@@ -764,19 +804,19 @@ A well-structured architecture should employ multiple modules, each encapsulatin
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
-                            <p class="item-title"><a href="/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="title">Rerender jest-axe</a></p>
-                            <p class="item-date"><time datetime="2022-10-18T06:16:12.000Z" itemprop="datePublished">2022-10-18</time></p>
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2023/02/02/Others/Chinese%20notes/14%20React%E4%B8%AD%E7%9A%84TS/" class="title">TS in React</a></p>
+                            <p class="item-date"><time datetime="2023-02-02T00:29:31.000Z" itemprop="datePublished">2023-02-02</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="thumbnail">
+                            <a href="/2023/01/28/Others/Chinese%20notes/13%20Generic%20Utility%20Types/" class="thumbnail">
     
     
-        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_RQwRLQ0yyCvYmRn_Nst5yg.png)" alt="Jest test methods" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
     
 </a>
@@ -784,19 +824,19 @@ A well-structured architecture should employ multiple modules, each encapsulatin
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
-                            <p class="item-title"><a href="/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="title">Jest test methods</a></p>
-                            <p class="item-date"><time datetime="2022-10-18T01:26:45.000Z" itemprop="datePublished">2022-10-18</time></p>
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2023/01/28/Others/Chinese%20notes/13%20Generic%20Utility%20Types/" class="title">Generic Utility Types</a></p>
+                            <p class="item-date"><time datetime="2023-01-28T00:29:31.000Z" itemprop="datePublished">2023-01-28</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="thumbnail">
+                            <a href="/2023/01/16/Others/Chinese%20notes/12%20Generic/" class="thumbnail">
     
     
-        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/myhc_89683.jpg)" alt="FireEvent to simulate user operation" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
     
 </a>
@@ -804,19 +844,19 @@ A well-structured architecture should employ multiple modules, each encapsulatin
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
-                            <p class="item-title"><a href="/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="title">FireEvent to simulate user operation</a></p>
-                            <p class="item-date"><time datetime="2022-10-17T12:36:19.000Z" itemprop="datePublished">2022-10-17</time></p>
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2023/01/16/Others/Chinese%20notes/12%20Generic/" class="title">Generic</a></p>
+                            <p class="item-date"><time datetime="2023-01-16T00:29:31.000Z" itemprop="datePublished">2023-01-16</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="thumbnail">
+                            <a href="/2023/01/12/Others/Chinese%20notes/11%20%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%20%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B%20%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" class="thumbnail">
     
     
-        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_Bg_nX5M7EWctOBUJFT1BqQ.jpeg)" alt="Methods to get DOM" class="thumbnail-image"></span>
+        <span class="thumbnail-image thumbnail-none"></span>
     
     
 </a>
@@ -824,9 +864,9 @@ A well-structured architecture should employ multiple modules, each encapsulatin
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
-                            <p class="item-title"><a href="/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="title">Methods to get DOM</a></p>
-                            <p class="item-date"><time datetime="2022-10-17T05:12:27.000Z" itemprop="datePublished">2022-10-17</time></p>
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2023/01/12/Others/Chinese%20notes/11%20%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%20%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B%20%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" class="title">Advanced types - Type Casting, index properties, Function overloads, Optional chaining, Nullish Coalescing</a></p>
+                            <p class="item-date"><time datetime="2023-01-12T00:29:31.000Z" itemprop="datePublished">2023-01-12</time></p>
                         </div>
                     </li>
                 
@@ -849,7 +889,7 @@ A well-structured architecture should employ multiple modules, each encapsulatin
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -859,7 +899,7 @@ A well-structured architecture should employ multiple modules, each encapsulatin
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Axios/" rel="tag">Axios</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chinese-notes/" rel="tag">Chinese notes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-js/" rel="tag">Express.js</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hooks/" rel="tag">Hooks</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongoose/" rel="tag">Mongoose</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Native-JavaScript/" rel="tag">Native JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nest-js/" rel="tag">Nest.js</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Payment/" rel="tag">Payment</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-testing-library/" rel="tag">React-testing-library</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stripe/" rel="tag">Stripe</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Test/" rel="tag">Test</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Axios/" rel="tag">Axios</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chinese-notes/" rel="tag">Chinese notes</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-js/" rel="tag">Express.js</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hooks/" rel="tag">Hooks</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongoose/" rel="tag">Mongoose</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Native-JavaScript/" rel="tag">Native JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nest-js/" rel="tag">Nest.js</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Payment/" rel="tag">Payment</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-testing-library/" rel="tag">React-testing-library</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stripe/" rel="tag">Stripe</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Test/" rel="tag">Test</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -869,7 +909,7 @@ A well-structured architecture should employ multiple modules, each encapsulatin
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="/tags/CSS/" style="font-size: 13.33px;">CSS</a> <a href="/tags/Chinese-notes/" style="font-size: 10px;">Chinese notes</a> <a href="/tags/ES6/" style="font-size: 13.33px;">ES6</a> <a href="/tags/Express-js/" style="font-size: 16.67px;">Express.js</a> <a href="/tags/Hooks/" style="font-size: 12.22px;">Hooks</a> <a href="/tags/MongoDB/" style="font-size: 14.44px;">MongoDB</a> <a href="/tags/Mongoose/" style="font-size: 12.22px;">Mongoose</a> <a href="/tags/Native-JavaScript/" style="font-size: 11.11px;">Native JavaScript</a> <a href="/tags/Nest-js/" style="font-size: 17.78px;">Nest.js</a> <a href="/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/tags/Payment/" style="font-size: 13.33px;">Payment</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 18.89px;">React</a> <a href="/tags/React-testing-library/" style="font-size: 15.56px;">React-testing-library</a> <a href="/tags/Stripe/" style="font-size: 13.33px;">Stripe</a> <a href="/tags/Test/" style="font-size: 15.56px;">Test</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/npm/" style="font-size: 12.22px;">npm</a>
+            <a href="/tags/Axios/" style="font-size: 13px;">Axios</a> <a href="/tags/CSS/" style="font-size: 13px;">CSS</a> <a href="/tags/Chinese-notes/" style="font-size: 18px;">Chinese notes</a> <a href="/tags/ES6/" style="font-size: 13px;">ES6</a> <a href="/tags/Express-js/" style="font-size: 16px;">Express.js</a> <a href="/tags/Hooks/" style="font-size: 12px;">Hooks</a> <a href="/tags/MongoDB/" style="font-size: 14px;">MongoDB</a> <a href="/tags/Mongoose/" style="font-size: 12px;">Mongoose</a> <a href="/tags/Native-JavaScript/" style="font-size: 11px;">Native JavaScript</a> <a href="/tags/Nest-js/" style="font-size: 17px;">Nest.js</a> <a href="/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/tags/Payment/" style="font-size: 13px;">Payment</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 19px;">React</a> <a href="/tags/React-testing-library/" style="font-size: 15px;">React-testing-library</a> <a href="/tags/Stripe/" style="font-size: 13px;">Stripe</a> <a href="/tags/Test/" style="font-size: 15px;">Test</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/npm/" style="font-size: 12px;">npm</a>
         </div>
     </div>
 
