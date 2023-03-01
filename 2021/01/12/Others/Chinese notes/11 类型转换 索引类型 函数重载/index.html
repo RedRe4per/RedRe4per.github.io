@@ -12,18 +12,20 @@
     
     <meta name="keywords" content="Chinese notes" />
     
-    <meta name="description" content="Type Casting 类型转换 类型转换可以告诉 TS 某个值属于特定类型，而 TS 自己无法检测到它。 TS 某些情况下无法检测到类型，例如 HTML 中使用 id 获取 DOM（取到的都是 HTMLElement 这种宽泛的，而不是具体哪种 element），从后端得到的数据也是。 Type Casting 的两种语法（等价）：  非 React 在值之前加 &lt;类型&gt; 来指定">
+    <meta name="description" content="Type Casting 类型转换 类型转换可以告诉 TS 某个值属于特定类型，而 TS 自己无法检测到它。 TS 某些情况下无法检测到类型，例如 HTML 中使用 id 获取 DOM（取到的都是 HTMLElement 这种宽泛的，而不是具体哪种 element），从后端得到的数据也是。 Type Casting 的两种语法（等价）：  非 React 在值之前加 &lt;类型&gt; 来指">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Advanced types - Type Casting, index properties, Function overloads, Optional chaining, Nullish Coalescing">
 <meta property="og:url" content="https://redre4per.github.io/2021/01/12/Others/Chinese%20notes/11%20%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%20%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B%20%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/index.html">
 <meta property="og:site_name" content="Derek Zhu&#39;s Blog">
-<meta property="og:description" content="Type Casting 类型转换 类型转换可以告诉 TS 某个值属于特定类型，而 TS 自己无法检测到它。 TS 某些情况下无法检测到类型，例如 HTML 中使用 id 获取 DOM（取到的都是 HTMLElement 这种宽泛的，而不是具体哪种 element），从后端得到的数据也是。 Type Casting 的两种语法（等价）：  非 React 在值之前加 &lt;类型&gt; 来指定">
+<meta property="og:description" content="Type Casting 类型转换 类型转换可以告诉 TS 某个值属于特定类型，而 TS 自己无法检测到它。 TS 某些情况下无法检测到类型，例如 HTML 中使用 id 获取 DOM（取到的都是 HTMLElement 这种宽泛的，而不是具体哪种 element），从后端得到的数据也是。 Type Casting 的两种语法（等价）：  非 React 在值之前加 &lt;类型&gt; 来指">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png">
 <meta property="article:published_time" content="2021-01-12T00:29:31.000Z">
-<meta property="article:modified_time" content="2023-03-01T10:27:43.048Z">
+<meta property="article:modified_time" content="2023-03-01T10:33:12.631Z">
 <meta property="article:author" content="Derek Zhu">
 <meta property="article:tag" content="Chinese notes">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png">
     
 
     
@@ -183,7 +185,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2021/01/12/Others/Chinese%20notes/11%20%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%20%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B%20%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" class="article-date">
-     <time datetime="2023-03-01T10:27:43.048Z" itemprop="dateModified">2023-03-01</time>
+     <time datetime="2023-03-01T10:33:12.631Z" itemprop="dateModified">2023-03-01</time>
   </a>
 </div>
 
@@ -210,7 +212,8 @@
 
             
 
-            <ol>
+            <p><img src="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png"></p>
+<ol>
 <li><p><strong>Type Casting 类型转换</strong></p>
 <p>类型转换可以告诉 TS 某个值属于特定类型，而 TS 自己无法检测到它。</p>
 <p>TS 某些情况下无法检测到类型，例如 HTML 中使用 id 获取 DOM（取到的都是 HTMLElement 这种宽泛的，而不是具体哪种 element），从后端得到的数据也是。</p>
@@ -284,7 +287,7 @@
 
 
 
-    <a data-url="https://redre4per.github.io/2021/01/12/Others/Chinese%20notes/11%20%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%20%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B%20%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" data-id="clepjbc46007s3sb3bmws8h6h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://redre4per.github.io/2021/01/12/Others/Chinese%20notes/11%20%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%20%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B%20%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" data-id="clepjmeqn006xw4b3dqweagy3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -355,7 +358,7 @@
             "name": "Derek Zhu"
         },
         "headline": "Advanced types - Type Casting, index properties, Function overloads, Optional chaining, Nullish Coalescing",
-        "image": "https://RedRe4per.github.io",
+        "image": "https://RedRe4per.github.iohttps://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png",
         "keywords": "Chinese notes",
         "genre": "Others Chinese notes",
         "datePublished": "2021-01-12",
@@ -363,14 +366,15 @@
         "dateModified": "2023-03-01",
         "url": "https://RedRe4per.github.io/2021/01/12/Others/Chinese notes/11 类型转换 索引类型 函数重载/",
         "description": "
+
 Type Casting 类型转换
 类型转换可以告诉 TS 某个值属于特定类型，而 TS 自己无法检测到它。
 TS 某些情况下无法检测到类型，例如 HTML 中使用 id 获取 DOM（取到的都是 HTMLElement 这种宽泛的，而不是具体哪种 element），从后端得到的数据也是。
 Type Casting 的两种语法（等价）：
 
 非 React
-在值之前加 &lt;类型&gt; 来指定",
-        "wordCount": 430
+在值之前加 &lt;类型&gt; 来指",
+        "wordCount": 431
     }
 </script>
 

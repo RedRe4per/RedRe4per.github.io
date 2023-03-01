@@ -444,7 +444,7 @@ JavaScript is a programming language (browser programming language). Web pages w
         <a href="/2021/01/19/Others/Chinese%20notes/Appendix%20TS%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Appendix - Special characters in TS" class="thumbnail-image"></span>
     
     
         
@@ -475,6 +475,7 @@ JavaScript is a programming language (browser programming language). Web pages w
 
         <p class="article-excerpt">
             
+
 _ 数字分隔符
 分隔符 _ 不会改变数值字面量的值，但逻辑分组使人们更容易一眼就能读懂数字。
 12const inhabitantsOfMunich = 1_464_301;const bytes = 0b1111_10101011_11110000_00001101;
@@ -482,7 +483,7 @@ _ 数字分隔符
 使用限制：
 
 只能在两个数字之间添加 _ 分隔符，下例是非法的：
-1234563_.141592 // Error1_e10
+1234563_.141592 // Error1_e1
         </p>
     </div>
 </article>
@@ -502,7 +503,7 @@ _ 数字分隔符
         <a href="/2021/01/18/Others/Chinese%20notes/14%20React%E4%B8%AD%E7%9A%84TS/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="TS in React" class="thumbnail-image"></span>
     
     
         
@@ -533,6 +534,7 @@ _ 数字分隔符
 
         <p class="article-excerpt">
             
+
 React.FC
 说明不是常规函数，而是函数式组件。必须有返回值。
 123const TodoList: React.FC = () =&gt; &#123;    return &lt;div&gt;&lt;/div&gt;&#125;;
@@ -543,7 +545,7 @@ Props
 props 的类型有两种写法，它们是等价的。
 
 泛型接口 React.FC&lt;props类型&gt;
-123456interface 
+123456interface
         </p>
     </div>
 </article>
@@ -559,7 +561,7 @@ props 的类型有两种写法，它们是等价的。
         <a href="/2021/01/17/Others/Chinese%20notes/13%20Generic%20Utility%20Types/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Generic Utility Types" class="thumbnail-image"></span>
     
     
         
@@ -590,11 +592,12 @@ props 的类型有两种写法，它们是等价的。
 
         <p class="article-excerpt">
             
+
 Generic Utility Types 泛型实用程序类型
 泛型实用程序类型（generic utility types），可以用于处理和转换不同类型的数据。这些 generic utility types 都是 generic，因为它们所做的就是取其他任何类型的值，并对其进行处理。
 
 Partial
-将类型 T 中的所有属性变为可选属性。常用于想临时切换一个对象类型，一个接口，使它成为可选的
+将类型 T 中的所有属性变为可选属性。常用于想临时切换一个对象类型，一个接口，使它成为可选
         </p>
     </div>
 </article>
@@ -614,7 +617,7 @@ Partial
         <a href="/2021/01/16/Others/Chinese%20notes/12%20Generic/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Generic" class="thumbnail-image"></span>
     
     
         
@@ -645,6 +648,7 @@ Partial
 
         <p class="article-excerpt">
             
+
 泛型的概念
 Generic 类型是一种与其他类型有某种联系的类型，并且对于其他类型是哪种类型非常灵活。TS 有内置的泛型类型：
 
@@ -653,7 +657,7 @@ Array
 1const names: Array = []; //这里类型实际是Array&lt;any&gt;，或者也可以写成any[];
 
 Promise
-主类型是 Promise，但是 resol
+主类型是 Promise，但是 reso
         </p>
     </div>
 </article>
@@ -669,7 +673,7 @@ Promise
         <a href="/2021/01/12/Others/Chinese%20notes/11%20%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%20%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B%20%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Advanced types - Type Casting, index properties, Function overloads, Optional chaining, Nullish Coalescing" class="thumbnail-image"></span>
     
     
         
@@ -700,13 +704,14 @@ Promise
 
         <p class="article-excerpt">
             
+
 Type Casting 类型转换
 类型转换可以告诉 TS 某个值属于特定类型，而 TS 自己无法检测到它。
 TS 某些情况下无法检测到类型，例如 HTML 中使用 id 获取 DOM（取到的都是 HTMLElement 这种宽泛的，而不是具体哪种 element），从后端得到的数据也是。
 Type Casting 的两种语法（等价）：
 
 非 React
-在值之前加 &lt;类型&gt; 来指定
+在值之前加 &lt;类型&gt; 来指
         </p>
     </div>
 </article>

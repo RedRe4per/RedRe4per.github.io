@@ -173,7 +173,7 @@
         <a href="/2021/01/19/Others/Chinese%20notes/Appendix%20TS%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Appendix - Special characters in TS" class="thumbnail-image"></span>
     
     
         
@@ -204,6 +204,7 @@
 
         <p class="article-excerpt">
             
+
 _ 数字分隔符
 分隔符 _ 不会改变数值字面量的值，但逻辑分组使人们更容易一眼就能读懂数字。
 12const inhabitantsOfMunich = 1_464_301;const bytes = 0b1111_10101011_11110000_00001101;
@@ -211,7 +212,7 @@ _ 数字分隔符
 使用限制：
 
 只能在两个数字之间添加 _ 分隔符，下例是非法的：
-1234563_.141592 // Error1_e10
+1234563_.141592 // Error1_e1
         </p>
     </div>
 </article>
@@ -227,7 +228,7 @@ _ 数字分隔符
         <a href="/2021/01/18/Others/Chinese%20notes/14%20React%E4%B8%AD%E7%9A%84TS/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="TS in React" class="thumbnail-image"></span>
     
     
         
@@ -258,6 +259,7 @@ _ 数字分隔符
 
         <p class="article-excerpt">
             
+
 React.FC
 说明不是常规函数，而是函数式组件。必须有返回值。
 123const TodoList: React.FC = () =&gt; &#123;    return &lt;div&gt;&lt;/div&gt;&#125;;
@@ -268,7 +270,7 @@ Props
 props 的类型有两种写法，它们是等价的。
 
 泛型接口 React.FC&lt;props类型&gt;
-123456interface 
+123456interface
         </p>
     </div>
 </article>
@@ -288,7 +290,7 @@ props 的类型有两种写法，它们是等价的。
         <a href="/2021/01/17/Others/Chinese%20notes/13%20Generic%20Utility%20Types/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Generic Utility Types" class="thumbnail-image"></span>
     
     
         
@@ -319,11 +321,12 @@ props 的类型有两种写法，它们是等价的。
 
         <p class="article-excerpt">
             
+
 Generic Utility Types 泛型实用程序类型
 泛型实用程序类型（generic utility types），可以用于处理和转换不同类型的数据。这些 generic utility types 都是 generic，因为它们所做的就是取其他任何类型的值，并对其进行处理。
 
 Partial
-将类型 T 中的所有属性变为可选属性。常用于想临时切换一个对象类型，一个接口，使它成为可选的
+将类型 T 中的所有属性变为可选属性。常用于想临时切换一个对象类型，一个接口，使它成为可选
         </p>
     </div>
 </article>
@@ -339,7 +342,7 @@ Partial
         <a href="/2021/01/16/Others/Chinese%20notes/12%20Generic/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Generic" class="thumbnail-image"></span>
     
     
         
@@ -370,6 +373,7 @@ Partial
 
         <p class="article-excerpt">
             
+
 泛型的概念
 Generic 类型是一种与其他类型有某种联系的类型，并且对于其他类型是哪种类型非常灵活。TS 有内置的泛型类型：
 
@@ -378,7 +382,7 @@ Array
 1const names: Array = []; //这里类型实际是Array&lt;any&gt;，或者也可以写成any[];
 
 Promise
-主类型是 Promise，但是 resol
+主类型是 Promise，但是 reso
         </p>
     </div>
 </article>
@@ -398,7 +402,7 @@ Promise
         <a href="/2021/01/12/Others/Chinese%20notes/11%20%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%20%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B%20%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Advanced types - Type Casting, index properties, Function overloads, Optional chaining, Nullish Coalescing" class="thumbnail-image"></span>
     
     
         
@@ -429,13 +433,14 @@ Promise
 
         <p class="article-excerpt">
             
+
 Type Casting 类型转换
 类型转换可以告诉 TS 某个值属于特定类型，而 TS 自己无法检测到它。
 TS 某些情况下无法检测到类型，例如 HTML 中使用 id 获取 DOM（取到的都是 HTMLElement 这种宽泛的，而不是具体哪种 element），从后端得到的数据也是。
 Type Casting 的两种语法（等价）：
 
 非 React
-在值之前加 &lt;类型&gt; 来指定
+在值之前加 &lt;类型&gt; 来指
         </p>
     </div>
 </article>
@@ -451,7 +456,7 @@ Type Casting 的两种语法（等价）：
         <a href="/2021/01/11/Others/Chinese%20notes/10%20%E4%BA%A4%E5%8F%89%E7%B1%BB%E5%9E%8B%20%E7%B1%BB%E5%9E%8B%E4%BF%9D%E6%8A%A4%20%E5%8F%AF%E8%AF%86%E5%88%AB%E8%81%94%E5%90%88/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Advanced types - intersection types, type Guard，Discriminated union" class="thumbnail-image"></span>
     
     
         
@@ -482,9 +487,10 @@ Type Casting 的两种语法（等价）：
 
         <p class="article-excerpt">
             
+
 intersection types “&amp;”
 intersection types 允许我们组合其他类型。使用 &amp; 来组合类型。组合后的类型包含了那些被组合类型的所有属性和方法。
-123456789type Admin = &#123;    name: string;    privileges: string[];&#125;;type Employee = &#123;  
+123456789type Admin = &#123;    name: string;    privileges: string[];&#125;;type Employee = &#123; 
         </p>
     </div>
 </article>
@@ -504,7 +510,7 @@ intersection types 允许我们组合其他类型。使用 &amp; 来组合类型
         <a href="/2021/01/10/Others/Chinese%20notes/09%20interface/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="interface" class="thumbnail-image"></span>
     
     
         
@@ -535,10 +541,11 @@ intersection types 允许我们组合其他类型。使用 &amp; 来组合类型
 
         <p class="article-excerpt">
             
+
 interface
 interface（接口）是一种用于描述对象形状（shape）的语法结构。它定义了对象应该具有哪些属性和方法，以及它们的类型。接口可以用来作为类型声明、函数参数、类成员等。
 和类不同，interface 并不会被作为蓝图，而只是一种自定义类型。
-1234567interface Person &#123;    name: string;    age: number;   
+1234567interface Person &#123;    name: string;    age: number;  
         </p>
     </div>
 </article>
@@ -554,7 +561,7 @@ interface（接口）是一种用于描述对象形状（shape）的语法结构
         <a href="/2021/01/09/Others/Chinese%20notes/08%20inheritance/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Inheritance" class="thumbnail-image"></span>
     
     
         
@@ -585,6 +592,7 @@ interface（接口）是一种用于描述对象形状（shape）的语法结构
 
         <p class="article-excerpt">
             
+
 继承
 继承用来创建类的子类。子类拥有父类的属性和方法，同时也有子类的专属属性和方法。
 继承的关键字是 extends。子类只能从一个父类中继承，这与 interface 的 implement 不同。
@@ -592,7 +600,7 @@ interface（接口）是一种用于描述对象形状（shape）的语法结构
 子类的构造器
 
 如果子类不写构造器，子类就继承了父类的构造器。传入参数和对应属性与父类完全相同。
-1234class Department &#123;    constructor(priva
+1234class Department &#123;    constructor(priv
         </p>
     </div>
 </article>
@@ -612,7 +620,7 @@ interface（接口）是一种用于描述对象形状（shape）的语法结构
         <a href="/2021/01/08/Others/Chinese%20notes/07%20Class/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Class" class="thumbnail-image"></span>
     
     
         
@@ -643,11 +651,12 @@ interface（接口）是一种用于描述对象形状（shape）的语法结构
 
         <p class="article-excerpt">
             
+
 Class &amp; Instances
 类是对象的蓝图。对象是类的实例（Instances）。类定义了对象的样子，对象包含什么属性和方法。类使创建多个相似对象变得简单。
 类是构造函数的语法糖。
 在 TypeScript 中，class 也是一种 type，就像基本数据类型（如 string 和 number）和其他自定义类型一样。因此，我们可以将多个 class 组合成一个联合类型 。
-类的
+类
         </p>
     </div>
 </article>
@@ -663,7 +672,7 @@ Class &amp; Instances
         <a href="/2021/01/07/Others/Chinese%20notes/06%20Function%20types/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Funtion types" class="thumbnail-image"></span>
     
     
         
@@ -694,13 +703,14 @@ Class &amp; Instances
 
         <p class="article-excerpt">
             
+
 函数的类型
 函数除了参数有类型外，函数的本身（返回结果）也有类型。
 函数返回结果类型 TS 也会推断。如果没有明确设定类型的特别理由，就不应该显式设定类型，最好用 TS 推断。
 函数显式声明类型的方法为：
 123function add(n1: number, n2: number): number &#123;    return n1 + n2;&#125;
 
-如果 return 的结果和显
+如果 return 的结果和
         </p>
     </div>
 </article>

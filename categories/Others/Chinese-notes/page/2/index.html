@@ -173,7 +173,7 @@
         <a href="/2021/01/06/Others/Chinese%20notes/05%20Types%20-%20any,%20unknown,%20never/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Types - any, unknown, never" class="thumbnail-image"></span>
     
     
         
@@ -204,6 +204,7 @@
 
         <p class="article-excerpt">
             
+
 any
 any 类型是 TS 中指定的最灵活的类型，any 基本上确保 TS 编译器不能检查任何东西。但 any 也剥夺了 TS 带来的所有好处，应该尽量避免。
 
@@ -211,7 +212,7 @@ unknown
 unknown 比 any 严格一些。把一个未知类型的值赋给一个固定类型的值时，unknown 比 any 更好。它们的区别是：
 
 可赋值性
-any 类型的值可以被赋值给任何类型的变量，也可以将任何类型的值赋给 any
+any 类型的值可以被赋值给任何类型的变量，也可以将任何类型的值赋给 an
         </p>
     </div>
 </article>
@@ -227,7 +228,7 @@ any 类型的值可以被赋值给任何类型的变量，也可以将任何类�
         <a href="/2021/01/05/Others/Chinese%20notes/04%20Types%20-%20union,%20literal,%20aliases/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Types - union, literal, custom/aliases" class="thumbnail-image"></span>
     
     
         
@@ -258,11 +259,12 @@ any 类型的值可以被赋值给任何类型的变量，也可以将任何类�
 
         <p class="article-excerpt">
             
+
 union 联合类型
 写法为 参数: 类型1|类型2|类型3...。表示参数可以赋这些类型的值。如：
 123function combine(input1: string | number, input2: string | number)&#123;    const result = input1 + input2; //报错&#125;
 
-例子中，无法在函数内直接写 const resul
+例子中，无法在函数内直接写 const resu
         </p>
     </div>
 </article>
@@ -282,7 +284,7 @@ union 联合类型
         <a href="/2021/01/04/Others/Chinese%20notes/03%20Types%20-%20array,%20tuple,%20enum/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Types - Array, Tuple, Enum" class="thumbnail-image"></span>
     
     
         
@@ -313,11 +315,12 @@ union 联合类型
 
         <p class="article-excerpt">
             
+
 TS 对数组的支持
 数组类型写法为 数组名: 数组中数据类型[]，如 hobbies: string[]。在对象内外使用数组是完全一样的。
 另一种写法是 Array&lt;类型&gt;，例如 hobbies: Array&lt;string&gt;。这两种写法是等价的。
 如果给数组赋了初始值（而不是空数组），TS 也会自动推断数组类型。如：
-1234const person = &#123;  
+1234const person = &#123; 
         </p>
     </div>
 </article>
@@ -333,7 +336,7 @@ TS 对数组的支持
         <a href="/2021/01/03/Others/Chinese%20notes/02%20Types%20-%20primitive,%20object/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Types - primitive, object" class="thumbnail-image"></span>
     
     
         
@@ -364,6 +367,7 @@ TS 对数组的支持
 
         <p class="article-excerpt">
             
+
 Core Types
 primitive types：number, string, boolean
 reference types：object, Array
@@ -371,7 +375,7 @@ TS 专属 typs：Tuple, Enum, any
 primitive types 在 TS 中写法就是，参数: 类型，如 n1: number。
 
 Type Casting 大小写问题
-在 TS 中，core primitive 
+在 TS 中，core primitive
         </p>
     </div>
 </article>
@@ -391,7 +395,7 @@ Type Casting 大小写问题
         <a href="/2021/01/02/Others/Chinese%20notes/01%20TS%E4%BB%8B%E7%BB%8D/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png)" alt="Typescript Introduction" class="thumbnail-image"></span>
     
     
         
@@ -422,10 +426,11 @@ Type Casting 大小写问题
 
         <p class="article-excerpt">
             
+
 什么是 TypeScript
 TS 是 JavaScript 的超集（superset）。TS 采用 JS 并为其添加了新的特性和语法。TS 不能在 JS 环境（如浏览器，node.js）直接执行。
 TS 是一种编程语言，也是一种工具。它是一个强大的编译器，它会把 TS 代码编译成 JS 代码。也就是说，程序员编写了具有所有新特性和所有优点的 TS 代码，结果得到的是正常的 JS 代码。
-TS 
+TS
         </p>
     </div>
 </article>
@@ -441,7 +446,7 @@ TS
         <a href="/2021/01/01/Others/Chinese%20notes/00%20Create%20new%20project/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/next-JS-framework.png)" alt="Create new project with Next.js" class="thumbnail-image"></span>
     
     
         
@@ -472,6 +477,7 @@ TS
 
         <p class="article-excerpt">
             
+
 项目要装的包和插件
 
 next.js
@@ -490,7 +496,7 @@ redux tool kit
 storybook
 
 
-Next.j
+Next.
         </p>
     </div>
 </article>
