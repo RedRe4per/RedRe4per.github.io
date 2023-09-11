@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Create new project with Next.js | Derek Zhu&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Next.js" />
+    
+    <meta name="description" content="Packages and plug-ins to be installed in the project  next.js engine locking eslint prettier lint-staged vs config testing (jest, cypress) git hooks (husky) conventional commit UI (chakra ui) tailwi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Create new project with Next.js">
+<meta property="og:url" content="https://redre4per.github.io/2021/01/01/NextJS/00%20Create%20new%20project/index.html">
+<meta property="og:site_name" content="Derek Zhu&#39;s Blog">
+<meta property="og:description" content="Packages and plug-ins to be installed in the project  next.js engine locking eslint prettier lint-staged vs config testing (jest, cypress) git hooks (husky) conventional commit UI (chakra ui) tailwi">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/next-JS-framework.png">
+<meta property="article:published_time" content="2021-01-01T00:29:31.000Z">
+<meta property="article:modified_time" content="2023-09-11T02:13:45.673Z">
+<meta property="article:author" content="Derek Zhu">
+<meta property="article:tag" content="Next.js">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/next-JS-framework.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/image/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Derek Zhu</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/Express-js/">Express.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/Nest-js/">Nest.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/Node-js/">Node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Database/MongoDB/">MongoDB</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Front-end/Axios/">Axios</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Front-end/Next-js/">Next.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Front-end/React/">React</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/HTML-CSS/">HTML&CSS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/HTML-CSS/CSS/">CSS</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JS-TS/">JS/TS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JS-TS/ES6/">ES6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JS-TS/Native-JavaScript/">Native JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JS-TS/TypeScript/">TypeScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Others/">Others</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Others/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Others/Stripe-payment/">Stripe payment</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Test/">Test</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Test/React-testing-library/">React-testing-library</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Front-end/">Front-end</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Front-end/Next-js/">Next.js</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-NextJS/00 Create new project" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Create new project with Next.js
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/01/01/NextJS/00%20Create%20new%20project/" class="article-date">
+       <time datetime="2021-01-01T00:29:31.000Z" itemprop="datePublished">2021-01-01</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/01/01/NextJS/00%20Create%20new%20project/" class="article-date">
+     <time datetime="2023-09-11T02:13:45.673Z" itemprop="dateModified">2023-09-11</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Next-js/" rel="tag">Next.js</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/next-JS-framework.png"></p>
+<ol>
+<li><p><strong>Packages and plug-ins to be installed in the project</strong></p>
+<ol>
+<li>next.js</li>
+<li>engine locking</li>
+<li>eslint</li>
+<li>prettier</li>
+<li>lint-staged</li>
+<li>vs config</li>
+<li>testing (jest, cypress)</li>
+<li>git hooks (husky)</li>
+<li>conventional commit</li>
+<li>UI (chakra ui)</li>
+<li>tailwind</li>
+<li>daisyUI</li>
+<li>redux tool kit</li>
+<li>storybook</li>
+</ol>
+<br/>
+</li>
+<li><p><strong>Next.js</strong></p>
+<p>It’s in the official documentation. <code>npx create-next-app@latest</code> Then just keep selecting the default option.</p>
+<p> Next.js contains many settings, such as ESlint and jest related content (written in the document).</p>
+<p><strong>When asked for the name, enter <code>.</code> to create the project in the current folder.</strong></p>
+<br/>
+</li>
+<li><p><strong>Engine locking</strong></p>
+<p>In the Next.js project configuration, engine locking is an option that controls whether Next.js should lock the version of the Node.js engine used.</p>
+<p> When the engine locking option is enabled, Next.js will lock on the Node.js engine version used in the project, which ensures that the same Node.js version is used when building and running the application. This can help avoid issues caused by differences between different versions of the Node.js engine, making applications more stable and reliable.</p>
+<p> In Next.js’s project configuration, “engine locking” is an option that controls whether Next.js should lock the version of the Node.js engine used.</p>
+<p> Specifically, when the engine locking option is enabled, Next.js will lock on the Node.js engine version used in the project, which ensures that the same Node.js version is used when building and running the application. This can help avoid issues caused by differences between different versions of the Node.js engine, making applications more stable and reliable.</p>
+<p> Engine locking is inside webpack. Documentation can be found in npm docs under engines.</p>
+<p> In the project, you can add the code after the script in package.json:</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;engineStrict&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;engines&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;node&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&gt;=14.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;npm&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&gt;=8.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;yarn&quot;</span><span class="punctuation">:</span> <span class="string">&quot;please-use-npm&quot;</span> <span class="comment">//It is forbidden to use yarn</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+<br/>
+</li>
+<li><p><strong>eslint</strong></p>
+<p>ESLint can be found in the Next.js documentation. If you use Next.js, it is already installed. eslint has also been set in the script of package.json.</p>
+<p> The difference between lint and prettier is that prettier beautifies the code, while lint makes the code comply with the rules.</p>
+<p> The lint config file is in .eslintrc.json. After installing prettier, you need to write new rules here.</p>
+<br/>
+</li>
+<li><p><strong>prettier</strong></p>
+<p>It can be found in <a target="_blank" rel="noopener" href="https://nextjs.org/docs/basic-features/eslint#prettier">Next.js documentation</a>.</p>
+ <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">--save-dev</span> <span class="literal">--save-exact</span> prettier</span><br><span class="line">npm install <span class="literal">--save-dev</span> eslint<span class="literal">-config-prettier</span></span><br></pre></td></tr></table></figure>
+
+<p> After installation, add the following code in .eslintrc.json. Note that there is an order of addition, and it needs to be added after <code>&quot;next/core-web-vitals&quot;</code>.</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span> <span class="attr">&quot;extends&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;next&quot;</span><span class="punctuation">,</span> <span class="string">&quot;prettier&quot;</span><span class="punctuation">]</span> <span class="punctuation">&#125;</span> <span class="comment">//Added content</span></span><br><span class="line"><span class="punctuation">&#123;</span> <span class="attr">&quot;extends&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;next/core-web-vitals&quot;</span><span class="punctuation">,</span> <span class="string">&quot;next&quot;</span><span class="punctuation">,</span> <span class="string">&quot;prettier&quot;</span><span class="punctuation">]</span> <span class="punctuation">&#125;</span> <span class="comment">//After adding</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p> After that, add a comment to the scripts in package.json:</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;prettier&quot;</span><span class="punctuation">:</span> <span class="string">&quot;prettier --write .&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p> <strong>Then run <code>npm run prettier</code> to automatically beautify the code.</strong> The actual instruction executed here is <code>npm run prettier --write .</code>.</p>
+<br/>
+</li>
+<li><p><strong>lint-staged</strong></p>
+<p>Sometimes I want to upload code, but not all files comply with lint. If lint-staged is not installed, all files must meet the requirements of lint. If lint-staged is present, only staged files need to meet lint requirements. That is, in addition to the changes in commit, there is one more staged changes.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">--save-dev</span> lint<span class="literal">-staged</span></span><br></pre></td></tr></table></figure>
+
+<br/>
+</li>
+<li><p><strong>vsconfig</strong></p>
+<p>The file should be created in the .vscode folder in the root directory and named <strong>settings.json</strong>.</p>
+<p> You can set part of it in the preference-setting of vscode app. For example, change Files: Auto Save to afterDelay.</p>
+<p> Can be set in settings.json:</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;editor.formatOnSave&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span> <span class="comment">//Automatically format code when saving a file</span></span><br><span class="line">    <span class="attr">&quot;default.defaultFormatter&quot;</span><span class="punctuation">:</span> <span class="string">&quot;esbenp.prettier-vscode&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p> At this time, prettier will be used to automatically adjust the format when the entire project is saved.</p>
+<p> <font color="lightgrey">I tried it and found that I can’t automatically use prettier to change the format when I write it this way. But when I delete the line “editor.defaultFormatter”: “esbenp.prettier-vscode”, I can automatically use prettier to change the format. What could be the reason for this? </font></p>
+<p> <font color="lightgrey">This issue may be caused by a conflict between VS Code’s default formatter and the Prettier plugin. The “editor.defaultFormatter” setting specifies the default formatter, but if another formatter (such as the VS Code default formatter) is registered earlier than Prettier, then it will be used to format the code instead of Prettier. . </font></p>
+<br/>
+</li>
+<li><p><strong>Testing</strong></p>
+<p>Next.js has a lot of testing integrated into it. So just click <a target="_blank" rel="noopener" href="https://nextjs.org/docs/testing#jest-and-react-testing-library">Document</a> to install it. If you use react instead of next, you need to set up a lot more settings.</p>
+<ol>
+<li><p><strong>Jest</strong></p>
+<p> Install Jest:</p>
+ <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">--save-dev</span> jest jest<span class="literal">-environment-jsdom</span> @testing<span class="literal">-library</span>/react @testing<span class="literal">-library</span>/jest<span class="literal">-dom</span></span><br></pre></td></tr></table></figure>
+
+<p> Then follow the document, <font color="red">create the jest.config.js file in the directory, and paste the content in the document. </font></p>
+<p> This document also contains content such as <strong>Handling stylesheets and image imports</strong> under testing.</p>
+<p> Then add the command to scripts in package.json:</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jest --watch&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p> <font color="red"><strong>Create test file</strong></font>: According to the documentation, create the file in the root directory: <code>__tests__/index.test.jsx</code>.</p>
+<p> Cover rate and the like need to be set in the jest.config.js file. See the jest documentation.</p>
+ <br/>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://nextjs.org/docs/testing#cypress">Cypress</a></strong></p>
+<p> Install Cypress</p>
+ <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">--save-dev</span> cypress</span><br></pre></td></tr></table></figure>
+
+<p> Then add in package.json scripts:</p>
+ <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;cypress&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cypress open&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p> There is also how to write cypress in the documentation.</p>
+ <br/></li>
+</ol>
+</li>
+<li><p><strong>git hooks (husky) and conventional commit</strong></p>
+<ol>
+<li><p><strong><a target="_blank" rel="noopener" href="https://github.com/conventional-changelog/commitlint">conventional commit</a></strong></p>
+<p> Conventional commit is so that the commit must meet certain rules, such as fix(server): send cors headers. Install:</p>
+ <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">--save-dev</span> @commitlint/config<span class="literal">-conventional</span> @commitlint/<span class="built_in">cli</span></span><br></pre></td></tr></table></figure>
+
+<p> Then use the commands in the documentation to create the commitlint.config.js file:</p>
+ <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;module.exports = &#123;extends: [&#x27;@commitlint/config-conventional&#x27;]&#125;&quot;</span> &gt; commitlint.config.js</span><br></pre></td></tr></table></figure>
+
+<p> <strong>Note</strong>: The file created in this way is not in utf-8 format, and an error will always be reported when using husky pre-commit. You need to create one with an empty notepad, write the statement and save it as a file in utf-8 format.</p>
+<br/>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://github.com/conventional-changelog/commitlint">git hooks (husky)</a></strong></p>
+<p>Git hook (husky) is a Git client hook tool that allows developers to execute some custom scripts before or after Git events occur. By using Git hooks, code specification checking, unit testing, code packaging, automatic deployment and other operations can be completed automatically, improving development efficiency and reducing errors.</p>
+<p>Common Git hooks include pre-commit, post-commit, pre-push, etc. Among them, pre-commit is executed before the code is submitted and can be used to check code style, run unit tests and other operations; post-commit is executed after the code is submitted and can be used to update documents, send emails and other operations; pre-push is Executed before code push, it can be used to check code quality, run end-to-end tests, etc.</p>
+<p>Install and activate. After activation, the .husky folder will appear:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install husky <span class="literal">--save-dev</span></span><br><span class="line">npx husky install</span><br></pre></td></tr></table></figure>
+
+<p>Then follow the documentation to add a hook, and in Husky’s own documentation, find and install another Hook:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npx husky add .husky/commit<span class="literal">-msg</span> <span class="string">&#x27;npx --no -- commitlint --edit $&#123;1&#125;&#x27;</span></span><br><span class="line">npx husky add .husky/pre<span class="literal">-commit</span> <span class="string">&quot;npm test&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>Since there is no need to let it run for the time being, use <code>#</code> to comment out <code>npm test</code> in the pre-commit file in .husky:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">#!/usr/bin/env sh</span></span><br><span class="line">. &quot;$(dirname -- &quot;$0&quot;)/<span class="emphasis">_/husky.sh&quot;</span></span><br><span class="line"><span class="emphasis"># npm test</span></span><br></pre></td></tr></table></figure>
+
+<p>At this time, if the text does not comply with the rules during commit, husky will prompt an error.</p>
+<p>Finally, set the pre-commit check item. First add in scripts in package.json:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;pre-commit&quot;</span><span class="punctuation">:</span> <span class="string">&quot;npm run prettier &amp;&amp; npm run lint &amp;&amp; npm run test&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>At this time, you may need to change the original <code>&quot;test&quot;: &quot;jest --watch&quot;</code> to <code>&quot;test&quot;: &quot;jest&quot;</code>.</p>
+<p>Then write in the .husky&#x2F;pre-commit file</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run pre-commit</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>If there is a problem with husky and it is stuck and cannot be submitted, you should use <code>git commit --no-verify -m &quot;xxx&quot;</code> to temporarily block husky.</strong></p>
+</li>
+</ol>
+</li>
+</ol>
+<br/>
+   
+
+<ol start="10">
+<li><p><strong>Tailwind</strong></p>
+<p>Follow <a target="_blank" rel="noopener" href="https://tailwindcss.com/docs/guides/nextjs">documentation</a> to install tailwind. Here -D and -dev are the same.</p>
+ <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">-D</span> tailwindcss postcss autoprefixer</span><br><span class="line">npx tailwindcss init <span class="literal">-p</span></span><br></pre></td></tr></table></figure>
+
+<p> Then follow the documentation to replace the content in the tailwind.config.js file with: (The following may not be the latest, please refer to the documentation)</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** <span class="doctag">@type</span> &#123;<span class="type">import(&#x27;tailwindcss&#x27;).Config</span>&#125; */</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">content</span>: [</span><br><span class="line">    <span class="string">&quot;./app/**/*.&#123;js,ts,jsx,tsx&#125;&quot;</span>,</span><br><span class="line">    <span class="string">&quot;./pages/**/*.&#123;js,ts,jsx,tsx&#125;&quot;</span>,</span><br><span class="line">    <span class="string">&quot;./components/**/*.&#123;js,ts,jsx,tsx&#125;&quot;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Or if using `src` directory:</span></span><br><span class="line">    <span class="string">&quot;./src/**/*.&#123;js,ts,jsx,tsx&#125;&quot;</span>,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">theme</span>: &#123;</span><br><span class="line">    <span class="attr">extend</span>: &#123;&#125;, <span class="comment">//The content of design system is written here. Documentation: https://tailwindcss.com/docs/theme</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> Then delete the contents of the globals.css file and replace it with:</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br></pre></td></tr></table></figure>
+
+<p> Then set tailwind <strong>Automatic IntelliSense</strong> in the .vscode&#x2F;settings.json file (requires the Tailwind CSS IntelliSense plug-in to be installed):</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;editor.quickSuggestions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;strings&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;tailwindCSS.experimental.classRegex&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;([\&quot;&#x27;])(?:tw|tw-s|tw-state)\\(([^)]+)\\1&quot;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<br/>
+    
+
+<ol start="11">
+<li><p><strong>daisyUI</strong></p>
+<p><a target="_blank" rel="noopener" href="https://daisyui.com/">daisyUI</a> is a plug-in for tailwind. Install:</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i daisyui</span><br></pre></td></tr></table></figure>
+
+<p> Then add daisyui in the <code>tailwind.config.js</code> file.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">  <span class="attr">plugins</span>: [<span class="built_in">require</span>(<span class="string">&quot;daisyui&quot;</span>)],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br/>
+</li>
+<li><p><strong>Redux-toolkit</strong></p>
+<p>Install according to <strong><a target="_blank" rel="noopener" href="https://redux-toolkit.js.org/introduction/getting-started">Documentation</a></strong>.</p>
+ <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install @reduxjs/toolkit</span><br><span class="line">npm install react<span class="literal">-redux</span></span><br></pre></td></tr></table></figure>
+
+<p> According to <a target="_blank" rel="noopener" href="https://redux-toolkit.js.org/tutorials/quick-start">document</a>, you need to install it in store&#x2F;store.ts (the document says app&#x2F;store.js):</p>
+ <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; configureStore &#125; <span class="keyword">from</span> <span class="string">&#x27;@reduxjs/toolkit&#x27;</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> store = <span class="title function_">configureStore</span>(&#123;</span><br><span class="line">  <span class="attr">reducer</span>: &#123;&#125;,</span><br><span class="line">&#125;)</span><br><span class="line">    </span><br><span class="line"><span class="comment">// Infer the `RootState` and `AppDispatch` types from the store itself</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">RootState</span> = <span class="title class_">ReturnType</span>&lt;<span class="keyword">typeof</span> store.<span class="property">getState</span>&gt;</span><br><span class="line"><span class="comment">// Inferred type: &#123;posts: PostsState, comments: CommentsState, users: UsersState&#125;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">AppDispatch</span> = <span class="keyword">typeof</span> store.<span class="property">dispatch</span></span><br></pre></td></tr></table></figure>
+
+<p> Finally, install the provider in _app.tsx under the pages folder (if there is a UI package outside the component, the provider must be outside the UI):</p>
+ <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; store &#125; <span class="keyword">from</span> <span class="string">&#x27;../store/store&#x27;</span>; <span class="comment">//provider related</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Provider</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react-redux&#x27;</span>; <span class="comment">//provider related</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">App</span>(<span class="params">&#123; Component, pageProps &#125;: AppProps</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Component</span> &#123;<span class="attr">...pageProps</span>&#125; /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br/>
+</li>
+<li><p><strong>Storybook</strong></p>
+<p>There are a lot of configurations required to use storybook and tailwind together, please refer to <a target="_blank" rel="noopener" href="https://github.com/tatoMa/storybook-tailwind-scss-cssmodules-next-starter">Document</a>, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=QN4AHEMjxAU&t=2486s">Video</a>.</p>
+<br/>
+</li>
+<li><p><strong>Other settings</strong></p>
+<p>There are also some other settings for cc-app later in the video. Among the more useful ones are:</p>
+<p> .eslintignore</p>
+<p> Some officially recommended plugins in .eslintrc and some tips in rules.</p>
+<p> .prettierignore</p>
+<p> Set prettier rules in .prettierrc</p>
+<p> …</p>
+<br/></li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://redre4per.github.io/2021/01/01/NextJS/00%20Create%20new%20project/" data-id="clme9kz62001j5ob3bj12c51a" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Derek Zhu"
+        },
+        "headline": "Create new project with Next.js",
+        "image": "https://RedRe4per.github.iohttps://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/next-JS-framework.png",
+        "keywords": "Next.js",
+        "genre": "Front-end Next.js",
+        "datePublished": "2021-01-01",
+        "dateCreated": "2021-01-01",
+        "dateModified": "2023-09-11",
+        "url": "https://RedRe4per.github.io/2021/01/01/NextJS/00 Create new project/",
+        "description": "
+
+Packages and plug-ins to be installed in the project
+
+next.js
+engine locking
+eslint
+prettier
+lint-staged
+vs config
+testing (jest, cypress)
+git hooks (husky)
+conventional commit
+UI (chakra ui)
+tailwi",
+        "wordCount": 2028
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/zhu-derek" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/RedRe4per" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2021/01/02/Typescript/01%20TS%20intro/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Typescript Introduction
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/micro_macro.gif)" alt="Promise basic" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JS-TS/">JS/TS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/JS-TS/ES6/">ES6</a></p>
+                            <p class="item-title"><a href="/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="title">Promise basic</a></p>
+                            <p class="item-date"><time datetime="2022-11-06T07:07:12.000Z" itemprop="datePublished">2022-11-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_rV3yZwoPFHb3y5gKQLBdCw.png)" alt="Rerender jest-axe" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="title">Rerender jest-axe</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T06:16:12.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_RQwRLQ0yyCvYmRn_Nst5yg.png)" alt="Jest test methods" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="title">Jest test methods</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T01:26:45.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/myhc_89683.jpg)" alt="FireEvent to simulate user operation" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="title">FireEvent to simulate user operation</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T12:36:19.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_Bg_nX5M7EWctOBUJFT1BqQ.jpeg)" alt="Methods to get DOM" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="title">Methods to get DOM</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T05:12:27.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/">Back-end</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Express-js/">Express.js</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Nest-js/">Nest.js</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Node-js/">Node.js</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database/MongoDB/">MongoDB</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/">Front-end</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/Axios/">Axios</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/Next-js/">Next.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/React/">React</a><span class="category-list-count">18</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/">HTML&CSS</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/CSS/">CSS</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/">JS/TS</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/ES6/">ES6</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/Native-JavaScript/">Native JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/TypeScript/">TypeScript</a><span class="category-list-count">15</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/">Others</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Others/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/Stripe-payment/">Stripe payment</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Test/">Test</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Test/React-testing-library/">React-testing-library</a><span class="category-list-count">7</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">16</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Axios/" rel="tag">Axios</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-js/" rel="tag">Express.js</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hooks/" rel="tag">Hooks</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongoose/" rel="tag">Mongoose</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Native-JavaScript/" rel="tag">Native JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nest-js/" rel="tag">Nest.js</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Next-js/" rel="tag">Next.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Payment/" rel="tag">Payment</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-testing-library/" rel="tag">React-testing-library</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stripe/" rel="tag">Stripe</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Test/" rel="tag">Test</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/" rel="tag">TypeScript</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Axios/" style="font-size: 13px;">Axios</a> <a href="/tags/CSS/" style="font-size: 13px;">CSS</a> <a href="/tags/ES6/" style="font-size: 13px;">ES6</a> <a href="/tags/Express-js/" style="font-size: 16px;">Express.js</a> <a href="/tags/Hooks/" style="font-size: 12px;">Hooks</a> <a href="/tags/MongoDB/" style="font-size: 14px;">MongoDB</a> <a href="/tags/Mongoose/" style="font-size: 12px;">Mongoose</a> <a href="/tags/Native-JavaScript/" style="font-size: 11px;">Native JavaScript</a> <a href="/tags/Nest-js/" style="font-size: 17px;">Nest.js</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/tags/Payment/" style="font-size: 13px;">Payment</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 19px;">React</a> <a href="/tags/React-testing-library/" style="font-size: 15px;">React-testing-library</a> <a href="/tags/Stripe/" style="font-size: 13px;">Stripe</a> <a href="/tags/Test/" style="font-size: 15px;">Test</a> <a href="/tags/TypeScript/" style="font-size: 18px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/npm/" style="font-size: 12px;">npm</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 Derek Zhu</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://redre4per.github.io/2021/01/01/NextJS/00%20Create%20new%20project/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

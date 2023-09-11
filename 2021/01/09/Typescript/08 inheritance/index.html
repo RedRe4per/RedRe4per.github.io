@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Inheritance | Derek Zhu&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="TypeScript" />
+    
+    <meta name="description" content="Inheritance  Inheritance is used to create subclasses of a class. The subclass has the properties and methods of the parent class, and also has the exclusive properties and methods of the subclass.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Inheritance">
+<meta property="og:url" content="https://redre4per.github.io/2021/01/09/Typescript/08%20inheritance/index.html">
+<meta property="og:site_name" content="Derek Zhu&#39;s Blog">
+<meta property="og:description" content="Inheritance  Inheritance is used to create subclasses of a class. The subclass has the properties and methods of the parent class, and also has the exclusive properties and methods of the subclass.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png">
+<meta property="article:published_time" content="2021-01-09T00:29:31.000Z">
+<meta property="article:modified_time" content="2023-09-11T02:12:41.928Z">
+<meta property="article:author" content="Derek Zhu">
+<meta property="article:tag" content="TypeScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/image/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Derek Zhu</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/">Back-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/Express-js/">Express.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/Nest-js/">Nest.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Back-end/Node-js/">Node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Database/">Database</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Database/MongoDB/">MongoDB</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Front-end/">Front-end</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Front-end/Axios/">Axios</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Front-end/Next-js/">Next.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Front-end/React/">React</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/HTML-CSS/">HTML&CSS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/HTML-CSS/CSS/">CSS</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JS-TS/">JS/TS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JS-TS/ES6/">ES6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JS-TS/Native-JavaScript/">Native JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JS-TS/TypeScript/">TypeScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Others/">Others</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Others/Other/">Other</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Others/Stripe-payment/">Stripe payment</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Test/">Test</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Test/React-testing-library/">React-testing-library</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/JS-TS/">JS/TS</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/JS-TS/TypeScript/">TypeScript</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Typescript/08 inheritance" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Inheritance
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/01/09/Typescript/08%20inheritance/" class="article-date">
+       <time datetime="2021-01-09T00:29:31.000Z" itemprop="datePublished">2021-01-09</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/01/09/Typescript/08%20inheritance/" class="article-date">
+     <time datetime="2023-09-11T02:12:41.928Z" itemprop="dateModified">2023-09-11</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/TypeScript/" rel="tag">TypeScript</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png"></p>
+<ol>
+<li><p><strong>Inheritance</strong></p>
+<p> Inheritance is used to create subclasses of a class. The subclass has the properties and methods of the parent class, and also has the exclusive properties and methods of the subclass.</p>
+<p> The keyword for inheritance is <code>extends</code>. <strong>Subclasses can only inherit from one parent class</strong>, which is different from interface’s implement.</p>
+ <br/>
+</li>
+<li><p><strong>Constructor of subclass</strong></p>
+<ol>
+<li><p>If the subclass does not write a constructor, the subclass inherits the constructor of the parent class. The incoming parameters and corresponding properties are exactly the same as those of the parent class.</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Department</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"><span class="keyword">private</span> name: <span class="built_in">string</span>, <span class="keyword">private</span> id: <span class="built_in">string</span></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ITDepartment</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Department</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<br/>
+</li>
+<li><p>Subclasses have their own constructors</p>
+<p><strong>When adding your own constructor in a subclass, you must add <code>super()</code> in the subclass.</strong> <code>super()</code> accepts the parameters of the parent class constructor.</p>
+<p>In the constructor, <code>super()</code> should be used before other code.</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Department</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"><span class="keyword">private</span> id: <span class="built_in">string</span>, <span class="keyword">private</span> name: <span class="built_in">string</span></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ITDepartment</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Department</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"><span class="keyword">private</span> id: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">        <span class="variable language_">super</span>(id, <span class="string">&quot;IT&quot;</span>); <span class="comment">//super receives the parameters of the parent class constructor. The first parameter is a variable, and the second parameter is hard-coded by the subclass itself.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> accounting = <span class="keyword">new</span> <span class="title class_">ITDepartment</span>(<span class="string">&quot;d1&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Subclasses can also add new parameters to the constructor.</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ITDepartment</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Department</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"><span class="keyword">private</span> id: <span class="built_in">string</span>, <span class="keyword">public</span> admins: <span class="built_in">string</span>[]</span>) &#123; <span class="comment">//Add new parameters</span></span><br><span class="line">        <span class="variable language_">super</span>(id, <span class="string">&quot;IT&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br/></li>
+</ol>
+</li>
+<li><p><strong>protected modifier</strong></p>
+<p> Private properties are actually only accessible from within the class in which they are defined, not from within inherited subclasses. For example:</p>
+ <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Department</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="attr">employees</span>: <span class="built_in">string</span>[] = []; <span class="comment">//private</span></span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"><span class="keyword">private</span> id: <span class="built_in">string</span>, <span class="keyword">private</span> name: <span class="built_in">string</span></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ITDepartment</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Department</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"><span class="keyword">private</span> id: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">        <span class="variable language_">super</span>(id, <span class="string">&quot;IT&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">addEmployee</span>(<span class="params">name: <span class="built_in">string</span></span>)&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">employees</span>.<span class="title function_">push</span>(name); <span class="comment">//Cannot be added at this time because the employees attribute is private.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> accounting = <span class="keyword">new</span> <span class="title class_">ITDepartment</span>(<span class="string">&quot;d1&quot;</span>);</span><br><span class="line">accounting.<span class="title function_">addEmployee</span>(<span class="string">&quot;derek&quot;</span>); <span class="comment">//Cannot be added at this time because the employees attribute is private.</span></span><br></pre></td></tr></table></figure>
+
+<p> At this point we need to use the <code>protected</code> modifier. It ensures that the modified properties&#x2F;methods are available not only within the class, but also in any class that extends the class.</p>
+ <br/>
+</li>
+<li><p><strong>getter and setter</strong></p>
+<p> getter and setter are get and set keywords. They are to give the outside world a way to assign and obtain values in the class, and they can also add logic, such as judgment, etc. before assignment and value acquisition. The getter must return a value.</p>
+<p> What should be noted here is that although the properties of getters and setters are declared with <code>()</code>, they are not used with <code>()</code>. This means that the setter and getter are not executed as a method, but are only accessed as a property.</p>
+<p> Getters and setters share property names. Externally, whether it is a getter or a setter will be automatically determined based on assignment or value acquisition.</p>
+ <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="attr">_age</span>: <span class="built_in">number</span>; <span class="comment">//_age, different from age() below</span></span><br><span class="line">   </span><br><span class="line">  <span class="keyword">get</span> <span class="title function_">age</span>(): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">_age</span>;</span><br><span class="line">  &#125;</span><br><span class="line">   </span><br><span class="line">  <span class="keyword">set</span> <span class="title function_">age</span>(<span class="params">newAge: <span class="built_in">number</span></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (newAge &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;Age cannot be negative.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">_age</span> = newAge;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="keyword">const</span> person = <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line">person.<span class="property">age</span> = -<span class="number">30</span>; <span class="comment">// set age (will throw an error) Note that there is no ()</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">age</span>); <span class="comment">// get age (will not be executed due to the error) Note that there is no ()</span></span><br></pre></td></tr></table></figure>
+
+ <br/>
+</li>
+<li><p><strong>static static methods and properties</strong></p>
+<p> The static keyword is used to define static members of a class, which are members that belong to the class itself rather than to instances of the class. **Static members can be methods or properties.</p>
+<p> A static method is a method that is called directly without relying on an instance of a class. Static methods can access static properties and other static methods, but not instance properties or instance methods. In TS, static methods are defined using the <code>static</code> keyword, for example:</p>
+ <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="title function_">myStaticMethod</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;This is a static method.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="title class_">MyClass</span>.<span class="title function_">myStaticMethod</span>();</span><br></pre></td></tr></table></figure>
+
+<p> It should be noted that static members cannot be accessed by instantiated objects, only through the class itself.</p>
+<p> <strong>Static members cannot be accessed by non-static members in the class</strong>. For example, <code>this.static member</code> in the constructor will report an error. <strong>This is because they refer to an instance created based on the class, and static properties are not available on instances.</strong> Static members are detached from the instance. If you need to access a static member from a non-static member, you need to replace <code>this</code> with the class name:</p>
+ <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Department</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> fiscalYear = <span class="number">2020</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="attr">employees</span>: <span class="built_in">string</span>[] = [];</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"><span class="keyword">private</span> id: <span class="built_in">string</span>, <span class="keyword">private</span> name: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Department</span>.<span class="property">fiscalYear</span>); <span class="comment">//Class name. Static member</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+ <br/>
+</li>
+<li><p><strong>abstract abstract class</strong></p>
+<p> An abstract class is a class defined using the <code>abstract</code> keyword. <strong>Abstract classes cannot be instantiated, but can only be inherited.</strong> Abstract classes are used to force all derived classes to share some common properties and methods without providing specific values in the base class.</p>
+<p> Abstract classes can contain <strong>abstract methods</strong> and <strong>non-abstract methods</strong>. Abstract methods are methods that have no implementation (that is, there is no <code>&#123;&#125;</code> part in the method) and they must be implemented in a derived class. Non-abstract methods are implemented methods, and derived classes can choose whether to override them. A derived class must implement all abstract methods, otherwise it must itself be an abstract class.</p>
+ <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">  <span class="keyword">abstract</span> <span class="title function_">makeSound</span>(): <span class="built_in">void</span>; <span class="comment">//Abstract method, no &#123;&#125;</span></span><br><span class="line">  <span class="title function_">move</span>(): <span class="built_in">void</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Moving...&quot;</span>); &#125; <span class="comment">//Non-abstract method</span></span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Animal</span> &#123; <span class="comment">// Derived class</span></span><br><span class="line">  <span class="title function_">makeSound</span>(): <span class="built_in">void</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Meow!&quot;</span>); &#125;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="keyword">const</span> cat = <span class="keyword">new</span> <span class="title class_">Cat</span>();</span><br><span class="line">cat.<span class="title function_">makeSound</span>(); <span class="comment">// &quot;Meow!&quot;</span></span><br><span class="line">cat.<span class="title function_">move</span>(); <span class="comment">// &quot;Moving...&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p> In the example, <code>Animal</code> is an abstract class, which contains an abstract method <code>makeSound</code> and a non-abstract method <code>move</code>. <code>Cat</code> inherits <code>Animal</code> and implements the <code>makeSound</code> method. Note that the <code>move</code> method is not overridden in <code>Cat</code>, so it inherits the implementation in <code>Animal</code>.</p>
+<p> The main function of abstract classes is to define some common functions and stipulate that subclasses must implement certain methods, thereby improving code reusability and maintainability.</p>
+ <br/>
+</li>
+<li><p><strong>singleton mode and private constructor private constructor</strong></p>
+<p> The <strong>Singleton (single case) pattern</strong> is to ensure that there is always only one instance of a class and provide a global access point to obtain the instance.</p>
+<p> Implementations of the Singleton pattern usually include a private constructor, a static method to obtain the singleton instance, and a static property to save the singleton instance. Singleton instances can only be created once and are managed in static methods. When you need to use a singleton instance, just call the static method.</p>
+<p> <strong>private constructor</strong> refers to a constructor that can only be called inside the class. Private constructors are often used to implement patterns such as singleton pattern or factory pattern. Private constructors cannot be called outside the class to create instances of the class, they can only be used inside the class (i.e. ensuring that we cannot call <code>new</code>).</p>
+ <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="attr">instance</span>: <span class="title class_">Singleton</span>;</span><br><span class="line">   </span><br><span class="line">  <span class="keyword">private</span> <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">   </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="title function_">getInstance</span>(): <span class="title class_">Singleton</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title class_">Singleton</span>.<span class="property">instance</span>) &#123;</span><br><span class="line">      <span class="title class_">Singleton</span>.<span class="property">instance</span> = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Singleton</span>.<span class="property">instance</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="keyword">const</span> singleton1 = <span class="title class_">Singleton</span>.<span class="title function_">getInstance</span>();</span><br><span class="line"><span class="keyword">const</span> singleton2 = <span class="title class_">Singleton</span>.<span class="title function_">getInstance</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(singleton1 === singleton2); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+ <br/></li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://redre4per.github.io/2021/01/09/Typescript/08%20inheritance/" data-id="clme9kz6u00645ob348ajd3wb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Derek Zhu"
+        },
+        "headline": "Inheritance",
+        "image": "https://RedRe4per.github.iohttps://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/10b88c68-typescript-logo.png",
+        "keywords": "TypeScript",
+        "genre": "JS/TS TypeScript",
+        "datePublished": "2021-01-09",
+        "dateCreated": "2021-01-09",
+        "dateModified": "2023-09-11",
+        "url": "https://RedRe4per.github.io/2021/01/09/Typescript/08 inheritance/",
+        "description": "
+
+Inheritance
+ Inheritance is used to create subclasses of a class. The subclass has the properties and methods of the parent class, and also has the exclusive properties and methods of the subclass.
+",
+        "wordCount": 1812
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/zhu-derek" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/RedRe4per" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2021/01/10/Typescript/09%20interface/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            interface
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2021/01/08/Typescript/07%20Class/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Class</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/micro_macro.gif)" alt="Promise basic" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JS-TS/">JS/TS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/JS-TS/ES6/">ES6</a></p>
+                            <p class="item-title"><a href="/2022/11/06/JavaScript/ES6/4%20Promise%20basic/" class="title">Promise basic</a></p>
+                            <p class="item-date"><time datetime="2022-11-06T07:07:12.000Z" itemprop="datePublished">2022-11-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_rV3yZwoPFHb3y5gKQLBdCw.png)" alt="Rerender jest-axe" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/18/Test/React-testing-library/07%20Rerender%20jest-axe/" class="title">Rerender jest-axe</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T06:16:12.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_RQwRLQ0yyCvYmRn_Nst5yg.png)" alt="Jest test methods" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/18/Test/React-testing-library/06%20Jest%20test%20methods/" class="title">Jest test methods</a></p>
+                            <p class="item-date"><time datetime="2022-10-18T01:26:45.000Z" itemprop="datePublished">2022-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/myhc_89683.jpg)" alt="FireEvent to simulate user operation" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/17/Test/React-testing-library/05%20FireEvent%20to%20simulate%20user%20operation/" class="title">FireEvent to simulate user operation</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T12:36:19.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/1_Bg_nX5M7EWctOBUJFT1BqQ.jpeg)" alt="Methods to get DOM" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Test/">Test</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Test/React-testing-library/">React-testing-library</a></p>
+                            <p class="item-title"><a href="/2022/10/17/Test/React-testing-library/04%20Methods%20to%20get%20DOM/" class="title">Methods to get DOM</a></p>
+                            <p class="item-date"><time datetime="2022-10-17T05:12:27.000Z" itemprop="datePublished">2022-10-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/">Back-end</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Express-js/">Express.js</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Nest-js/">Nest.js</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Node-js/">Node.js</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database/MongoDB/">MongoDB</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/">Front-end</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/Axios/">Axios</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/Next-js/">Next.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/React/">React</a><span class="category-list-count">18</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/">HTML&CSS</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/CSS/">CSS</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/">JS/TS</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/ES6/">ES6</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/Native-JavaScript/">Native JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/TypeScript/">TypeScript</a><span class="category-list-count">15</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/">Others</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Others/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/Stripe-payment/">Stripe payment</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Test/">Test</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Test/React-testing-library/">React-testing-library</a><span class="category-list-count">7</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">16</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Axios/" rel="tag">Axios</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-js/" rel="tag">Express.js</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hooks/" rel="tag">Hooks</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongoose/" rel="tag">Mongoose</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Native-JavaScript/" rel="tag">Native JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nest-js/" rel="tag">Nest.js</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Next-js/" rel="tag">Next.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Payment/" rel="tag">Payment</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-testing-library/" rel="tag">React-testing-library</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stripe/" rel="tag">Stripe</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Test/" rel="tag">Test</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/" rel="tag">TypeScript</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Axios/" style="font-size: 13px;">Axios</a> <a href="/tags/CSS/" style="font-size: 13px;">CSS</a> <a href="/tags/ES6/" style="font-size: 13px;">ES6</a> <a href="/tags/Express-js/" style="font-size: 16px;">Express.js</a> <a href="/tags/Hooks/" style="font-size: 12px;">Hooks</a> <a href="/tags/MongoDB/" style="font-size: 14px;">MongoDB</a> <a href="/tags/Mongoose/" style="font-size: 12px;">Mongoose</a> <a href="/tags/Native-JavaScript/" style="font-size: 11px;">Native JavaScript</a> <a href="/tags/Nest-js/" style="font-size: 17px;">Nest.js</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/tags/Payment/" style="font-size: 13px;">Payment</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 19px;">React</a> <a href="/tags/React-testing-library/" style="font-size: 15px;">React-testing-library</a> <a href="/tags/Stripe/" style="font-size: 13px;">Stripe</a> <a href="/tags/Test/" style="font-size: 15px;">Test</a> <a href="/tags/TypeScript/" style="font-size: 18px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/npm/" style="font-size: 12px;">npm</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 Derek Zhu</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://redre4per.github.io/2021/01/09/Typescript/08%20inheritance/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
