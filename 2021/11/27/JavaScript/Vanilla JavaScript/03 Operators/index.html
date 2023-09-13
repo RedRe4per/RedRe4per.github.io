@@ -6,26 +6,26 @@
     
 
     
-    <title>Basic knowledge | Derek Zhu&#39;s Blog</title>
+    <title>Operators | Derek Zhu&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="Vanilla JavaScript" />
     
-    <meta name="description" content="HTML CSS is not a programming language  JavaScript is a programming language (browser programming language). Web pages written in HTML CSS do not have any functionality. All functions have to be don">
+    <meta name="description" content="Relational Operators  basic: &gt; &lt; &gt;&#x3D; &lt;&#x3D; &#x3D;&#x3D;  &#x3D;&#x3D;&#x3D; (same as &#x3D;&#x3D;, but does not allow any type conversions)  !&#x3D; (opposite of &#x3D;&#x3D;)  !&#x3D;&#x3D; (opposite of &#x3D;&#x3D;&#x3D;)  &#x3D;&#x3D; is to determine whether the values ar">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Basic knowledge">
-<meta property="og:url" content="https://redre4per.github.io/2021/10/12/JavaScript/Vanilla%20JavaScript/1%20JavaScript%20Basic/index.html">
+<meta property="og:title" content="Operators">
+<meta property="og:url" content="https://redre4per.github.io/2021/11/27/JavaScript/Vanilla%20JavaScript/03%20Operators/index.html">
 <meta property="og:site_name" content="Derek Zhu&#39;s Blog">
-<meta property="og:description" content="HTML CSS is not a programming language  JavaScript is a programming language (browser programming language). Web pages written in HTML CSS do not have any functionality. All functions have to be don">
+<meta property="og:description" content="Relational Operators  basic: &gt; &lt; &gt;&#x3D; &lt;&#x3D; &#x3D;&#x3D;  &#x3D;&#x3D;&#x3D; (same as &#x3D;&#x3D;, but does not allow any type conversions)  !&#x3D; (opposite of &#x3D;&#x3D;)  !&#x3D;&#x3D; (opposite of &#x3D;&#x3D;&#x3D;)  &#x3D;&#x3D; is to determine whether the values ar">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/Learn-javascript-in-a-week.jpeg">
-<meta property="article:published_time" content="2021-10-12T08:28:36.000Z">
-<meta property="article:modified_time" content="2023-09-11T02:31:10.505Z">
+<meta property="og:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/JavaScript+Type+of+Operators.png">
+<meta property="article:published_time" content="2021-11-26T15:31:58.000Z">
+<meta property="article:modified_time" content="2023-09-11T03:55:22.808Z">
 <meta property="article:author" content="Derek Zhu">
 <meta property="article:tag" content="Vanilla JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/Learn-javascript-in-a-week.jpeg">
+<meta name="twitter:image" content="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/JavaScript+Type+of+Operators.png">
     
 
     
@@ -154,14 +154,14 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-JavaScript/Vanilla JavaScript/1 JavaScript Basic" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-JavaScript/Vanilla JavaScript/03 Operators" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Basic knowledge
+        Operators
         </h1>
     
 
@@ -172,16 +172,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2021/10/12/JavaScript/Vanilla%20JavaScript/1%20JavaScript%20Basic/" class="article-date">
-       <time datetime="2021-10-12T08:28:36.000Z" itemprop="datePublished">2021-10-12</time>
+    <a href="/2021/11/27/JavaScript/Vanilla%20JavaScript/03%20Operators/" class="article-date">
+       <time datetime="2021-11-26T15:31:58.000Z" itemprop="datePublished">2021-11-27</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2021/10/12/JavaScript/Vanilla%20JavaScript/1%20JavaScript%20Basic/" class="article-date">
-     <time datetime="2023-09-11T02:31:10.505Z" itemprop="dateModified">2023-09-11</time>
+  <a href="/2021/11/27/JavaScript/Vanilla%20JavaScript/03%20Operators/" class="article-date">
+     <time datetime="2023-09-11T03:55:22.808Z" itemprop="dateModified">2023-09-11</time>
   </a>
 </div>
 
@@ -208,79 +208,69 @@
 
             
 
-            <p><img src="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/Learn-javascript-in-a-week.jpeg"></p>
+            <p><img src="https://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/JavaScript+Type+of+Operators.png"></p>
 <ol>
-<li><p><strong>HTML CSS is not a programming language</strong></p>
-<ul>
-<li><p>JavaScript is a programming language (browser programming language). Web pages written in HTML CSS do not have any functionality. All functions have to be done through JavaScript.</p>
+<li><p><strong>Relational Operators</strong></p>
+<p> basic: <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code> <code>==</code></p>
+<p> <code>===</code> (same as <code>==</code>, but does not allow any type conversions)</p>
+<p> <code>!=</code> (opposite of <code>==</code>)</p>
+<p> <code>!==</code> (opposite of <code>===</code>)</p>
+<p> <code>==</code> is to determine whether the values are equal.</p>
+<p> <code>log(a&lt;b&lt;c)</code> is incorrect. Because JS will count from left to right. <code>a&lt;b</code> is <code>true</code>, but true&lt;c is an incorrect expression and cannot be evaluated.</p>
+ <br/>
 </li>
-<li><p>Java brand backend language, the best language for writing backend. It is cooperative web development, big data, enterprise-level applications, big data, and Android development.</p>
+<li><p><strong>Logical operators: <code>&amp;&amp;</code> and, <code>||</code> or, <code>!</code>not</strong></p>
+<p> <code>b&gt;a&amp;&amp;b&lt;c</code> The operation priority of <code>&amp;&amp;</code> is higher than <code>||</code>, even if it comes after the expression.</p>
+<p> <code>!</code> has higher precedence than relational operators such as <code>&gt;</code> and <code>&lt;</code>. The way of writing <code>!a&gt;b</code> is wrong, the correct way is <code>!(a&gt;b)</code></p>
+ <br/>
 </li>
-<li><p>C embedded, operating system, driver development</p>
-</li>
-<li><p>C++ games and the like, desktop software</p>
-</li>
-<li><p>C# software development</p>
-<br/></li>
-</ul>
-</li>
-<li><p><strong>How to use JS</strong></p>
-<p>Add <code>&lt;script&gt;&lt;/script&gt;</code> tags to the body to use JS. Usually coding JS before the closing tag of the body.  This is because JS loads slowly and the HTML &amp; CSS loads quickly. From the user’s point of view, the overall web page should be swiped first.</p>
-<br/>
-</li>
-<li><p><strong>JS core</strong></p>
-<ul>
-<li><p>ECMAScript Core</p>
-</li>
-<li><p>DOM page manipulation</p>
-</li>
-<li><p>BOM browser related operations</p>
-</li>
-</ul>
-<br/>
-</li>
-<li><p><strong>Comments in JS</strong></p>
-<p><code>//</code> Single line </p>
-<p><code>/*</code> Multiple lines <code>*/</code></p>
-<br/>
-</li>
-<li><p><strong>Variable</strong></p>
-<p>A variable is a space in memory dedicated to storing data.</p>
-<p>How to use variable: </p>
-<ol>
-<li><p>Variables should be declared by <code>var</code>.</p>
-</li>
-<li><p>The variable should be named <code>var box</code>. </p>
-</li>
-<li><p>The variable should be assigned <code>var box = 1</code>.</p>
-</li>
-<li><p>Semicolon in JS <code>;</code> can be added or not (preferably)</p>
-<br/></li>
-</ol>
-</li>
-<li><p><strong>Console</strong></p>
-<p>Console is for debugging JS, it is useless after the project development is over. The console can prompt errors. Console is in the browser -&gt; right click -&gt; inspect -&gt; Console.</p>
-<p><code>Console.log()</code> function is console output (in JS).</p>
-<br/>
-</li>
-<li><p><strong>Project deployment</strong></p>
-<p>The project can be accessed locally on the computer. Logically, other people can also access it through <code>IP address + path + file name</code>, but it’s practically not feasible because of firewall.<br>To actually deploy project, you need to run the project to the server. The server is a high-performance computer that runs 24 hours a day without shutting down. Generally, small projects only rent a small part of the space in the server.</p>
-<br/>
+<li><p><strong>Implicit type conversion</strong></p>
+<p> JS automatically converts data types according to the differences between the two operations.</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="string">&quot;5&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a==b) <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>Domain name</strong>: like <a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a>, and bind it’s IP address. When the domain name is entered, it is resolved by DNS (domain name system) and resolved into an IP address in the service and accessed.</p>
-<p><strong>URL address</strong>: like <a target="_blank" rel="noopener" href="https://www.google.com/src/index">https://www.google.com/src/index</a>. <code>protocol://domain name: port number + path (file path or route)</code>.</p>
-<p><strong>Protocol</strong> http, https (secure mode), FTD (file upload), file.<br><strong>Port number</strong>: Different applications, different functions of the server. Such as 80 web pages, 3306 databases. Can be omitted by default.</p>
-<p><strong>Path</strong>: The file path or the route set by the frontend&#x2F;backend.</p>
+<p> When boolean values and numbers are operated together, true is converted to 1 and false is converted to 0. (Boolean and string cannot be converted, because the automatic conversion itself is for numbers. If both parties involved in the operation are not numbers, there will be no automatic conversion.)</p>
+ <br/>
 </li>
+<li><p><strong>Conversion of Boolean values</strong></p>
+<p> In the case where Boolean values are required, only 6 data will be converted to false, and the others will be true.</p>
+<p> Convert to False: <code>false</code>, <code>0</code>, <code>&quot; &quot;</code> (null character, not space), <code>undefined</code>, <code>NaN</code> (not a number), <code>null</code></p>
+ <br/>
+</li>
+<li><p><strong>&amp;&amp; and ||</strong></p>
+<p> If the element before &amp;&amp; is false, the element before &amp;&amp; will be returned directly; if the element before &amp;&amp; is true, the result will be determined by the element after &amp;&amp;.</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;hello&quot;</span>&amp;&amp;<span class="string">&quot;world&quot;</span>) <span class="comment">//The result is world</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">0</span>&amp;&amp;<span class="string">&quot;world&quot;</span>) <span class="comment">//The result is 0</span></span><br></pre></td></tr></table></figure>
+
+<p> If the preceding || is false, the result is determined by the elements after ||; if the preceding || is true, the result directly returns the elements preceding ||.</p>
+ <br/>
+</li>
+<li><p><strong>Assignment Operator</strong></p>
+<p> <code> =</code> <code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code> <code>%=</code></p>
+<p> var a&#x3D;5; a+&#x3D;5; Same as a++.</p>
+ <br/>
+</li>
+<li><p><strong>Ternary operator ?:</strong></p>
+<p> Syntax: <code>Condition? Value when the condition is true: Value when the condition is not true</code></p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> b=<span class="number">6</span>;</span><br><span class="line"><span class="keyword">var</span> c=a&gt;b?<span class="string">&quot;haha&quot;</span>:<span class="string">&quot;hehe&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c) <span class="comment">//hehe</span></span><br></pre></td></tr></table></figure>
+
+<p> Triple conditional judgment:</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> b=<span class="number">6</span>;</span><br><span class="line"><span class="keyword">var</span> c=a&gt;b?<span class="string">&quot;r1&quot;</span>:(a&lt;b?<span class="string">&quot;r2&quot;</span>:<span class="string">&quot;r3&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+ <br/>
+</li>
+<li><p><strong>Summary</strong></p>
+<p> When performing addition + (splicing) between strings and any type, the numbers are converted into strings;</p>
+<p> If you perform mathematical judgments and mathematical operations on numbers and any type, convert them to numbers.</p>
+<p> A simple way is to first consider what variable types should be on both sides of the operator (such as +, &gt;, &lt;, &amp;&amp;, etc.)? If both sides are not satisfied with the conditions, can they be converted into satisfied conditions? That is, + is addition or connection, &lt; &gt; is the size of a number, &amp;&amp; is true&#x2F;false.</p>
+  <br/></li>
 </ol>
-<br/>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://redre4per.github.io/2021/10/12/JavaScript/Vanilla%20JavaScript/1%20JavaScript%20Basic/" data-id="clmhs87pj0078nsb37uwlho11" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://redre4per.github.io/2021/11/27/JavaScript/Vanilla%20JavaScript/03%20Operators/" data-id="clmhtxj13007l6sb312aoagrr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -350,20 +340,23 @@
             "@type": "Person",
             "name": "Derek Zhu"
         },
-        "headline": "Basic knowledge",
-        "image": "https://RedRe4per.github.iohttps://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/Learn-javascript-in-a-week.jpeg",
+        "headline": "Operators",
+        "image": "https://RedRe4per.github.iohttps://my-notes-picture-derek-zhu.s3.ap-southeast-2.amazonaws.com/web-development/JavaScript+Type+of+Operators.png",
         "keywords": "Vanilla JavaScript",
         "genre": "JS/TS Vanilla JavaScript",
-        "datePublished": "2021-10-12",
-        "dateCreated": "2021-10-12",
+        "datePublished": "2021-11-27",
+        "dateCreated": "2021-11-27",
         "dateModified": "2023-09-11",
-        "url": "https://RedRe4per.github.io/2021/10/12/JavaScript/Vanilla JavaScript/1 JavaScript Basic/",
+        "url": "https://RedRe4per.github.io/2021/11/27/JavaScript/Vanilla JavaScript/03 Operators/",
         "description": "
 
-HTML CSS is not a programming language
-
-JavaScript is a programming language (browser programming language). Web pages written in HTML CSS do not have any functionality. All functions have to be don",
-        "wordCount": 372
+Relational Operators
+ basic: &gt; &lt; &gt;= &lt;= ==
+ === (same as ==, but does not allow any type conversions)
+ != (opposite of ==)
+ !== (opposite of ===)
+ == is to determine whether the values ar",
+        "wordCount": 521
     }
 </script>
 
@@ -412,20 +405,20 @@ JavaScript is a programming language (browser programming language). Web pages w
         
 <nav id="article-nav">
     
-        <a href="/2021/10/13/JavaScript/Vanilla%20JavaScript/2%20Variable/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2021/11/28/JavaScript/Vanilla%20JavaScript/04%20Hoisting/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            Variable
+            Hoisting
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2021/01/19/Typescript/Appendix%20-%20Special%20characters%20in%20TS/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2021/11/26/React/B02%20Class%20knowledge%20review/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">Appendix - Special characters in TS</p>
+        <p class="article-nav-title">Class knowledge review</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -553,7 +546,7 @@ JavaScript is a programming language (browser programming language). Web pages w
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/">Back-end</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Express-js/">Express.js</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Nest-js/">Nest.js</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Node-js/">Node.js</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database/MongoDB/">MongoDB</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/">Front-end</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/Axios/">Axios</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/Next-js/">Next.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/React/">React</a><span class="category-list-count">18</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/">HTML&CSS</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/CSS/">CSS</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/">JS/TS</a><span class="category-list-count">25</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/ES6/">ES6</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/TypeScript/">TypeScript</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/Vanilla-JavaScript/">Vanilla JavaScript</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/">Others</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Others/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/Stripe-payment/">Stripe payment</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Test/">Test</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Test/React-testing-library/">React-testing-library</a><span class="category-list-count">7</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/">Back-end</a><span class="category-list-count">35</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Express-js/">Express.js</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Nest-js/">Nest.js</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Back-end/Node-js/">Node.js</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Database/">Database</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Database/MongoDB/">MongoDB</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/">Front-end</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/Axios/">Axios</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/Next-js/">Next.js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end/React/">React</a><span class="category-list-count">18</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/">HTML&CSS</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/CSS/">CSS</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/">JS/TS</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/ES6/">ES6</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/TypeScript/">TypeScript</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS-TS/Vanilla-JavaScript/">Vanilla JavaScript</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/">Others</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Others/Other/">Other</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Others/Stripe-payment/">Stripe payment</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Test/">Test</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Test/React-testing-library/">React-testing-library</a><span class="category-list-count">7</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -564,7 +557,7 @@ JavaScript is a programming language (browser programming language). Web pages w
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">16</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">16</span></li></ul>
         </div>
     </div>
     -->
@@ -576,7 +569,7 @@ JavaScript is a programming language (browser programming language). Web pages w
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Axios/" rel="tag">Axios</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-js/" rel="tag">Express.js</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hooks/" rel="tag">Hooks</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongoose/" rel="tag">Mongoose</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nest-js/" rel="tag">Nest.js</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Next-js/" rel="tag">Next.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Payment/" rel="tag">Payment</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-testing-library/" rel="tag">React-testing-library</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stripe/" rel="tag">Stripe</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Test/" rel="tag">Test</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/" rel="tag">TypeScript</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vanilla-JavaScript/" rel="tag">Vanilla JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Axios/" rel="tag">Axios</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-js/" rel="tag">Express.js</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hooks/" rel="tag">Hooks</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongoose/" rel="tag">Mongoose</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nest-js/" rel="tag">Nest.js</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Next-js/" rel="tag">Next.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Payment/" rel="tag">Payment</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-testing-library/" rel="tag">React-testing-library</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stripe/" rel="tag">Stripe</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Test/" rel="tag">Test</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/" rel="tag">TypeScript</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VSCode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vanilla-JavaScript/" rel="tag">Vanilla JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">3</span></li></ul>
         </div>
     </div>
     -->
@@ -587,7 +580,7 @@ JavaScript is a programming language (browser programming language). Web pages w
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Axios/" style="font-size: 13px;">Axios</a> <a href="/tags/CSS/" style="font-size: 13px;">CSS</a> <a href="/tags/ES6/" style="font-size: 14px;">ES6</a> <a href="/tags/Express-js/" style="font-size: 16px;">Express.js</a> <a href="/tags/Hooks/" style="font-size: 12px;">Hooks</a> <a href="/tags/MongoDB/" style="font-size: 14px;">MongoDB</a> <a href="/tags/Mongoose/" style="font-size: 12px;">Mongoose</a> <a href="/tags/Nest-js/" style="font-size: 17px;">Nest.js</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/tags/Payment/" style="font-size: 13px;">Payment</a> <a href="/tags/Promise/" style="font-size: 11px;">Promise</a> <a href="/tags/React/" style="font-size: 19px;">React</a> <a href="/tags/React-testing-library/" style="font-size: 15px;">React-testing-library</a> <a href="/tags/Stripe/" style="font-size: 13px;">Stripe</a> <a href="/tags/Test/" style="font-size: 15px;">Test</a> <a href="/tags/TypeScript/" style="font-size: 18px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vanilla-JavaScript/" style="font-size: 13px;">Vanilla JavaScript</a> <a href="/tags/npm/" style="font-size: 12px;">npm</a>
+            <a href="/tags/Axios/" style="font-size: 12.73px;">Axios</a> <a href="/tags/CSS/" style="font-size: 12.73px;">CSS</a> <a href="/tags/ES6/" style="font-size: 14.55px;">ES6</a> <a href="/tags/Express-js/" style="font-size: 16.36px;">Express.js</a> <a href="/tags/Hooks/" style="font-size: 11.82px;">Hooks</a> <a href="/tags/MongoDB/" style="font-size: 14.55px;">MongoDB</a> <a href="/tags/Mongoose/" style="font-size: 11.82px;">Mongoose</a> <a href="/tags/Nest-js/" style="font-size: 17.27px;">Nest.js</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Node-js/" style="font-size: 20px;">Node.js</a> <a href="/tags/Payment/" style="font-size: 12.73px;">Payment</a> <a href="/tags/Promise/" style="font-size: 10.91px;">Promise</a> <a href="/tags/React/" style="font-size: 19.09px;">React</a> <a href="/tags/React-testing-library/" style="font-size: 15.45px;">React-testing-library</a> <a href="/tags/Stripe/" style="font-size: 12.73px;">Stripe</a> <a href="/tags/Test/" style="font-size: 15.45px;">Test</a> <a href="/tags/TypeScript/" style="font-size: 18.18px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vanilla-JavaScript/" style="font-size: 13.64px;">Vanilla JavaScript</a> <a href="/tags/npm/" style="font-size: 11.82px;">npm</a>
         </div>
     </div>
 
@@ -630,7 +623,7 @@ JavaScript is a programming language (browser programming language). Web pages w
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://redre4per.github.io/2021/10/12/JavaScript/Vanilla%20JavaScript/1%20JavaScript%20Basic/';
+    var disqus_url = 'https://redre4per.github.io/2021/11/27/JavaScript/Vanilla%20JavaScript/03%20Operators/';
     
     (function() {
     var dsq = document.createElement('script');
